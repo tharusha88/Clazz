@@ -118,7 +118,13 @@ function renderHero(teacher) {
   } else {
     taglineEl.textContent = teacher.tagline;
   }
-  document.getElementById('heroSubhead').textContent = `Structured curriculum for G.C.E. Advanced and Ordinary Level. Conducted at ${teacher.contact.location}.`;
+  const defaultSubheads = {
+    "oshan": `Grade 6-11 & O/L Mathematics syllabus coverage. Conducted at ${teacher.contact.location}.`,
+    "ruwan": `A/L Combined Mathematics theory & revision. Conducted at ${teacher.contact.location}.`,
+    "tharanga": `5 වසර ශිෂ්‍යත්ව විශිෂ්ටතම වැඩපිළිවෙල. ${teacher.contact.location} හිදී පැවැත්වේ.`
+  };
+  const heroSubheadText = teacher.heroDescription || defaultSubheads[teacherKey] || `Structured curriculum. Conducted at ${teacher.contact.location}.`;
+  document.getElementById('heroSubhead').textContent = heroSubheadText;
   
   const heroBtnLms = document.getElementById('heroBtnLms');
   if (heroBtnLms && teacher.contact.lms) {

@@ -137,3 +137,22 @@ body.theme-pastel .cursor-ring {
 body.theme-pastel .cursor-ring.active {
   background-color: rgba(160, 196, 255, 0.15);
 }
+
+/* Soft Circle double-halo Hero Portrait */
+body.theme-pastel .portrait-glow-frame {
+  border-radius: 50% !important;
+  border: 6px solid #ffffff !important;
+  box-shadow: 
+    0 10px 25px rgba(189, 178, 255, 0.2),
+    0 0 0 10px rgba(255, 173, 173, 0.2) !important;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.theme-pastel .portrait-glow-frame:hover {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+body.theme-pastel .portrait-glow-frame img {
+  object-fit: cover !important;
+}

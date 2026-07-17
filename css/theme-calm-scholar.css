@@ -129,3 +129,28 @@ body.theme-calm-scholar .cursor-ring {
 body.theme-calm-scholar .cursor-ring.active {
   background-color: rgba(6, 214, 160, 0.08);
 }
+
+/* Organic Morphing Hero Portrait */
+body.theme-calm-scholar .portrait-glow-frame {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40% !important;
+  border: 4px solid var(--primary-color) !important;
+  background: transparent !important;
+  box-shadow: 0 15px 35px rgba(6, 214, 160, 0.15) !important;
+  overflow: hidden;
+  animation: organic-morph 8s ease-in-out infinite;
+  transition: transform 0.3s;
+}
+
+body.theme-calm-scholar .portrait-glow-frame:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+
+body.theme-calm-scholar .portrait-glow-frame img {
+  object-fit: cover !important;
+}
+
+@keyframes organic-morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
