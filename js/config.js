@@ -159,9 +159,9 @@ window.CLAZZ_TEACHERS = {
     "subject": "5 වසර ශිෂ්‍යත්වය",
     "subheading": "Grade 5 Scholarship Masterclass",
     "tagline": "ශිෂ්‍යත්ව අරුණැල්ල",
-    "theme": "smart-kids",
-    "accentColor": "#FFD166",
-    "secondaryColor": "#118AB2",
+    "theme": "neon",
+    "accentColor": "#8b5cf6",
+    "secondaryColor": "#06b6d4",
     "contact": {
       "phone": "071 269 6064",
       "whatsapp": "94712696064",
