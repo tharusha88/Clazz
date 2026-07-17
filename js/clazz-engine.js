@@ -105,8 +105,17 @@ function renderHero(teacher) {
     title.setAttribute('data-text', teacher.name);
   }
   
-  document.getElementById('heroTagline').textContent = teacher.tagline;
-  document.getElementById('heroSubhead').textContent = `Structured curriculum for aspiring achievers. Conducted at ${teacher.contact.location}.`;
+  const taglineEl = document.getElementById('heroTagline');
+  if (teacher.theme === 'terminal') {
+    taglineEl.innerHTML = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'terminal-cursor';
+    taglineEl.appendChild(cursor);
+    runTerminalTypewriter(taglineEl, teacher.tagline, cursor);
+  } else {
+    taglineEl.textContent = teacher.tagline;
+  }
+  document.getElementById('heroSubhead').textContent = `Structured curriculum for G.C.E. Advanced and Ordinary Level. Conducted at ${teacher.contact.location}.`;
   
   const heroBtnLms = document.getElementById('heroBtnLms');
   if (heroBtnLms && teacher.contact.lms) {
@@ -517,6 +526,27 @@ function setupThemeBgCanvas(theme) {
   let animationId;
   let particles = [];
   
+  // Interactive inputs for molecules rotation speed boost
+  let mouse = { x: 0, y: 0, speed: 0 };
+  let lastMouse = { x: 0, y: 0 };
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    const dx = mouse.x - lastMouse.x;
+    const dy = mouse.y - lastMouse.y;
+    mouse.speed = Math.min(Math.sqrt(dx*dx + dy*dy), 40);
+    lastMouse.x = mouse.x;
+    lastMouse.y = mouse.y;
+  });
+
+  let scrollSpeed = 0;
+  let lastScroll = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const dy = window.scrollY - lastScroll;
+    scrollSpeed = Math.min(Math.abs(dy), 50);
+    lastScroll = window.scrollY;
+  });
+  
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -524,37 +554,130 @@ function setupThemeBgCanvas(theme) {
   window.addEventListener('resize', resize);
   resize();
 
-  const particleCount = theme === 'neon' ? 45 : (theme === 'cyber' ? 50 : (theme === 'lux' ? 20 : 35));
+  const particleCount = theme === 'neon' ? 45 : (theme === 'cyber' ? 50 : (theme === 'lux' ? 20 : (theme === 'minimal' ? 12 : (theme === 'terminal' ? 40 : (theme === 'prism' ? 15 : (theme === 'heritage' ? 8 : 35))))));
   
   // Set up particles
   for (let i = 0; i < particleCount; i++) {
-    particles.push({
+    const p = {
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : 0.6),
-      vy: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : 0.6) - (theme === 'chalk' ? 0.15 : 0), // slight drift for chalk dust
-      radius: theme === 'lux' ? Math.random() * 20 + 6 : Math.random() * 3.5 + 1.2, // larger Gold bokeh for Lux
+      vx: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : (theme === 'minimal' ? 0.25 : 0.6)),
+      vy: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : (theme === 'minimal' ? 0.25 : 0.6)) - (theme === 'chalk' ? 0.15 : 0),
+      radius: theme === 'lux' ? Math.random() * 20 + 6 : (theme === 'minimal' ? Math.random() * 2 + 0.8 : Math.random() * 3.5 + 1.2),
       color: getParticleColor(theme),
       alpha: Math.random() * 0.45 + 0.1
-    });
+    };
+    
+    // Theme-specific configurations
+    if (theme === 'prism') {
+      p.type = ['h2o', 'benzene', 'co2'][Math.floor(Math.random() * 3)];
+      p.rotation = Math.random() * Math.PI * 2;
+      p.rotSpeed = (Math.random() - 0.5) * 0.006;
+      p.vx = (Math.random() - 0.5) * 0.4;
+      p.vy = (Math.random() - 0.5) * 0.4;
+      p.color = Math.random() > 0.5 ? '#06b6d4' : '#ec4899'; // Cyan / Pink
+    } else if (theme === 'heritage') {
+      p.radius = Math.random() * 15 + 5;
+      p.maxRadius = Math.random() * 70 + 35;
+      p.growSpeed = Math.random() * 0.1 + 0.04;
+      p.vx = 0;
+      p.vy = 0;
+      p.alpha = Math.random() * 0.25 + 0.08;
+      p.color = '#450a0a'; // Sepia Ink stain
+    } else if (theme === 'terminal') {
+      p.vx = 0;
+      p.vy = Math.random() * 1.2 + 0.4; // downward rain
+      p.char = ['0', '1', ';', '{', '}', '[', ']', '<', '>', '/', '_', '$', '?', '+'][Math.floor(Math.random() * 14)];
+      p.color = Math.random() > 0.35 ? '#10b981' : '#f59e0b'; // Green or Amber
+      p.size = Math.random() * 5 + 10; // Font size
+    }
+    
+    particles.push(p);
   }
 
   function getParticleColor(theme) {
     if (theme === 'neon') {
-      return Math.random() > 0.5 ? '#8b5cf6' : '#06b6d4'; // Purple/Cyan
+      return Math.random() > 0.5 ? '#8b5cf6' : '#06b6d4';
     } else if (theme === 'cyber') {
-      return Math.random() > 0.5 ? '#00ffa3' : '#00e5ff'; // Green/Cyan
+      return Math.random() > 0.5 ? '#00ffa3' : '#00e5ff';
     } else if (theme === 'lux') {
-      return '#b45309'; // Gold
+      return '#b45309';
+    } else if (theme === 'minimal') {
+      return '#cbd5e1';
     } else {
-      return '#ffffff'; // White chalk dust
+      return '#ffffff';
     }
+  }
+
+  // Draw Rotating Molecular Structure
+  function drawMolecule(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    ctx.globalAlpha = p.alpha;
+    ctx.strokeStyle = p.color;
+    ctx.fillStyle = p.color;
+    ctx.lineWidth = 1.5;
+    
+    if (p.type === 'h2o') {
+      // Oxygen atom
+      ctx.beginPath();
+      ctx.arc(0, 0, 7, 0, Math.PI * 2);
+      ctx.fill();
+      // Connections
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(-12, 12);
+      ctx.moveTo(0, 0);
+      ctx.lineTo(12, 12);
+      ctx.stroke();
+      // Hydrogen atoms
+      ctx.beginPath();
+      ctx.arc(-12, 12, 3.5, 0, Math.PI * 2);
+      ctx.arc(12, 12, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (p.type === 'co2') {
+      // Carbon atom
+      ctx.beginPath();
+      ctx.arc(0, 0, 6.5, 0, Math.PI * 2);
+      ctx.fill();
+      // Double bonds
+      ctx.beginPath();
+      ctx.moveTo(-15, -2); ctx.lineTo(15, -2);
+      ctx.moveTo(-15, 2); ctx.lineTo(15, 2);
+      ctx.stroke();
+      // Oxygen atoms
+      ctx.beginPath();
+      ctx.arc(-15, 0, 4.5, 0, Math.PI * 2);
+      ctx.arc(15, 0, 4.5, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      // Benzene Hexagon Ring
+      ctx.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI / 3) * i;
+        const hx = Math.cos(angle) * 15;
+        const hy = Math.sin(angle) * 15;
+        if (i === 0) ctx.moveTo(hx, hy);
+        else ctx.lineTo(hx, hy);
+      }
+      ctx.closePath();
+      ctx.stroke();
+      // Delocalized circular bond
+      ctx.beginPath();
+      ctx.arc(0, 0, 9, 0, Math.PI * 2);
+      ctx.setLineDash([2, 2.5]);
+      ctx.stroke();
+      ctx.setLineDash([]); // reset
+    }
+    
+    ctx.restore();
   }
 
   function step() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Draw Plexus constellation connections for Neon and Cyber
+    // Draw Plexus connections for Neon and Cyber
     if (theme === 'neon' || theme === 'cyber') {
       ctx.lineWidth = 0.6;
       for (let i = 0; i < particles.length; i++) {
@@ -577,32 +700,80 @@ function setupThemeBgCanvas(theme) {
 
     // Draw and update particles
     particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      
-      if (theme === 'lux') {
-        // Blur/Bokeh effect for gold bokeh
-        ctx.fillStyle = `rgba(180, 83, 9, ${p.alpha * 0.25})`;
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = '#b45309';
-      } else {
+      if (theme === 'prism') {
+        // Update rotation with scroll and mouse speed multipliers
+        p.rotation += p.rotSpeed + (mouse.speed * 0.0006) + (scrollSpeed * 0.001);
+        drawMolecule(p);
+        
+        // Update positions
+        p.x += p.vx;
+        p.y += p.vy;
+      } else if (theme === 'heritage') {
+        // Expand ink stain
+        p.radius += p.growSpeed;
+        p.alpha -= 0.0004; // slow fade out
+        
+        // Draw ink stains as radial soft-feathered blobs
+        const grad = ctx.createRadialGradient(p.x, p.y, p.radius * 0.1, p.x, p.y, p.radius);
+        grad.addColorStop(0, `rgba(69, 10, 10, ${p.alpha})`);
+        grad.addColorStop(0.5, `rgba(69, 10, 10, ${p.alpha * 0.3})`);
+        grad.addColorStop(1, 'rgba(69, 10, 10, 0)');
+        
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Reset stain
+        if (p.alpha <= 0 || p.radius >= p.maxRadius) {
+          p.x = Math.random() * canvas.width;
+          p.y = Math.random() * canvas.height;
+          p.radius = Math.random() * 10 + 4;
+          p.alpha = Math.random() * 0.22 + 0.08;
+        }
+      } else if (theme === 'terminal') {
+        // Draw falling typewriter code characters
         ctx.fillStyle = p.color;
+        ctx.font = `${p.size}px monospace`;
         ctx.globalAlpha = p.alpha;
+        ctx.fillText(p.char, p.x, p.y);
+        ctx.globalAlpha = 1.0;
+        
+        p.y += p.vy;
+        if (p.y > canvas.height) {
+          p.y = 0;
+          p.x = Math.random() * canvas.width;
+          p.char = ['0', '1', ';', '{', '}', '[', ']', '<', '>', '/', '_', '$', '?', '+'][Math.floor(Math.random() * 14)];
+        }
+      } else {
+        // Default circular dots (Neon, Cyber, Lux, Chalk, Minimal)
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        
+        if (theme === 'lux') {
+          ctx.fillStyle = `rgba(180, 83, 9, ${p.alpha * 0.25})`;
+          ctx.shadowBlur = 12;
+          ctx.shadowColor = '#b45309';
+        } else {
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = p.alpha;
+        }
+        
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1.0;
+        
+        p.x += p.vx;
+        p.y += p.vy;
       }
-      
-      ctx.fill();
-      ctx.shadowBlur = 0; // reset
-      ctx.globalAlpha = 1.0; // reset
 
-      // Update positions
-      p.x += p.vx;
-      p.y += p.vy;
-
-      // Wrap around bounds
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
+      // Bounds wrapping for ordinary particles
+      if (theme !== 'heritage' && theme !== 'terminal') {
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+      }
     });
 
     animationId = requestAnimationFrame(step);
@@ -610,8 +781,26 @@ function setupThemeBgCanvas(theme) {
 
   step();
   
-  // Clean up animation on unload
+  // Clean up
   window.addEventListener('beforeunload', () => {
     cancelAnimationFrame(animationId);
   });
+}
+
+/* Synthwave Terminal Typewriter Animator */
+function runTerminalTypewriter(element, text, cursorElement) {
+  let i = 0;
+  const speed = 65;
+  
+  function type() {
+    if (i < text.length) {
+      const char = text.charAt(i);
+      const textNode = document.createTextNode(char);
+      element.insertBefore(textNode, cursorElement);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  
+  setTimeout(type, 400);
 }

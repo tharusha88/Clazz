@@ -1,0 +1,139 @@
+/* theme-minimal.css
+   Minimalist Zen (Apple-Style/Clean Aesthetic)
+   ========================================================================== */
+
+:root {
+  --primary-color: #000000;
+  --secondary-color: #64748b;
+  --accent-glow: rgba(0, 0, 0, 0.03);
+  --bg-color: #f8fafc;
+  --text-color: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --border-color: rgba(0, 0, 0, 0.06);
+  --btn-color: #000000;
+  --btn-text: #ffffff;
+}
+
+body.theme-minimal {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(241, 245, 249, 0.5) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(248, 250, 252, 0.5) 0%, transparent 50%);
+}
+
+/* Apple-style smooth glass card */
+body.theme-minimal .glass {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  color: var(--text-color);
+}
+
+body.theme-minimal .glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Minimalist navigation */
+body.theme-minimal header {
+  background: rgba(248, 250, 252, 0.8);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+/* Minimal Typography overrides */
+body.theme-minimal h1, 
+body.theme-minimal h2, 
+body.theme-minimal h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #000000;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+body.theme-minimal .btn-primary {
+  background: #000000;
+  color: #ffffff;
+  border-radius: 9999px; /* Pill buttons */
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-minimal .btn-primary:hover {
+  background: #27272a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+body.theme-minimal .btn-outline {
+  background: transparent;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 9999px;
+}
+
+body.theme-minimal .btn-outline:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #000000;
+}
+
+/* Timeline vertical line */
+body.theme-minimal .experience-timeline::before {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.theme-minimal .timeline-dot {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+/* Table overrides */
+body.theme-minimal td, 
+body.theme-minimal th {
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+body.theme-minimal th {
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Form input minimalist style */
+body.theme-minimal .form-input {
+  background: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #000000 !important;
+}
+
+body.theme-minimal .form-input:focus {
+  border-color: #000000 !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.theme-minimal .form-input option {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Custom cursor in black */
+body.theme-minimal .cursor-dot {
+  background: #000000;
+  mix-blend-mode: normal;
+}
+body.theme-minimal .cursor-ring {
+  border-color: #000000;
+  mix-blend-mode: normal;
+}
+body.theme-minimal .cursor-ring.active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Minimalistic graphs and widgets */
+body.theme-minimal canvas {
+  filter: grayscale(1);
+}

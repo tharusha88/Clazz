@@ -99,6 +99,18 @@ function updatePreview() {
   } else if (theme === 'lux') {
     accent = '#b45309';
     secondary = '#0b192f';
+  } else if (theme === 'minimal') {
+    accent = '#111111';
+    secondary = '#888888';
+  } else if (theme === 'terminal') {
+    accent = '#f59e0b';
+    secondary = '#10b981';
+  } else if (theme === 'prism') {
+    accent = '#06b6d4';
+    secondary = '#ec4899';
+  } else if (theme === 'heritage') {
+    accent = '#b45309';
+    secondary = '#450a0a';
   }
 
   // Compile JSON configuration
@@ -179,7 +191,11 @@ function setupTeacherCardActions() {
         "neon": "Glassmorphic Neon (Vibrant Space/Math)",
         "chalk": "Chalkboard Blackboard (Chalk/Handwritten)",
         "cyber": "Cyber Bio-Verse (Neon Cyberpunk/Biology)",
-        "lux": "Luxury Academic (Gold/Navy/Commerce)"
+        "lux": "Luxury Academic (Gold/Navy/Commerce)",
+        "minimal": "Minimalist Zen (Apple-Style/Clean)",
+        "terminal": "Synthwave Terminal (Retro-Tech/ICT)",
+        "prism": "Liquid Prism (Molecular/Chemistry)",
+        "heritage": "Classic Heritage (Ink & Gold/Literature)"
       };
       document.getElementById('creTheme').value = teacherData.theme;
       document.getElementById('selectedThemeText').textContent = customThemeText[teacherData.theme] || "Select Styling Theme";
@@ -246,7 +262,11 @@ window.selectCustomOption = function(e, val) {
     "neon": "Glassmorphic Neon (Vibrant Space/Math)",
     "chalk": "Chalkboard Blackboard (Chalk/Handwritten)",
     "cyber": "Cyber Bio-Verse (Neon Cyberpunk/Biology)",
-    "lux": "Luxury Academic (Gold/Navy/Commerce)"
+    "lux": "Luxury Academic (Gold/Navy/Commerce)",
+    "minimal": "Minimalist Zen (Apple-Style/Clean)",
+    "terminal": "Synthwave Terminal (Retro-Tech/ICT)",
+    "prism": "Liquid Prism (Molecular/Chemistry)",
+    "heritage": "Classic Heritage (Ink & Gold/Literature)"
   };
   
   if (selectedText) {

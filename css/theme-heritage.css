@@ -1,0 +1,153 @@
+/* theme-heritage.css
+   Classic Heritage (Ink & Gold Theme)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap');
+
+:root {
+  --primary-color: #b45309; /* Gold accent */
+  --secondary-color: #450a0a; /* Deep Ink Maroon */
+  --accent-glow: rgba(180, 83, 9, 0.08);
+  --bg-color: #FAF5EF; /* Rich Cream/Parchment */
+  --text-color: #26211c; /* Charcoal Ink */
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --border-color: rgba(180, 83, 9, 0.15);
+  --btn-color: #450a0a;
+  --btn-text: #FAF5EF;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+body.theme-heritage {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(180, 83, 9, 0.02), transparent 80%),
+    linear-gradient(to right, rgba(0,0,0,0.01) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.01) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px; /* Subtle book grid */
+}
+
+/* Serif font style for headings */
+body.theme-heritage h1,
+body.theme-heritage h2,
+body.theme-heritage h3,
+body.theme-heritage .nav-link,
+body.theme-heritage .brand-name,
+body.theme-heritage .btn {
+  font-family: var(--font-serif) !important;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+body.theme-heritage h1 {
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+/* Creamy Parchment Glass card */
+body.theme-heritage .glass {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 10px 30px rgba(71, 39, 0, 0.04),
+    0 1px 3px rgba(71, 39, 0, 0.02),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  border-radius: 12px;
+}
+
+body.theme-heritage .glass-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-color);
+  box-shadow: 
+    0 18px 36px rgba(71, 39, 0, 0.08),
+    0 0 15px rgba(180, 83, 9, 0.1);
+}
+
+/* Header */
+body.theme-heritage header {
+  background: rgba(250, 245, 239, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Buttons */
+body.theme-heritage .btn-primary {
+  background: var(--secondary-color);
+  color: var(--btn-text);
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+}
+
+body.theme-heritage .btn-primary:hover {
+  background: transparent;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+body.theme-heritage .btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+body.theme-heritage .btn-outline:hover {
+  background: rgba(180, 83, 9, 0.05);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+/* Experience timeline */
+body.theme-heritage .experience-timeline::before {
+  background: var(--border-color);
+}
+
+body.theme-heritage .timeline-dot {
+  background: var(--primary-color);
+  border-color: var(--bg-color);
+}
+
+/* Timetable styling formatted as book pages */
+body.theme-heritage td, 
+body.theme-heritage th {
+  border-bottom: 1px solid rgba(180, 83, 9, 0.15);
+  font-family: var(--font-serif);
+}
+
+body.theme-heritage th {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Input boxes in cream */
+body.theme-heritage .form-input {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid rgba(180, 83, 9, 0.2) !important;
+  color: var(--text-color) !important;
+  font-family: var(--font-serif);
+}
+
+body.theme-heritage .form-input:focus {
+  border-color: var(--secondary-color) !important;
+  box-shadow: 0 0 0 3px rgba(69, 10, 10, 0.06) !important;
+}
+
+body.theme-heritage .form-input option {
+  background: #FAF5EF !important;
+  color: var(--text-color) !important;
+}
+
+/* Custom cursors in deep maroon ink */
+body.theme-heritage .cursor-dot {
+  background: var(--secondary-color);
+  mix-blend-mode: normal;
+}
+body.theme-heritage .cursor-ring {
+  border-color: var(--secondary-color);
+  mix-blend-mode: normal;
+}
+body.theme-heritage .cursor-ring.active {
+  background-color: rgba(69, 10, 10, 0.06);
+}

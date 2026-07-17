@@ -1,0 +1,151 @@
+/* theme-terminal.css
+   Synthwave Terminal (Retro-Tech/ICT)
+   ========================================================================== */
+
+:root {
+  --primary-color: #f59e0b; /* Amber */
+  --secondary-color: #10b981; /* Emerald/Neon Green */
+  --accent-glow: rgba(245, 158, 11, 0.15);
+  --bg-color: #080c10;
+  --text-color: #e2e8f0;
+  --card-bg: rgba(9, 13, 20, 0.85);
+  --border-color: rgba(16, 185, 129, 0.2);
+  --btn-color: #10b981;
+  --btn-text: #080c10;
+}
+
+body.theme-terminal {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Courier New', Courier, monospace;
+  background-image: 
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px; /* Grid Lines Background */
+}
+
+/* Monospace fonts for headers */
+body.theme-terminal h1,
+body.theme-terminal h2,
+body.theme-terminal h3,
+body.theme-terminal .font-head,
+body.theme-terminal .nav-link,
+body.theme-terminal .btn {
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+/* Scanline Effect */
+body.theme-terminal::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 99999;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Glass card overrides */
+body.theme-terminal .glass {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.05), inset 0 0 10px rgba(16, 185, 129, 0.05);
+  border-radius: 4px; /* Boxy retro look */
+}
+
+body.theme-terminal .glass-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+}
+
+/* Buttons */
+body.theme-terminal .btn-primary {
+  background: var(--secondary-color);
+  color: var(--btn-text);
+  border-radius: 4px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+body.theme-terminal .btn-primary:hover {
+  background: transparent;
+  color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+}
+
+body.theme-terminal .btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(245, 158, 11, 0.15);
+}
+
+body.theme-terminal .btn-outline:hover {
+  background: var(--primary-color);
+  color: #000;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+}
+
+/* Header */
+body.theme-terminal header {
+  background: rgba(8, 12, 16, 0.9);
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.05);
+}
+
+/* Timeline */
+body.theme-terminal .experience-timeline::before {
+  background: var(--border-color);
+}
+
+body.theme-terminal .timeline-dot {
+  background: var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color);
+  border-color: var(--bg-color);
+}
+
+/* Timetable styling */
+body.theme-terminal td, 
+body.theme-terminal th {
+  border-bottom: 1px dashed rgba(16, 185, 129, 0.2);
+}
+
+body.theme-terminal th {
+  color: var(--primary-color);
+}
+
+/* Terminal Input overrides */
+body.theme-terminal .form-input {
+  background: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--secondary-color) !important;
+  font-family: monospace;
+}
+
+body.theme-terminal .form-input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3) !important;
+}
+
+/* Terminal Typewriter indicator */
+.terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2em;
+  background: var(--primary-color);
+  margin-left: 5px;
+  animation: terminal-blink 0.8s steps(2, start) infinite;
+  vertical-align: middle;
+}
+
+@keyframes terminal-blink {
+  to { visibility: hidden; }
+}
