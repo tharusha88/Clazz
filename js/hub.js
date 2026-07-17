@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 3. Bind Teacher Card Action Buttons
   setupTeacherCardActions();
+
+  // 4. Initialize Custom Select Theme Dropdown
+  initCustomSelect();
 });
 
 /* Hub directory filters */
@@ -165,12 +168,30 @@ function setupTeacherCardActions() {
       document.getElementById('creName').value = teacherData.name;
       document.getElementById('creSub').value = teacherData.subject;
       document.getElementById('creTag').value = teacherData.tagline;
-      document.getElementById('creTheme').value = teacherData.theme;
       document.getElementById('crePhone').value = teacherData.contact.phone;
       document.getElementById('creLoc').value = teacherData.contact.location;
       document.getElementById('creLms').value = teacherData.contact.lms || "";
       document.getElementById('creHeroPhoto').value = teacherData.heroPhoto || "assets/oshan-sir-suit.jpg";
       document.getElementById('creAboutPhoto').value = teacherData.about.photo || "assets/oshan-sir-stool.jpg";
+      
+      // Update custom select dropdown display
+      const customThemeText = {
+        "neon": "Glassmorphic Neon (Vibrant Space/Math)",
+        "chalk": "Chalkboard Blackboard (Chalk/Handwritten)",
+        "cyber": "Cyber Bio-Verse (Neon Cyberpunk/Biology)",
+        "lux": "Luxury Academic (Gold/Navy/Commerce)"
+      };
+      document.getElementById('creTheme').value = teacherData.theme;
+      document.getElementById('selectedThemeText').textContent = customThemeText[teacherData.theme] || "Select Styling Theme";
+      
+      const customOpts = document.querySelectorAll('.custom-option');
+      customOpts.forEach(opt => {
+        if (opt.getAttribute('data-value') === teacherData.theme) {
+          opt.classList.add('active');
+        } else {
+          opt.classList.remove('active');
+        }
+      });
       
       // Setup widget checkboxes
       document.getElementById('wGraph').checked = teacherData.widgets.includes('graph-sketcher');
@@ -195,4 +216,54 @@ function debounce(func, wait) {
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   };
+}
+
+/* Custom Select Dropdown UI Engine */
+function initCustomSelect() {
+  const trigger = document.querySelector('.custom-select-trigger');
+  const optionsList = document.getElementById('themeOptionsList');
+  const chevron = document.getElementById('themeChevron');
+  const hiddenInput = document.getElementById('creTheme');
+  const selectedText = document.getElementById('selectedThemeText');
+  const options = document.querySelectorAll('.custom-option');
+  
+  if (!trigger || !optionsList) return;
+  
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = optionsList.style.display === 'flex';
+    optionsList.style.display = isOpen ? 'none' : 'flex';
+    if (chevron) {
+      chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+  });
+  
+  options.forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const val = opt.getAttribute('data-value');
+      const text = opt.textContent;
+      
+      // Update hidden input and trigger display text
+      hiddenInput.value = val;
+      selectedText.textContent = text;
+      
+      // Update active option styling class
+      options.forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      
+      // Close list
+      optionsList.style.display = 'none';
+      if (chevron) chevron.style.transform = 'rotate(0deg)';
+      
+      // Force update preview
+      updatePreview();
+    });
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    optionsList.style.display = 'none';
+    if (chevron) chevron.style.transform = 'rotate(0deg)';
+  });
 }

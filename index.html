@@ -191,13 +191,21 @@
             </div>
 
             <div class="form-group">
-              <label for="creTheme" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Select Styling Theme</label>
-              <select id="creTheme" class="form-input" style="background: rgba(0,0,0,0.4); cursor: pointer;">
-                <option value="neon">Glassmorphic Neon (Vibrant Space/Math)</option>
-                <option value="chalk">Chalkboard Blackboard (Chalk/Handwritten)</option>
-                <option value="cyber">Cyber Bio-Verse (Neon Cyberpunk/Biology)</option>
-                <option value="lux">Luxury Academic (Gold/Navy/Commerce)</option>
-              </select>
+              <label style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Select Styling Theme</label>
+              <div class="custom-select-wrapper" style="position: relative; width: 100%;">
+                <div class="custom-select-trigger form-input" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: rgba(0, 0, 0, 0.4) !important;">
+                  <span id="selectedThemeText">Glassmorphic Neon (Vibrant Space/Math)</span>
+                  <i class="fa-solid fa-chevron-down" id="themeChevron" style="font-size: 0.8rem; transition: transform 0.3s; margin-left: 8px;"></i>
+                </div>
+                <div class="custom-options glass" id="themeOptionsList" style="position: absolute; top: calc(100% + 6px); left: 0; right: 0; border-radius: 8px; z-index: 1000; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+                  <div class="custom-option active" data-value="neon" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Glassmorphic Neon (Vibrant Space/Math)</div>
+                  <div class="custom-option" data-value="chalk" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Chalkboard Blackboard (Chalk/Handwritten)</div>
+                  <div class="custom-option" data-value="cyber" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Cyber Bio-Verse (Neon Cyberpunk/Biology)</div>
+                  <div class="custom-option" data-value="lux" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Luxury Academic (Gold/Navy/Commerce)</div>
+                </div>
+                <!-- Hidden input to store value for JS engine -->
+                <input type="hidden" id="creTheme" value="neon">
+              </div>
             </div>
 
             <div class="form-group-row">
