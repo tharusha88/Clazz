@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupPreloader();
   
   // 5. Special Background Elements based on Theme
+  setupThemeBgCanvas(teacher.theme);
+  
   if (teacher.theme === 'neon') {
     setupFloatingSymbols(['+', '−', '×', '÷', '=', '√x', 'π', 'θ', 'Σ', 'Δ', 'x²', 'y³']);
   } else if (teacher.theme === 'chalk') {
@@ -499,4 +501,117 @@ function setupPreloader() {
       preloader.classList.add('hidden');
     }, 600);
   }
+}
+
+/* High-Performance Canvas Theme Background Particle Engine */
+function setupThemeBgCanvas(theme) {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'themeBgCanvas';
+  canvas.style.position = 'fixed';
+  canvas.style.inset = '0';
+  canvas.style.zIndex = '-20';
+  canvas.style.pointerEvents = 'none';
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  let animationId;
+  let particles = [];
+  
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const particleCount = theme === 'neon' ? 45 : (theme === 'cyber' ? 50 : (theme === 'lux' ? 20 : 35));
+  
+  // Set up particles
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : 0.6),
+      vy: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : 0.6) - (theme === 'chalk' ? 0.15 : 0), // slight drift for chalk dust
+      radius: theme === 'lux' ? Math.random() * 20 + 6 : Math.random() * 3.5 + 1.2, // larger Gold bokeh for Lux
+      color: getParticleColor(theme),
+      alpha: Math.random() * 0.45 + 0.1
+    });
+  }
+
+  function getParticleColor(theme) {
+    if (theme === 'neon') {
+      return Math.random() > 0.5 ? '#8b5cf6' : '#06b6d4'; // Purple/Cyan
+    } else if (theme === 'cyber') {
+      return Math.random() > 0.5 ? '#00ffa3' : '#00e5ff'; // Green/Cyan
+    } else if (theme === 'lux') {
+      return '#b45309'; // Gold
+    } else {
+      return '#ffffff'; // White chalk dust
+    }
+  }
+
+  function step() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw Plexus constellation connections for Neon and Cyber
+    if (theme === 'neon' || theme === 'cyber') {
+      ctx.lineWidth = 0.6;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < 125) {
+            const alpha = (1 - dist / 125) * 0.14;
+            ctx.strokeStyle = theme === 'neon' ? `rgba(6, 182, 212, ${alpha})` : `rgba(0, 255, 163, ${alpha})`;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    // Draw and update particles
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      
+      if (theme === 'lux') {
+        // Blur/Bokeh effect for gold bokeh
+        ctx.fillStyle = `rgba(180, 83, 9, ${p.alpha * 0.25})`;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = '#b45309';
+      } else {
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+      }
+      
+      ctx.fill();
+      ctx.shadowBlur = 0; // reset
+      ctx.globalAlpha = 1.0; // reset
+
+      // Update positions
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // Wrap around bounds
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+    });
+
+    animationId = requestAnimationFrame(step);
+  }
+
+  step();
+  
+  // Clean up animation on unload
+  window.addEventListener('beforeunload', () => {
+    cancelAnimationFrame(animationId);
+  });
 }
