@@ -312,3 +312,70 @@ function initCustomSelect() {
     if (chevron) chevron.style.transform = 'rotate(0deg)';
   });
 }
+
+window.copyConfigJSON = function() {
+  const name = document.getElementById('creName').value.trim() || "Mr. Custom Teacher";
+  const subject = document.getElementById('creSub').value.trim() || "Mathematics";
+  const tagline = document.getElementById('creTag').value.trim() || "අපේ සොඳුරු පංතිය";
+  const theme = document.getElementById('creTheme').value;
+  const phone = document.getElementById('crePhone').value.trim() || "0703964107";
+  const location = document.getElementById('creLoc').value.trim() || "Sudarshi - Weyangoda";
+  const lms = document.getElementById('creLms').value.trim() || "";
+  const heroPhoto = document.getElementById('creHeroPhoto').value.trim() || "assets/oshan-sir-suit.jpg";
+  const aboutPhoto = document.getElementById('creAboutPhoto').value.trim() || "assets/oshan-sir-stool.jpg";
+  
+  const widgets = [];
+  if (document.getElementById('wGraph').checked) widgets.push('graph-sketcher');
+  if (document.getElementById('wMCQ').checked) widgets.push('mcq-flashcards');
+  if (document.getElementById('wPhysics').checked) widgets.push('physics-simulator');
+
+  let accent = '#8b5cf6';
+  let secondary = '#06b6d4';
+  if (theme === 'chalk') { accent = '#00e5ff'; secondary = '#ffea00'; }
+  else if (theme === 'cyber') { accent = '#00ffa3'; secondary = '#00e5ff'; }
+  else if (theme === 'lux') { accent = '#b45309'; secondary = '#0b192f'; }
+  else if (theme === 'minimal') { accent = '#111111'; secondary = '#888888'; }
+  else if (theme === 'terminal') { accent = '#f59e0b'; secondary = '#10b981'; }
+  else if (theme === 'prism') { accent = '#06b6d4'; secondary = '#ec4899'; }
+  else if (theme === 'heritage') { accent = '#b45309'; secondary = '#450a0a'; }
+  else if (theme === 'smart-kids') { accent = '#FFD166'; secondary = '#118AB2'; }
+  else if (theme === 'calm-scholar') { accent = '#06D6A0'; secondary = '#1e293b'; }
+  else if (theme === 'pastel') { accent = '#BDB2FF'; secondary = '#A0C4FF'; }
+
+  const customConfig = {
+    name: name,
+    subject: subject,
+    subheading: `${subject} Class`,
+    tagline: tagline,
+    theme: theme,
+    accentColor: accent,
+    secondaryColor: secondary,
+    contact: {
+      phone: phone,
+      whatsapp: '94' + phone.replace(/^0/, ''),
+      location: location,
+      lms: lms
+    },
+    stats: [
+      { val: "10", suffix: "+", label: "Years Experience" },
+      { val: "2000", suffix: "+", label: "Students Taught" },
+      { val: "100", suffix: "%", label: "Pass Rate" }
+    ],
+    about: {
+      title: "Interactive Learning Journey",
+      subtitle: `${name} — Dedicated Educator`,
+      bio: `Learn ${subject} from ${name}.`,
+      photo: aboutPhoto
+    },
+    heroPhoto: heroPhoto,
+    widgets: widgets
+  };
+
+  navigator.clipboard.writeText(JSON.stringify(customConfig, null, 2))
+    .then(() => {
+      alert("Config JSON copied to clipboard! You can paste it into js/config.js or send it to me to save it permanently.");
+    })
+    .catch(err => {
+      console.error("Could not copy text: ", err);
+    });
+};
