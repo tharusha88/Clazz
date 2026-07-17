@@ -1,10 +1,12 @@
 /* Clazz Core Template Rendering Engine
    ========================================================================== */
 
+let teacherKey = 'oshan';
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Get query parameter for teacher selection
   const urlParams = new URLSearchParams(window.location.search);
-  let teacherKey = urlParams.get('t') || urlParams.get('teacher');
+  teacherKey = urlParams.get('t') || urlParams.get('teacher');
   
   // Fallback to filename-based routing if no query param is found
   if (!teacherKey) {
