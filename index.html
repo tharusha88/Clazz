@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clazz | Tuition Teacher Showcase & Landing Creator</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Core Clazz Stylesheet -->
+  <link rel="stylesheet" href="css/clazz-core.css">
+  
+  <!-- Hub Stylesheet -->
+  <link rel="stylesheet" href="css/hub.css">
+  
+  <style>
+    .hub-filter-tab {
+      cursor: pointer;
+    }
+    
+    .hub-filter-tab.active {
+      background: var(--hub-primary);
+      color: #fff !important;
+      border-color: var(--hub-primary);
+    }
+    
+    .form-checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+      margin-top: 0.5rem;
+    }
+    
+    .form-checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .form-checkbox-item input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--hub-primary);
+    }
+  </style>
+</head>
+<body class="hub-body">
+
+  <!-- Noise Overlay for Cinematic Texture -->
+  <div class="noise-overlay"></div>
+
+  <!-- Header / Navigation -->
+  <nav class="navbar glass" style="border-bottom: 1px solid var(--hub-border); background: rgba(3, 7, 18, 0.8);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem;">
+      <a href="#" class="nav-brand">
+        <span class="logo-text" style="background: linear-gradient(135deg, #fff 40%, var(--hub-primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 800;">Clazz</span>
+        <span style="font-size: 0.7rem; color: var(--hub-secondary); text-transform: uppercase; font-family: 'Space Grotesk', sans-serif; letter-spacing: 2.5px; font-weight: bold; margin-top: -3px;">Sir Portal Hub</span>
+      </a>
+      <div class="nav-links" style="display: flex; align-items: center; gap: 2rem;">
+        <a href="#teachers-section" class="nav-link" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 500;">Teachers Directory</a>
+        <a href="#creator-section" class="nav-link" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 500;">Live Page Builder</a>
+        <a href="#creator-section" class="btn btn-sm btn-primary">Start Building</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hub-hero">
+    <div class="container">
+      <h1>Bespoke Web spaces for Top Tuition Mentors</h1>
+      <p>Wow your students with high-performance, subject-themed landing pages. Elevate your digitial presence with integrated interactive graph plotters, physics sandboxes, and biological flashcards.</p>
+      <div class="flex-center" style="gap: 1rem; flex-wrap: wrap;">
+        <a href="#teachers-section" class="btn btn-primary">Browse Teachers Directory</a>
+        <a href="#creator-section" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.2);">Build Custom Template</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Teachers Showcase Directory -->
+  <section id="teachers-section" style="padding: 4rem 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; letter-spacing: 4px; color: var(--hub-secondary); font-weight: bold; text-transform: uppercase;">Active Classrooms</span>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 800; margin-top: 0.5rem; margin-bottom: 0.5rem;">Tuition Teachers Directory</h2>
+        <p style="opacity: 0.7; font-size: 0.95rem; max-width: 600px; margin: 0 auto;">Select an active teacher landing page to explore, or click 'Customize' to edit their style in the Live Creator.</p>
+      </div>
+      
+      <!-- Category Tabs -->
+      <div class="flex-center" style="gap: 0.8rem; margin: 2rem 0; flex-wrap: wrap;">
+        <button class="btn btn-sm hub-filter-tab active" data-filter="all">All Subjects</button>
+        <button class="btn btn-sm btn-outline hub-filter-tab" style="color: #fff; border-color: rgba(255,255,255,0.15);" data-filter="mathematics">Mathematics</button>
+      </div>
+      
+      <!-- Directory Grid -->
+      <div class="teacher-grid">
+        <!-- Oshan Sir Card -->
+        <div class="teacher-hub-card glass" data-subject="mathematics">
+          <div class="hub-card-header">
+            <img class="hub-card-avatar" src="assets/oshan-sir-suit.jpg" alt="Oshan Ukwaththa">
+            <div class="hub-card-title">
+              <h3>Oshan Ukwaththa</h3>
+              <span>Mathematics</span>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; opacity: 0.8; line-height: 1.6;">O/L mathematics mentor. Government school teacher. Combines structured theory with mock exam paper reviews in Weyangoda.</p>
+          <div class="hub-card-tags">
+            <span class="hub-card-tag"><i class="fa-solid fa-graduation-cap" style="margin-right: 4px;"></i> Govt Teacher</span>
+            <span class="hub-card-tag"><i class="fa-solid fa-map-pin" style="margin-right: 4px;"></i> Weyangoda</span>
+            <span class="hub-card-tag" style="border-color: var(--hub-secondary); color: var(--hub-secondary);"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 4px;"></i> Neon Theme</span>
+          </div>
+          <div class="hub-card-actions">
+            <a href="oshan-maths.html" target="_blank" class="btn btn-sm btn-primary">Launch Page &rarr;</a>
+            <button class="btn btn-sm btn-outline btn-edit-teacher" style="color:#fff; border-color:rgba(255,255,255,0.15);" data-teacher="oshan">Customize</button>
+          </div>
+        </div>
+        
+        <!-- Ruwan Sir Card -->
+        <div class="teacher-hub-card glass" data-subject="mathematics">
+          <div class="hub-card-header">
+            <img class="hub-card-avatar" src="assets/oshan-sir-stool.jpg" alt="Ruwan Silva">
+            <div class="hub-card-title">
+              <h3>Ruwan Silva</h3>
+              <span>Mathematics</span>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; opacity: 0.8; line-height: 1.6;">A/L Combined Mathematics lecturer. B.Sc. Engineering graduate from Moratuwa. Delivers Pure & Applied Maths details.</p>
+          <div class="hub-card-tags">
+            <span class="hub-card-tag"><i class="fa-solid fa-graduation-cap" style="margin-right: 4px;"></i> Moratuwa Eng</span>
+            <span class="hub-card-tag"><i class="fa-solid fa-map-pin" style="margin-right: 4px;"></i> Gampaha</span>
+            <span class="hub-card-tag" style="border-color: #ffb700; color: #ffb700;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 4px;"></i> Chalk Theme</span>
+          </div>
+          <div class="hub-card-actions">
+            <a href="ruwan-maths.html" target="_blank" class="btn btn-sm btn-primary">Launch Page &rarr;</a>
+            <button class="btn btn-sm btn-outline btn-edit-teacher" style="color:#fff; border-color:rgba(255,255,255,0.15);" data-teacher="ruwan">Customize</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Clazz Creator / Previewer -->
+  <section id="creator-section" class="creator-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; letter-spacing: 4px; color: var(--hub-secondary); font-weight: bold; text-transform: uppercase;">Creator Lab</span>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 800; margin-top: 0.5rem; margin-bottom: 0.5rem;">Live Landing Page Builder</h2>
+        <p style="opacity: 0.7; font-size: 0.95rem; max-width: 600px; margin: 0 auto;">Type your details in the form panel below to watch the landing page customize dynamically inside the phone preview.</p>
+      </div>
+      
+      <div class="creator-grid">
+        <!-- Input Form Panel -->
+        <div class="creator-form-panel">
+          <form id="hubCreatorForm" class="glass form-card" style="border-radius: 20px; border: 1px solid var(--hub-border); display: flex; flex-direction: column; gap: 1.2rem;">
+            
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="creName" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Teacher Name</label>
+                <input type="text" id="creName" class="form-input" style="background: rgba(0,0,0,0.4);" value="Oshan Ukwaththa">
+              </div>
+              <div class="form-group">
+                <label for="creSub" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Tutoring Subject</label>
+                <input type="text" id="creSub" class="form-input" style="background: rgba(0,0,0,0.4);" value="Mathematics">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="creTag" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Sinhala/English Tagline</label>
+              <input type="text" id="creTag" class="form-input" style="background: rgba(0,0,0,0.4);" value="අනාගතේට මං කියන සොඳුරු නවාතැන්පළ, අපේ ගණිත පංතිය">
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="crePhone" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">WhatsApp Phone Contact</label>
+                <input type="tel" id="crePhone" class="form-input" style="background: rgba(0,0,0,0.4);" value="0703964107">
+              </div>
+              <div class="form-group">
+                <label for="creLoc" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Institute Location</label>
+                <input type="text" id="creLoc" class="form-input" style="background: rgba(0,0,0,0.4);" value="Sudarshi - Weyangoda">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="creLms" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">LMS Portal Link (Optional)</label>
+              <input type="url" id="creLms" class="form-input" style="background: rgba(0,0,0,0.4);" placeholder="e.g. https://oshanmaths.onelms.lk/" value="https://oshanmaths.onelms.lk/">
+            </div>
+
+            <div class="form-group">
+              <label for="creTheme" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Select Styling Theme</label>
+              <select id="creTheme" class="form-input" style="background: rgba(0,0,0,0.4); cursor: pointer;">
+                <option value="neon">Glassmorphic Neon (Vibrant Space/Math)</option>
+                <option value="chalk">Chalkboard Blackboard (Chalk/Handwritten)</option>
+                <option value="cyber">Cyber Bio-Verse (Neon Cyberpunk/Biology)</option>
+                <option value="lux">Luxury Academic (Gold/Navy/Commerce)</option>
+              </select>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="creHeroPhoto" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Hero Portrait Path</label>
+                <input type="text" id="creHeroPhoto" class="form-input" style="background: rgba(0,0,0,0.4);" value="assets/oshan-sir-suit.jpg">
+              </div>
+              <div class="form-group">
+                <label for="creAboutPhoto" style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">About Portrait Path</label>
+                <input type="text" id="creAboutPhoto" class="form-input" style="background: rgba(0,0,0,0.4);" value="assets/oshan-sir-stool.jpg">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label style="color: #e2d9ff; font-family: 'Space Grotesk', sans-serif;">Toggle Special Page Widgets</label>
+              <div class="form-checkbox-group">
+                <label class="form-checkbox-item">
+                  <input type="checkbox" id="wGraph" checked>
+                  <span>Interactive Equation Graph Plotter (Math)</span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" id="wMCQ">
+                  <span>Interactive Flashcards MCQ Trainer (Biology)</span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" id="wPhysics">
+                  <span>Gravity Pendulum Sandbox Simulator (Physics)</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="button" class="creator-btn" onclick="updatePreview()" style="margin-top: 1rem;">
+              <i class="fa-solid fa-arrows-rotate" style="margin-right: 8px;"></i> Force Sync Previewer
+            </button>
+          </form>
+        </div>
+        
+        <!-- Live iPhone Device Previewer Pane -->
+        <div class="preview-panel">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <iframe id="previewIframe" src="template.html?t=custom"></iframe>
+            </div>
+          </div>
+          <div style="text-align: center; max-width: 380px;">
+            <p style="font-size: 0.85rem; opacity: 0.8; line-height: 1.5; margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-info" style="color: var(--hub-secondary); margin-right: 6px;"></i> The preview frame updates live. Test scrolling and widgets inside the screen mockup!</p>
+            <div style="font-size: 0.75rem; opacity: 0.6; font-family: var(--font-head);">Clazz Engine v1.0</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 4rem 0 2rem; border-top: 1px solid var(--hub-border);">
+    <div class="container" style="text-align: center;">
+      <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem;">Clazz Platform</h3>
+      <p style="font-size: 0.85rem; opacity: 0.6; max-width: 500px; margin: 0 auto 2rem;">Designing premium, high-speed landing pages for tuition teachers in Sri Lanka. Fully expandable, SEO-optimized layout templates.</p>
+      <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; font-size: 0.8rem; opacity: 0.6;">
+        <p>&copy; 2026 Clazz Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/hub.js"></script>
+</body>
+</html>

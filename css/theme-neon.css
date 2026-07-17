@@ -1,0 +1,336 @@
+/* Clazz Theme - Glassmorphic Neon (Space / Math / Physics Theme)
+   ========================================================================== */
+
+:root {
+  --primary-color: #8b5cf6; /* Vibrant Purple */
+  --secondary-color: #06b6d4; /* Neon Cyan */
+  --accent-pink: #ec4899; /* Neon Pink */
+  
+  --bg-color: #050816;
+  --bg-darker: #03040c;
+  --text-color: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --card-glow: rgba(139, 92, 246, 0.15);
+  
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+body.theme-neon {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.12), transparent 45%),
+    linear-gradient(180deg, var(--bg-color) 0%, var(--bg-darker) 100%);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background Grids and Grain */
+body.theme-neon::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
+}
+
+/* Grain Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 999;
+}
+
+/* Custom Cursors */
+body.theme-neon .cursor-dot {
+  background: var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+  opacity: 1;
+}
+
+body.theme-neon .cursor-ring {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
+  opacity: 1;
+}
+
+/* Navbar Neon Vibe */
+body.theme-neon .navbar {
+  border-bottom: 1px solid var(--card-border);
+  background: rgba(5, 8, 22, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body.theme-neon .logo-text {
+  font-family: var(--font-head);
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 30%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.theme-neon .nav-link:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+/* Hero Section */
+body.theme-neon .hero-eyebrow {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+}
+
+body.theme-neon .hero-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #ffffff 10%, #e2d9ff 50%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.theme-neon .hero-badge {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #d1c4ff;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+body.theme-neon .portrait-glow-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--card-border), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--card-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-neon .portrait-glow-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, var(--primary-color), transparent 60%, var(--secondary-color));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+body.theme-neon .portrait-glow-frame img {
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* Glassmorphic Neon Cards */
+body.theme-neon .glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+body.theme-neon .glass-card:hover {
+  border-color: rgba(6, 182, 212, 0.25);
+  box-shadow: 
+    0 20px 45px rgba(6, 182, 212, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Card Scan Diagonal Swipe Animation */
+body.theme-neon .glass-card {
+  position: relative;
+  overflow: hidden;
+}
+
+body.theme-neon .glass-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 30%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent
+  );
+  transform: rotate(30deg);
+  transition: transform 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+body.theme-neon .glass-card:hover::after {
+  transform: translate(450px, 0) rotate(30deg);
+}
+
+/* Timetable Styles */
+body.theme-neon .tt-row {
+  border-bottom: 1px solid var(--card-border);
+  padding: 1.2rem 1rem;
+  transition: var(--transition-fast);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+body.theme-neon .tt-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(139, 92, 246, 0.2);
+  transform: translateX(5px);
+}
+
+body.theme-neon .tt-grade {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+body.theme-neon .tt-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-pink);
+  box-shadow: 0 0 8px var(--accent-pink);
+}
+
+body.theme-neon .tt-status {
+  border: 1px solid rgba(0, 255, 163, 0.2);
+  background: rgba(0, 255, 163, 0.05);
+  color: #00ffaa;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-head);
+}
+
+/* Counter Neon Glow */
+body.theme-neon .stat-num {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 1;
+  background: linear-gradient(135deg, #fff 20%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+/* Button Stylings */
+body.theme-neon .btn-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #6d28d9 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+}
+
+body.theme-neon .btn-primary:hover {
+  background: linear-gradient(135deg, #a78bfa 0%, var(--primary-color) 100%);
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.55);
+  transform: translateY(-3px);
+}
+
+body.theme-neon .btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+body.theme-neon .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  transform: translateY(-2px);
+}
+
+body.theme-neon .btn-accent {
+  background: linear-gradient(135deg, var(--accent-pink) 0%, #be185d 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35);
+}
+
+body.theme-neon .btn-accent:hover {
+  background: linear-gradient(135deg, #f472b6 0%, var(--accent-pink) 100%);
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.55);
+  transform: translateY(-3px);
+}
+
+/* Floating Math Symbols styles */
+.math-symbols-container {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.math-symbol-item {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.04);
+  font-family: var(--font-head);
+  font-weight: 700;
+  user-select: none;
+  animation: floatMath linear infinite;
+}
+
+@keyframes floatMath {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* LMS Vibe Card */
+.lms-box-neon {
+  border: 1px solid rgba(6, 182, 212, 0.3) !important;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(139, 92, 246, 0.03)) !important;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(6, 182, 212, 0.1) !important;
+}
+
+.lms-box-neon h3 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

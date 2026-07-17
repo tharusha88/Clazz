@@ -1,0 +1,212 @@
+/* Clazz Theme - Luxury Professional (Elegant Academy / Commerce / Arts Vibe)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --primary-color: #0b192f; /* Deep Midnight Navy */
+  --secondary-color: #b45309; /* Maritime Gold / Brass */
+  --accent-gold-light: #fef3c7; /* Soft gold tint */
+  
+  --bg-color: #f8f9fa; /* Warm off-white */
+  --bg-darker: #ffffff; /* Clean white card */
+  --text-color: #0f172a; /* Slate dark text */
+  --text-muted: #475569; /* Muted gray */
+  
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: #e2e8f0;
+  
+  --font-head: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body.theme-lux {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Subtle Grid backdrop */
+body.theme-lux::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(180, 83, 9, 0.03), transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(11, 25, 47, 0.04), transparent 40%);
+}
+
+/* Custom Cursors */
+body.theme-lux .cursor-dot {
+  background: var(--primary-color);
+  opacity: 1;
+}
+
+body.theme-lux .cursor-ring {
+  border-color: var(--secondary-color);
+  opacity: 1;
+}
+
+body.theme-lux .cursor-ring.active {
+  width: 48px;
+  height: 48px;
+  background: rgba(180, 83, 9, 0.05);
+}
+
+/* Navbar */
+body.theme-lux .navbar {
+  border-bottom: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+body.theme-lux .logo-text {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 0.5px;
+}
+
+body.theme-lux .nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* Hero Section */
+body.theme-lux .hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+body.theme-lux .hero-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  color: var(--primary-color);
+}
+
+body.theme-lux .hero-tagline {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-top: 0.5rem;
+}
+
+/* Timeline Career Experience */
+body.theme-lux .timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+body.theme-lux .timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background: var(--card-border);
+}
+
+body.theme-lux .timeline-node {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 2rem;
+}
+
+body.theme-lux .timeline-dot {
+  position: absolute;
+  top: 4px;
+  left: 11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid var(--secondary-color);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body.theme-lux .timeline-content {
+  background: var(--bg-darker);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+/* Glassmorphic/Clean Luxury Cards */
+body.theme-lux .glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.02),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-lux .glass-card:hover {
+  border-color: var(--secondary-color);
+  box-shadow: 
+    0 15px 35px rgba(180, 83, 9, 0.05);
+  transform: translateY(-4px);
+}
+
+/* Timetable */
+body.theme-lux .tt-row {
+  border-bottom: 1px solid var(--card-border);
+  padding: 1.2rem 0.5rem;
+}
+
+body.theme-lux .tt-grade {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+body.theme-lux .tt-status {
+  background: var(--accent-gold-light);
+  color: var(--secondary-color);
+  padding: 3px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+/* Button Stylings */
+body.theme-lux .btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(11, 25, 47, 0.15);
+}
+
+body.theme-lux .btn-primary:hover {
+  background: #1e293b;
+  box-shadow: 0 6px 20px rgba(11, 25, 47, 0.3);
+  transform: translateY(-2px);
+}
+
+body.theme-lux .btn-outline {
+  background: transparent;
+  border: 2.5px solid var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+body.theme-lux .btn-outline:hover {
+  background: var(--accent-gold-light);
+  transform: translateY(-2px);
+}
+
+/* Luxury Stats */
+body.theme-lux .stat-num {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--primary-color);
+}
