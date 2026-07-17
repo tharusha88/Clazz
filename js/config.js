@@ -179,7 +179,7 @@ window.CLAZZ_TEACHERS = {
       "bio": "දිවයිනේ ප්‍රමුඛතම 5 වසර ශිෂ්‍යත්ව දේශක තරංග පල්ලේගම සර්, දරුවන්ගේ මනසට බරක් නොදී සෙල්ලමෙන් උගන්වන සුවිශේෂී ක්‍රමවේදයකට ප්‍රසිද්ධය. වසර ගණනාවක අත්දැකීම් ඇති සර්, පිළිමතලාව ඇතුළු ප්‍රදේශ රැසක දැවැන්ත සම්මන්ත්‍රණ පවත්වයි.",
       "photo": "assets/tharanga-sir.jpg"
     },
-    "heroPhoto": "assets/tharanga-sir.jpg",
+    "heroPhoto": "assets/tharanga-flyer.jpg",
     "gallery": [
       "assets/scholarship-flyer.jpg"
     ],
