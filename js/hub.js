@@ -194,9 +194,9 @@ function setupTeacherCardActions() {
       });
       
       // Setup widget checkboxes
-      document.getElementById('wGraph').checked = teacherData.widgets.includes('graph-sketcher');
-      document.getElementById('wMCQ').checked = teacherData.widgets.includes('mcq-flashcards');
-      document.getElementById('wPhysics').checked = teacherData.widgets.includes('physics-simulator');
+      document.getElementById('wGraph').checked = teacherData.widgets ? teacherData.widgets.includes('graph-sketcher') : false;
+      document.getElementById('wMCQ').checked = teacherData.widgets ? teacherData.widgets.includes('mcq-flashcards') : false;
+      document.getElementById('wPhysics').checked = teacherData.widgets ? teacherData.widgets.includes('physics-simulator') : false;
       
       // Update preview and scroll to previewer section
       updatePreview();
@@ -219,51 +219,61 @@ function debounce(func, wait) {
 }
 
 /* Custom Select Dropdown UI Engine */
-function initCustomSelect() {
-  const trigger = document.querySelector('.custom-select-trigger');
+window.toggleCustomSelect = function(e) {
+  if (e) e.stopPropagation();
+  const optionsList = document.getElementById('themeOptionsList');
+  const chevron = document.getElementById('themeChevron');
+  if (!optionsList) return;
+  
+  const isOpen = optionsList.style.display === 'flex';
+  optionsList.style.display = isOpen ? 'none' : 'flex';
+  if (chevron) {
+    chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+  }
+};
+
+window.selectCustomOption = function(e, val) {
+  if (e) e.stopPropagation();
   const optionsList = document.getElementById('themeOptionsList');
   const chevron = document.getElementById('themeChevron');
   const hiddenInput = document.getElementById('creTheme');
   const selectedText = document.getElementById('selectedThemeText');
   const options = document.querySelectorAll('.custom-option');
   
-  if (!trigger || !optionsList) return;
+  if (hiddenInput) hiddenInput.value = val;
   
-  trigger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = optionsList.style.display === 'flex';
-    optionsList.style.display = isOpen ? 'none' : 'flex';
-    if (chevron) {
-      chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+  const customThemeText = {
+    "neon": "Glassmorphic Neon (Vibrant Space/Math)",
+    "chalk": "Chalkboard Blackboard (Chalk/Handwritten)",
+    "cyber": "Cyber Bio-Verse (Neon Cyberpunk/Biology)",
+    "lux": "Luxury Academic (Gold/Navy/Commerce)"
+  };
+  
+  if (selectedText) {
+    selectedText.textContent = customThemeText[val] || "Select Styling Theme";
+  }
+  
+  options.forEach(opt => {
+    if (opt.getAttribute('data-value') === val) {
+      opt.classList.add('active');
+    } else {
+      opt.classList.remove('active');
     }
   });
   
-  options.forEach(opt => {
-    opt.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const val = opt.getAttribute('data-value');
-      const text = opt.textContent;
-      
-      // Update hidden input and trigger display text
-      hiddenInput.value = val;
-      selectedText.textContent = text;
-      
-      // Update active option styling class
-      options.forEach(o => o.classList.remove('active'));
-      opt.classList.add('active');
-      
-      // Close list
-      optionsList.style.display = 'none';
-      if (chevron) chevron.style.transform = 'rotate(0deg)';
-      
-      // Force update preview
-      updatePreview();
-    });
-  });
+  if (optionsList) optionsList.style.display = 'none';
+  if (chevron) chevron.style.transform = 'rotate(0deg)';
   
+  // Force update preview
+  updatePreview();
+};
+
+function initCustomSelect() {
   // Close dropdown when clicking outside
   document.addEventListener('click', () => {
-    optionsList.style.display = 'none';
+    const optionsList = document.getElementById('themeOptionsList');
+    const chevron = document.getElementById('themeChevron');
+    if (optionsList) optionsList.style.display = 'none';
     if (chevron) chevron.style.transform = 'rotate(0deg)';
   });
 }
