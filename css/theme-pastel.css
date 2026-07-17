@@ -1,0 +1,139 @@
+/* theme-pastel.css
+   Pastel Wonder (Modern International School Theme)
+   ========================================================================== */
+
+:root {
+  --primary-color: #BDB2FF; /* Soft Lavender */
+  --secondary-color: #A0C4FF; /* Baby Blue */
+  --accent-glow: rgba(189, 178, 255, 0.08);
+  --bg-color: #f7f9fc;
+  --text-color: #3b3d4a;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(189, 178, 255, 0.18);
+  --btn-color: #BDB2FF;
+  --btn-text: #ffffff;
+}
+
+body.theme-pastel {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  background-image: 
+    radial-gradient(circle at 10% 10%, #FFADAD 0%, transparent 35%),
+    radial-gradient(circle at 90% 90%, #FDFFB6 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, #FFD166 0%, transparent 40%);
+  background-opacity: 0.1;
+}
+
+/* Rounded pastel cards */
+body.theme-pastel .glass {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 10px 30px rgba(189, 178, 255, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.01);
+  border-radius: 20px;
+}
+
+body.theme-pastel .glass-card:hover {
+  transform: translateY(-3px) scale(1.005);
+  border-color: var(--primary-color);
+  box-shadow: 0 15px 35px rgba(189, 178, 255, 0.12);
+}
+
+/* Headers style overrides */
+body.theme-pastel h1,
+body.theme-pastel h2,
+body.theme-pastel h3,
+body.theme-pastel .brand-name,
+body.theme-pastel .btn {
+  font-family: 'Space Grotesk', sans-serif !important;
+  color: #2D3142;
+  font-weight: 700;
+}
+
+body.theme-pastel header {
+  background: rgba(247, 249, 252, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Buttons */
+body.theme-pastel .btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 4px 10px rgba(189, 178, 255, 0.2);
+}
+
+body.theme-pastel .btn-primary:hover {
+  background: #ad9eff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(189, 178, 255, 0.4);
+}
+
+body.theme-pastel .btn-outline {
+  background: transparent;
+  color: #8375e6;
+  border: 1px solid var(--primary-color);
+  border-radius: 12px;
+}
+
+body.theme-pastel .btn-outline:hover {
+  background: rgba(189, 178, 255, 0.05);
+  border-color: #8375e6;
+  color: #8375e6;
+}
+
+/* Timeline */
+body.theme-pastel .experience-timeline::before {
+  background: var(--border-color);
+}
+
+body.theme-pastel .timeline-dot {
+  background: var(--primary-color);
+  border-color: #ffffff;
+}
+
+/* Timetable */
+body.theme-pastel td, 
+body.theme-pastel th {
+  border-bottom: 1px dashed var(--border-color);
+}
+
+body.theme-pastel th {
+  color: #8375e6;
+  font-weight: bold;
+}
+
+/* Input overrides */
+body.theme-pastel .form-input {
+  background: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+body.theme-pastel .form-input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(189, 178, 255, 0.08) !important;
+}
+
+body.theme-pastel .form-input option {
+  background: #ffffff !important;
+  color: var(--text-color) !important;
+}
+
+/* Custom Cursors - soft pastel */
+body.theme-pastel .cursor-dot {
+  background: var(--primary-color);
+  mix-blend-mode: normal;
+}
+body.theme-pastel .cursor-ring {
+  border-color: var(--secondary-color);
+  mix-blend-mode: normal;
+}
+body.theme-pastel .cursor-ring.active {
+  background-color: rgba(160, 196, 255, 0.15);
+}

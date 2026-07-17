@@ -111,6 +111,15 @@ function updatePreview() {
   } else if (theme === 'heritage') {
     accent = '#b45309';
     secondary = '#450a0a';
+  } else if (theme === 'smart-kids') {
+    accent = '#FFD166';
+    secondary = '#118AB2';
+  } else if (theme === 'calm-scholar') {
+    accent = '#06D6A0';
+    secondary = '#1e293b';
+  } else if (theme === 'pastel') {
+    accent = '#BDB2FF';
+    secondary = '#A0C4FF';
   }
 
   // Compile JSON configuration
@@ -195,7 +204,10 @@ function setupTeacherCardActions() {
         "minimal": "Minimalist Zen (Apple-Style/Clean)",
         "terminal": "Synthwave Terminal (Retro-Tech/ICT)",
         "prism": "Liquid Prism (Molecular/Chemistry)",
-        "heritage": "Classic Heritage (Ink & Gold/Literature)"
+        "heritage": "Classic Heritage (Ink & Gold/Literature)",
+        "smart-kids": "Smart Kids (Playful / Yellow-Blue)",
+        "calm-scholar": "Calm Scholar (Mint Green / Stress-Free)",
+        "pastel": "Pastel Wonder (Baby Blue-Lavender / Soft)"
       };
       document.getElementById('creTheme').value = teacherData.theme;
       document.getElementById('selectedThemeText').textContent = customThemeText[teacherData.theme] || "Select Styling Theme";
@@ -266,7 +278,10 @@ window.selectCustomOption = function(e, val) {
     "minimal": "Minimalist Zen (Apple-Style/Clean)",
     "terminal": "Synthwave Terminal (Retro-Tech/ICT)",
     "prism": "Liquid Prism (Molecular/Chemistry)",
-    "heritage": "Classic Heritage (Ink & Gold/Literature)"
+    "heritage": "Classic Heritage (Ink & Gold/Literature)",
+    "smart-kids": "Smart Kids (Playful / Yellow-Blue)",
+    "calm-scholar": "Calm Scholar (Mint Green / Stress-Free)",
+    "pastel": "Pastel Wonder (Baby Blue-Lavender / Soft)"
   };
   
   if (selectedText) {

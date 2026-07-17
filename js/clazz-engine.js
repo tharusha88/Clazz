@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
       teacherKey = "ruwan";
     } else if (path.includes('oshan')) {
       teacherKey = "oshan";
+    } else if (path.includes('tharanga')) {
+      teacherKey = "tharanga";
     }
   }
 
@@ -53,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStats(teacher);
   renderAbout(teacher);
   renderOfferings(teacher);
+  renderYouTubeShowcase(teacher);
   renderWidgets(teacher);
   renderSyllabus(teacher);
   renderTimetable(teacher);
@@ -360,6 +363,47 @@ function renderLMSBox(teacher) {
   if (lmsBtn) lmsBtn.href = teacher.contact.lms;
 }
 
+/* Render Optional YouTube Video Showcase */
+function renderYouTubeShowcase(teacher) {
+  const section = document.getElementById('youtubeSection');
+  const grid = document.getElementById('youtubeGrid');
+  if (!section || !grid) return;
+  
+  if (!teacher.youtube || teacher.youtube.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+  
+  section.style.display = 'block';
+  
+  grid.innerHTML = teacher.youtube.map(videoUrl => {
+    // Extract video ID from youtube URL
+    let videoId = "";
+    if (videoUrl.includes('youtu.be/')) {
+      videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
+    } else if (videoUrl.includes('youtube.com/watch?v=')) {
+      videoId = videoUrl.split('watch?v=')[1].split('&')[0];
+    } else if (videoUrl.includes('youtube.com/embed/')) {
+      videoId = videoUrl.split('embed/')[1].split('?')[0];
+    }
+    
+    return `
+      <div class="glass-card" style="padding: 1rem; border-radius: 12px; display: flex; flex-direction: column; gap: 0.8rem;">
+        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+          <iframe 
+            src="https://www.youtube.com/embed/${videoId}" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+          </iframe>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
 /* Render Contact & WhatsApp Form Builder */
 function renderContact(teacher) {
   const phoneLinks = document.querySelectorAll('.contact-phone-link');
@@ -554,45 +598,54 @@ function setupThemeBgCanvas(theme) {
   window.addEventListener('resize', resize);
   resize();
 
-  const particleCount = theme === 'neon' ? 45 : (theme === 'cyber' ? 50 : (theme === 'lux' ? 20 : (theme === 'minimal' ? 12 : (theme === 'terminal' ? 40 : (theme === 'prism' ? 15 : (theme === 'heritage' ? 8 : 35))))));
+  const particleCount = theme === 'neon' ? 45 : (theme === 'cyber' ? 50 : (theme === 'lux' ? 20 : (theme === 'minimal' ? 12 : (theme === 'terminal' ? 40 : (theme === 'prism' ? 15 : (theme === 'heritage' ? 8 : (theme === 'smart-kids' ? 22 : (theme === 'pastel' ? 10 : 35))))))));
   
-  // Set up particles
-  for (let i = 0; i < particleCount; i++) {
-    const p = {
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : (theme === 'minimal' ? 0.25 : 0.6)),
-      vy: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : (theme === 'minimal' ? 0.25 : 0.6)) - (theme === 'chalk' ? 0.15 : 0),
-      radius: theme === 'lux' ? Math.random() * 20 + 6 : (theme === 'minimal' ? Math.random() * 2 + 0.8 : Math.random() * 3.5 + 1.2),
-      color: getParticleColor(theme),
-      alpha: Math.random() * 0.45 + 0.1
-    };
-    
-    // Theme-specific configurations
-    if (theme === 'prism') {
-      p.type = ['h2o', 'benzene', 'co2'][Math.floor(Math.random() * 3)];
-      p.rotation = Math.random() * Math.PI * 2;
-      p.rotSpeed = (Math.random() - 0.5) * 0.006;
-      p.vx = (Math.random() - 0.5) * 0.4;
-      p.vy = (Math.random() - 0.5) * 0.4;
-      p.color = Math.random() > 0.5 ? '#06b6d4' : '#ec4899'; // Cyan / Pink
-    } else if (theme === 'heritage') {
-      p.radius = Math.random() * 15 + 5;
-      p.maxRadius = Math.random() * 70 + 35;
-      p.growSpeed = Math.random() * 0.1 + 0.04;
-      p.vx = 0;
-      p.vy = 0;
-      p.alpha = Math.random() * 0.25 + 0.08;
-      p.color = '#450a0a'; // Sepia Ink stain
-    } else if (theme === 'terminal') {
-      p.vx = 0;
-      p.vy = Math.random() * 1.2 + 0.4; // downward rain
-      p.char = ['0', '1', ';', '{', '}', '[', ']', '<', '>', '/', '_', '$', '?', '+'][Math.floor(Math.random() * 14)];
-      p.color = Math.random() > 0.35 ? '#10b981' : '#f59e0b'; // Green or Amber
-      p.size = Math.random() * 5 + 10; // Font size
+  // Set up particles (only if the theme uses them)
+  if (theme !== 'calm-scholar') {
+    for (let i = 0; i < particleCount; i++) {
+      const p = {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : (theme === 'minimal' ? 0.25 : (theme === 'smart-kids' ? 2.2 : 0.6))),
+        vy: (Math.random() - 0.5) * (theme === 'cyber' ? 1.2 : (theme === 'minimal' ? 0.25 : (theme === 'smart-kids' ? 2.2 : 0.6))) - (theme === 'chalk' ? 0.15 : 0),
+        radius: theme === 'lux' ? Math.random() * 20 + 6 : (theme === 'minimal' ? Math.random() * 2 + 0.8 : (theme === 'pastel' ? Math.random() * 35 + 25 : Math.random() * 3.5 + 1.2)),
+        color: getParticleColor(theme),
+        alpha: Math.random() * 0.45 + 0.1
+      };
+      
+      // Theme-specific configurations
+      if (theme === 'prism') {
+        p.type = ['h2o', 'benzene', 'co2'][Math.floor(Math.random() * 3)];
+        p.rotation = Math.random() * Math.PI * 2;
+        p.rotSpeed = (Math.random() - 0.5) * 0.006;
+        p.vx = (Math.random() - 0.5) * 0.4;
+        p.vy = (Math.random() - 0.5) * 0.4;
+        p.color = Math.random() > 0.5 ? '#06b6d4' : '#ec4899'; // Cyan / Pink
+      } else if (theme === 'heritage') {
+        p.radius = Math.random() * 15 + 5;
+        p.maxRadius = Math.random() * 70 + 35;
+        p.growSpeed = Math.random() * 0.1 + 0.04;
+        p.vx = 0;
+        p.vy = 0;
+        p.alpha = Math.random() * 0.25 + 0.08;
+        p.color = '#450a0a'; // Sepia Ink stain
+      } else if (theme === 'terminal') {
+        p.vx = 0;
+        p.vy = Math.random() * 1.2 + 0.4; // downward rain
+        p.char = ['0', '1', ';', '{', '}', '[', ']', '<', '>', '/', '_', '$', '?', '+'][Math.floor(Math.random() * 14)];
+        p.color = Math.random() > 0.35 ? '#10b981' : '#f59e0b';
+        p.size = Math.random() * 5 + 10;
+      } else if (theme === 'smart-kids') {
+        p.radius = Math.random() * 12 + 6;
+        p.color = ['#FFD166', '#118AB2', '#FF6B6B', '#06D6A0'][Math.floor(Math.random() * 4)];
+        p.alpha = Math.random() * 0.35 + 0.25;
+      } else if (theme === 'pastel') {
+        p.color = ['#A0C4FF', '#BDB2FF', '#FFADAD', '#FDFFB6'][Math.floor(Math.random() * 4)];
+        p.alpha = Math.random() * 0.14 + 0.04;
+      }
+      
+      particles.push(p);
     }
-    
-    particles.push(p);
   }
 
   function getParticleColor(theme) {
@@ -620,39 +673,32 @@ function setupThemeBgCanvas(theme) {
     ctx.lineWidth = 1.5;
     
     if (p.type === 'h2o') {
-      // Oxygen atom
       ctx.beginPath();
       ctx.arc(0, 0, 7, 0, Math.PI * 2);
       ctx.fill();
-      // Connections
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(-12, 12);
       ctx.moveTo(0, 0);
       ctx.lineTo(12, 12);
       ctx.stroke();
-      // Hydrogen atoms
       ctx.beginPath();
       ctx.arc(-12, 12, 3.5, 0, Math.PI * 2);
       ctx.arc(12, 12, 3.5, 0, Math.PI * 2);
       ctx.fill();
     } else if (p.type === 'co2') {
-      // Carbon atom
       ctx.beginPath();
       ctx.arc(0, 0, 6.5, 0, Math.PI * 2);
       ctx.fill();
-      // Double bonds
       ctx.beginPath();
       ctx.moveTo(-15, -2); ctx.lineTo(15, -2);
       ctx.moveTo(-15, 2); ctx.lineTo(15, 2);
       ctx.stroke();
-      // Oxygen atoms
       ctx.beginPath();
       ctx.arc(-15, 0, 4.5, 0, Math.PI * 2);
       ctx.arc(15, 0, 4.5, 0, Math.PI * 2);
       ctx.fill();
     } else {
-      // Benzene Hexagon Ring
       ctx.beginPath();
       for (let i = 0; i < 6; i++) {
         const angle = (Math.PI / 3) * i;
@@ -663,12 +709,11 @@ function setupThemeBgCanvas(theme) {
       }
       ctx.closePath();
       ctx.stroke();
-      // Delocalized circular bond
       ctx.beginPath();
       ctx.arc(0, 0, 9, 0, Math.PI * 2);
       ctx.setLineDash([2, 2.5]);
       ctx.stroke();
-      ctx.setLineDash([]); // reset
+      ctx.setLineDash([]);
     }
     
     ctx.restore();
@@ -677,6 +722,26 @@ function setupThemeBgCanvas(theme) {
   function step() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
+    // Draw Calm Scholar organic sine waves
+    if (theme === 'calm-scholar') {
+      ctx.lineWidth = 2.5;
+      const time = Date.now() * 0.0006;
+      for (let w = 0; w < 3; w++) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(6, 214, 160, ${0.055 - w * 0.015})`;
+        const freq = 0.002 + w * 0.0008;
+        const amp = 40 - w * 10;
+        const phase = time * (1.0 + w * 0.25);
+        
+        for (let x = 0; x < canvas.width; x += 15) {
+          const y = canvas.height * 0.5 + Math.sin(x * freq + phase) * amp + Math.cos(x * 0.0008 + phase) * 12;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+    }
+
     // Draw Plexus connections for Neon and Cyber
     if (theme === 'neon' || theme === 'cyber') {
       ctx.lineWidth = 0.6;
@@ -701,19 +766,14 @@ function setupThemeBgCanvas(theme) {
     // Draw and update particles
     particles.forEach(p => {
       if (theme === 'prism') {
-        // Update rotation with scroll and mouse speed multipliers
         p.rotation += p.rotSpeed + (mouse.speed * 0.0006) + (scrollSpeed * 0.001);
         drawMolecule(p);
-        
-        // Update positions
         p.x += p.vx;
         p.y += p.vy;
       } else if (theme === 'heritage') {
-        // Expand ink stain
         p.radius += p.growSpeed;
-        p.alpha -= 0.0004; // slow fade out
+        p.alpha -= 0.0004;
         
-        // Draw ink stains as radial soft-feathered blobs
         const grad = ctx.createRadialGradient(p.x, p.y, p.radius * 0.1, p.x, p.y, p.radius);
         grad.addColorStop(0, `rgba(69, 10, 10, ${p.alpha})`);
         grad.addColorStop(0.5, `rgba(69, 10, 10, ${p.alpha * 0.3})`);
@@ -724,7 +784,6 @@ function setupThemeBgCanvas(theme) {
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
         
-        // Reset stain
         if (p.alpha <= 0 || p.radius >= p.maxRadius) {
           p.x = Math.random() * canvas.width;
           p.y = Math.random() * canvas.height;
@@ -732,7 +791,6 @@ function setupThemeBgCanvas(theme) {
           p.alpha = Math.random() * 0.22 + 0.08;
         }
       } else if (theme === 'terminal') {
-        // Draw falling typewriter code characters
         ctx.fillStyle = p.color;
         ctx.font = `${p.size}px monospace`;
         ctx.globalAlpha = p.alpha;
@@ -745,8 +803,37 @@ function setupThemeBgCanvas(theme) {
           p.x = Math.random() * canvas.width;
           p.char = ['0', '1', ';', '{', '}', '[', ']', '<', '>', '/', '_', '$', '?', '+'][Math.floor(Math.random() * 14)];
         }
+      } else if (theme === 'smart-kids') {
+        // Energetic bouncing bubbles
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+        
+        p.x += p.vx;
+        p.y += p.vy;
+        
+        // Bounce off walls
+        if (p.x - p.radius < 0 || p.x + p.radius > canvas.width) p.vx *= -1;
+        if (p.y - p.radius < 0 || p.y + p.radius > canvas.height) p.vy *= -1;
+      } else if (theme === 'pastel') {
+        // Soft pastel blurred balloons
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+        ctx.shadowBlur = 30;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1.0;
+        
+        p.x += p.vx;
+        p.y += p.vy;
       } else {
-        // Default circular dots (Neon, Cyber, Lux, Chalk, Minimal)
+        // Default dots (Neon, Cyber, Lux, Chalk, Minimal)
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         
@@ -767,8 +854,8 @@ function setupThemeBgCanvas(theme) {
         p.y += p.vy;
       }
 
-      // Bounds wrapping for ordinary particles
-      if (theme !== 'heritage' && theme !== 'terminal') {
+      // Bounds wrapping (except heritage, terminal, and bouncing kids)
+      if (theme !== 'heritage' && theme !== 'terminal' && theme !== 'smart-kids' && theme !== 'calm-scholar') {
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;

@@ -1,0 +1,131 @@
+/* theme-calm-scholar.css
+   Calm Scholar (Stress-Free & Focused Theme)
+   ========================================================================== */
+
+:root {
+  --primary-color: #06D6A0; /* Mint Green */
+  --secondary-color: #1e293b; /* Dark Slate Navy */
+  --accent-glow: rgba(6, 214, 160, 0.1);
+  --bg-color: #FCFCFC; /* Soft Cream */
+  --text-color: #1e293b;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --border-color: rgba(6, 214, 160, 0.15);
+  --btn-color: #06D6A0;
+  --btn-text: #ffffff;
+}
+
+body.theme-calm-scholar {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Glassmorphism options - calm & clean */
+body.theme-calm-scholar .glass {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(6, 214, 160, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+}
+
+body.theme-calm-scholar .glass-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-color);
+  box-shadow: 0 20px 40px rgba(6, 214, 160, 0.08);
+}
+
+/* Headers */
+body.theme-calm-scholar h1,
+body.theme-calm-scholar h2,
+body.theme-calm-scholar h3,
+body.theme-calm-scholar .brand-name,
+body.theme-calm-scholar .btn {
+  font-family: 'Space Grotesk', sans-serif !important;
+  color: var(--secondary-color);
+}
+
+body.theme-calm-scholar header {
+  background: rgba(252, 252, 252, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Buttons */
+body.theme-calm-scholar .btn-primary {
+  background: var(--primary-color);
+  color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 4px 14px rgba(6, 214, 160, 0.25);
+}
+
+body.theme-calm-scholar .btn-primary:hover {
+  background: #05b88a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(6, 214, 160, 0.4);
+}
+
+body.theme-calm-scholar .btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+}
+
+body.theme-calm-scholar .btn-outline:hover {
+  background: rgba(6, 214, 160, 0.05);
+  color: #05b88a;
+}
+
+/* Timeline */
+body.theme-calm-scholar .experience-timeline::before {
+  background: rgba(6, 214, 160, 0.2);
+}
+
+body.theme-calm-scholar .timeline-dot {
+  background: var(--primary-color);
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(6, 214, 160, 0.3);
+}
+
+/* Timetable */
+body.theme-calm-scholar td, 
+body.theme-calm-scholar th {
+  border-bottom: 1px solid rgba(6, 214, 160, 0.15);
+}
+
+body.theme-calm-scholar th {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Input overrides */
+body.theme-calm-scholar .form-input {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(6, 214, 160, 0.25) !important;
+  color: var(--text-color) !important;
+}
+
+body.theme-calm-scholar .form-input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(6, 214, 160, 0.08) !important;
+}
+
+body.theme-calm-scholar .form-input option {
+  background: #FCFCFC !important;
+  color: var(--text-color) !important;
+}
+
+/* Custom Cursors - calm mint */
+body.theme-calm-scholar .cursor-dot {
+  background: var(--primary-color);
+  mix-blend-mode: normal;
+}
+body.theme-calm-scholar .cursor-ring {
+  border-color: var(--primary-color);
+  mix-blend-mode: normal;
+}
+body.theme-calm-scholar .cursor-ring.active {
+  background-color: rgba(6, 214, 160, 0.08);
+}

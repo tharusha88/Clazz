@@ -95,6 +95,7 @@
       <div class="flex-center" style="gap: 0.8rem; margin: 2rem 0; flex-wrap: wrap;">
         <button class="btn btn-sm hub-filter-tab active" data-filter="all">All Subjects</button>
         <button class="btn btn-sm btn-outline hub-filter-tab" style="color: #fff; border-color: rgba(255,255,255,0.15);" data-filter="mathematics">Mathematics</button>
+        <button class="btn btn-sm btn-outline hub-filter-tab" style="color: #fff; border-color: rgba(255,255,255,0.15);" data-filter="primary">Primary (Grade 5)</button>
       </div>
       
       <!-- Directory Grid -->
@@ -138,6 +139,27 @@
           <div class="hub-card-actions">
             <a href="ruwan-maths.html" target="_blank" class="btn btn-sm btn-primary">Launch Page &rarr;</a>
             <button class="btn btn-sm btn-outline btn-edit-teacher" style="color:#fff; border-color:rgba(255,255,255,0.15);" data-teacher="ruwan">Customize</button>
+          </div>
+        </div>
+        
+        <!-- Tharanga Sir Card -->
+        <div class="teacher-hub-card glass" data-subject="primary">
+          <div class="hub-card-header">
+            <img class="hub-card-avatar" src="assets/tharanga-sir.jpg" alt="තරංග පල්ලේගම">
+            <div class="hub-card-title">
+              <h3>තරංග පල්ලේගම</h3>
+              <span>5 වසර ශිෂ්‍යත්වය</span>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; opacity: 0.8; line-height: 1.6;">5 වසර ශිෂ්‍යත්ව විශේෂඥ දේශක. සෙල්ලමෙන් උගන්වන දැවැන්ත සම්මන්ත්‍රණ සහ සතිපතා පන්ති පිළිමතලාව සහ Online මගින්.</p>
+          <div class="hub-card-tags">
+            <span class="hub-card-tag"><i class="fa-solid fa-graduation-cap" style="margin-right: 4px;"></i> ප්‍රාථමික දේශක</span>
+            <span class="hub-card-tag"><i class="fa-solid fa-map-pin" style="margin-right: 4px;"></i> පිළිමතලාව</span>
+            <span class="hub-card-tag" style="border-color: #ffd166; color: #ffd166;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 4px;"></i> Smart Kids Theme</span>
+          </div>
+          <div class="hub-card-actions">
+            <a href="tharanga-scholarship.html" target="_blank" class="btn btn-sm btn-primary">Launch Page &rarr;</a>
+            <button class="btn btn-sm btn-outline btn-edit-teacher" style="color:#fff; border-color:rgba(255,255,255,0.15);" data-teacher="tharanga">Customize</button>
           </div>
         </div>
       </div>
@@ -206,6 +228,9 @@
                   <div class="custom-option" data-value="terminal" onclick="selectCustomOption(event, 'terminal')" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Synthwave Terminal (Retro-Tech/ICT)</div>
                   <div class="custom-option" data-value="prism" onclick="selectCustomOption(event, 'prism')" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Liquid Prism (Molecular/Chemistry)</div>
                   <div class="custom-option" data-value="heritage" onclick="selectCustomOption(event, 'heritage')" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Classic Heritage (Ink & Gold/Literature)</div>
+                  <div class="custom-option" data-value="smart-kids" onclick="selectCustomOption(event, 'smart-kids')" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Smart Kids (Playful / Yellow-Blue)</div>
+                  <div class="custom-option" data-value="calm-scholar" onclick="selectCustomOption(event, 'calm-scholar')" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Calm Scholar (Mint Green / Stress-Free)</div>
+                  <div class="custom-option" data-value="pastel" onclick="selectCustomOption(event, 'pastel')" style="padding: 0.8rem 1.2rem; cursor: pointer; transition: all 0.2s;">Pastel Wonder (Baby Blue-Lavender / Soft)</div>
                 </div>
                 <!-- Hidden input to store value for JS engine -->
                 <input type="hidden" id="creTheme" value="neon">

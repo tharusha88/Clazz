@@ -1,0 +1,150 @@
+/* theme-smart-kids.css
+   Smart Kids (Energetic & Playful Theme)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap');
+
+:root {
+  --primary-color: #FFD166; /* Sunflower Yellow */
+  --secondary-color: #118AB2; /* Sky Blue */
+  --accent-glow: rgba(17, 138, 178, 0.1);
+  --bg-color: #ffffff;
+  --text-color: #073B4C; /* Dark Navy */
+  --card-bg: #F8F9FA;
+  --border-color: #E9ECEF;
+  --btn-color: #118AB2;
+  --btn-text: #ffffff;
+  --font-kids: 'Quicksand', sans-serif;
+}
+
+body.theme-smart-kids {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-kids), var(--font-sinhala), sans-serif;
+  background-image: radial-gradient(circle at 80% 10%, rgba(255, 209, 102, 0.15) 0%, transparent 40%);
+}
+
+/* Rounded playful glass style */
+body.theme-smart-kids .glass {
+  background: var(--card-bg);
+  border: 3px solid #E9ECEF; /* thick friendly borders */
+  box-shadow: 0 10px 0 rgba(7, 59, 76, 0.04);
+  border-radius: 24px;
+  color: var(--text-color);
+}
+
+body.theme-smart-kids .glass-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--secondary-color);
+  box-shadow: 0 15px 0 rgba(17, 138, 178, 0.15);
+}
+
+/* Font Overrides */
+body.theme-smart-kids h1,
+body.theme-smart-kids h2,
+body.theme-heritage h3,
+body.theme-smart-kids .brand-name,
+body.theme-smart-kids .btn {
+  font-family: var(--font-kids), var(--font-sinhala), sans-serif !important;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+body.theme-smart-kids header {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 3px solid #E9ECEF;
+}
+
+/* Playful bouncy buttons */
+body.theme-smart-kids .btn-primary {
+  background: var(--secondary-color);
+  color: var(--btn-text);
+  border-radius: 999px;
+  padding: 1.1rem 2.5rem;
+  border: 3px solid var(--secondary-color);
+  box-shadow: 0 5px 0 #0d6b8a;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+}
+
+body.theme-smart-kids .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #0d6b8a;
+  background: #149bc7;
+}
+
+body.theme-smart-kids .btn-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #0d6b8a;
+}
+
+body.theme-smart-kids .btn-outline {
+  background: var(--primary-color);
+  color: var(--text-color);
+  border-radius: 999px;
+  border: 3px solid #FFD166;
+  box-shadow: 0 5px 0 #d9ab36;
+}
+
+body.theme-smart-kids .btn-outline:hover {
+  background: #ffe094;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #d9ab36;
+  color: var(--text-color);
+}
+
+/* Timeline */
+body.theme-smart-kids .experience-timeline::before {
+  background: #E9ECEF;
+  width: 4px;
+}
+
+body.theme-smart-kids .timeline-dot {
+  background: var(--secondary-color);
+  border: 4px solid #ffffff;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* Timetable */
+body.theme-smart-kids td, 
+body.theme-smart-kids th {
+  border-bottom: 2px solid #E9ECEF;
+  padding: 1.2rem;
+}
+
+body.theme-smart-kids th {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+/* Form input */
+body.theme-smart-kids .form-input {
+  background: #ffffff !important;
+  border: 3px solid #E9ECEF !important;
+  color: var(--text-color) !important;
+  border-radius: 12px;
+}
+
+body.theme-smart-kids .form-input:focus {
+  border-color: var(--secondary-color) !important;
+  box-shadow: none !important;
+}
+
+body.theme-smart-kids .form-input option {
+  background: #ffffff !important;
+  color: var(--text-color) !important;
+}
+
+/* Custom Cursors - colorful bouncy */
+body.theme-smart-kids .cursor-dot {
+  background: var(--secondary-color);
+  mix-blend-mode: normal;
+}
+body.theme-smart-kids .cursor-ring {
+  border-color: var(--primary-color);
+  border-width: 2.5px;
+  mix-blend-mode: normal;
+}
+body.theme-smart-kids .cursor-ring.active {
+  background-color: rgba(255, 209, 102, 0.2);
+}

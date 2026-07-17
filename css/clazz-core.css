@@ -1,6 +1,6 @@
 /* Clazz Core Stylesheet
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Sinhala:wght@400;500;700&family=Caveat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Sinhala:wght@400;500;700&family=Caveat:wght@400;700&family=Gemunu+Libre:wght@400;500;600;700;800&family=Noto+Serif+Sinhala:wght@400;500;600;700;800&display=swap');
 
 :root {
   /* Common variables */
@@ -10,6 +10,8 @@
   --font-body: 'Outfit', sans-serif;
   --font-head: 'Space Grotesk', sans-serif;
   --font-sinhala: 'Noto Sans Sinhala', sans-serif;
+  --font-sinhala-formal: 'Noto Serif Sinhala', serif;
+  --font-sinhala-modern: 'Gemunu Libre', sans-serif;
   --font-hand: 'Caveat', cursive;
   
   --max-width: 1200px;
