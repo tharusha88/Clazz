@@ -1,0 +1,3023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prasad Weerakoon | Master A/L Physics - භෞතික විද්‍යාවේ සන්නාමය</title>
+    <meta name="description" content="A/L Physics with Prasad Weerakoon. The trusted brand for Physics at Vista Institute, Anuradhapura.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6.5.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & THEME CONFIGURATION
+           ========================================================================== */
+        :root {
+            /* Core Colors */
+            --electric-blue: #2563EB;
+            --neon-cyan: #06B6D4;
+            --physics-gold: #FBBF24;
+            --dark-bg: #050816;
+            --card-bg: #0F172A;
+            --text: #FFFFFF;
+            --text-muted: #94A3B8;
+            
+            /* Glow Effects */
+            --glow-blue: rgba(37, 99, 235, 0.3);
+            --glow-cyan: rgba(6, 182, 212, 0.2);
+            --glow-gold: rgba(251, 191, 36, 0.2);
+            
+            /* Glassmorphism */
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-bg-hover: rgba(15, 23, 42, 0.8);
+            --glass-border: rgba(37, 99, 235, 0.15);
+            --glass-border-hover: rgba(6, 182, 212, 0.4);
+            
+            /* Typography */
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sinhala: 'Noto Sans Sinhala', sans-serif;
+            
+            /* Structural */
+            --section-padding: 100px;
+            --container-width: 1280px;
+            --border-radius-lg: 24px;
+            --border-radius-md: 16px;
+            --border-radius-sm: 8px;
+            
+            /* Animation */
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE STYLES
+           ========================================================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sinhala-text {
+            font-family: var(--font-sinhala);
+        }
+
+        .mono-text {
+            font-family: var(--font-mono);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .text-gold {
+            color: var(--physics-gold);
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        /* Glassmorphism Utility */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .glass-panel:hover {
+            border-color: var(--glass-border-hover);
+            box-shadow: 0 12px 48px 0 var(--glow-blue);
+            transform: translateY(-5px);
+        }
+
+        /* Section Settings */
+        section {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-cyan));
+            color: white;
+            box-shadow: 0 4px 20px var(--glow-blue);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 30px var(--glow-cyan);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--neon-cyan);
+        }
+
+        .btn-secondary:hover {
+            background: var(--glow-cyan);
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        /* ==========================================================================
+           3. ANNOUNCEMENT BAR
+           ========================================================================== */
+        .announcement-bar {
+            background: linear-gradient(90deg, #020617, #0F172A, #020617);
+            color: var(--physics-gold);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 100;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            animation: pulse-gold 3s infinite alternate;
+        }
+
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 5px rgba(251, 191, 36, 0); }
+            100% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.1); }
+        }
+
+        /* ==========================================================================
+           4. NAVBAR
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 40px; /* Below announcement */
+            left: 0;
+            width: 100%;
+            z-index: 99;
+            transition: var(--transition-smooth);
+            padding: 20px 0;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            top: 0;
+            padding: 15px 0;
+            background: rgba(5, 8, 22, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--text);
+        }
+
+        .brand-sub {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+            z-index: 101;
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid var(--glass-border);
+            z-index: 100;
+            padding: 100px 30px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        /* ==========================================================================
+           5. HERO SECTION
+           ========================================================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Canvas Background */
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: auto; /* Allow mouse interaction */
+        }
+
+        /* Subtle Grid Overlay */
+        .hero-bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--electric-blue);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--neon-cyan);
+            width: fit-content;
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-title-gold {
+            font-size: 5rem;
+            display: block;
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .hero-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .chip {
+            padding: 8px 16px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .chip:hover {
+            border-color: var(--neon-cyan);
+            background: rgba(6, 182, 212, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .chip i {
+            color: var(--neon-cyan);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-num {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Hero Image Side */
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Concentric Rings Animation */
+        .ring-container {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            z-index: 1;
+        }
+
+        .ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px dashed rgba(6, 182, 212, 0.3);
+            animation: rotate-ring 20s linear infinite;
+        }
+
+        .ring-1 { width: 300px; height: 300px; animation-direction: normal; border-color: rgba(37, 99, 235, 0.4); }
+        .ring-2 { width: 450px; height: 450px; animation-direction: reverse; animation-duration: 30s; }
+        .ring-3 { width: 600px; height: 600px; border-style: dotted; animation-duration: 40s; }
+
+        @keyframes rotate-ring {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Atom SVG Center */
+        .atom-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.4;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-img {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 30px;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 0 50px rgba(37, 99, 235, 0.4);
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        /* Floating Equations */
+        .floating-eq {
+            position: absolute;
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--glow-cyan);
+            z-index: 4;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 8px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            backdrop-filter: blur(8px);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .eq-1 { top: 10%; right: 10%; animation-delay: 0s; }
+        .eq-2 { bottom: 20%; left: -5%; animation-delay: 1.5s; color: var(--physics-gold); text-shadow: 0 0 10px var(--glow-gold); border-color: rgba(251, 191, 36, 0.3); }
+        .eq-3 { top: 40%; right: -10%; animation-delay: 3s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* ==========================================================================
+           6. SCROLLING FORMULA STRIP
+           ========================================================================== */
+        .formula-strip {
+            background: #020617;
+            padding: 20px 0;
+            border-top: 1px solid rgba(6, 182, 212, 0.2);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+            position: relative;
+            z-index: 10;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        .formula-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+        }
+
+        .formula-content span {
+            margin: 0 40px;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px var(--glow-cyan);
+        }
+
+        .formula-content .dot {
+            color: var(--text-muted);
+            text-shadow: none;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Assumes content is duplicated */
+        }
+
+        /* ==========================================================================
+           7. ABOUT SECTION
+           ========================================================================== */
+        .about {
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #080f25 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-card {
+            position: relative;
+            padding: 20px;
+        }
+
+        .about-image-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-cyan));
+            border-radius: var(--border-radius-lg);
+            transform: rotate(-3deg);
+            z-index: 1;
+            opacity: 0.5;
+            transition: var(--transition-smooth);
+        }
+
+        .about-image-card:hover::before {
+            transform: rotate(-5deg) scale(1.02);
+            opacity: 0.8;
+        }
+
+        .about-img-inner {
+            position: relative;
+            z-index: 2;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .about-img-inner img {
+            width: 100%;
+            display: block;
+            opacity: 0.9;
+            filter: grayscale(20%) contrast(1.1);
+            transition: var(--transition-smooth);
+        }
+
+        .about-image-card:hover .about-img-inner img {
+            filter: grayscale(0%) contrast(1.2);
+            transform: scale(1.05);
+        }
+
+        .about-content .eyebrow {
+            color: var(--neon-cyan);
+            font-family: var(--font-mono);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .about-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .quals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .qual-card {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .qual-card i {
+            font-size: 1.8rem;
+            color: var(--physics-gold);
+            margin-bottom: 5px;
+        }
+
+        .qual-title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           8. FEATURES / WHY CHOOSE
+           ========================================================================== */
+        .features {
+            background: var(--dark-bg);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--glow-blue) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            border-top: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-top-color: var(--neon-cyan);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            transition: var(--transition-bounce);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: rgba(6, 182, 212, 0.2);
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           9. INTERACTIVE CALCULATORS (UNIQUE SECTION)
+           ========================================================================== */
+        .calculators-section {
+            background: url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h40v40H0z" fill="none"/><path d="M39.5 0h1v40h-1zM0 39.5h40v1H0z" fill="rgba(37,99,235,0.05)"/></svg>') #030612;
+            padding: 120px 0;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .calc-card {
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calc-card::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 150px; height: 150px;
+            background: radial-gradient(circle, var(--glow-cyan) 0%, transparent 70%);
+            opacity: 0.2;
+            transition: var(--transition-smooth);
+        }
+        
+        .calc-card:hover::after {
+            opacity: 0.5;
+            transform: scale(1.2);
+        }
+
+        .calc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+        }
+
+        .calc-title {
+            font-size: 1.3rem;
+            color: var(--neon-cyan);
+            margin: 0;
+        }
+
+        .calc-formula {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            background: rgba(0,0,0,0.3);
+            padding: 4px 10px;
+            border-radius: 6px;
+            color: var(--physics-gold);
+        }
+
+        .calc-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-group label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+        }
+
+        .input-wrapper input {
+            flex: 1;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 12px 16px;
+            border-radius: 8px 0 0 8px;
+            color: white;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .input-wrapper input:focus {
+            border-color: var(--electric-blue);
+            box-shadow: inset 0 0 10px rgba(37,99,235,0.2);
+        }
+        
+        /* Remove arrows from number input */
+        .input-wrapper input::-webkit-outer-spin-button,
+        .input-wrapper input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .input-wrapper input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .input-unit {
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-left: none;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 8px 8px 0;
+            color: var(--neon-cyan);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .calc-action {
+            margin-top: 1rem;
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--neon-cyan);
+            color: white;
+            border-radius: 8px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .calc-action:hover {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            box-shadow: 0 0 15px var(--glow-cyan);
+        }
+
+        .calc-result {
+            margin-top: 1.5rem;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px dashed var(--electric-blue);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            min-height: 85px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .calc-result.active {
+            background: rgba(37, 99, 235, 0.1);
+            border-style: solid;
+            box-shadow: 0 0 20px var(--glow-blue);
+            animation: pulse-result 0.5s ease-out;
+        }
+
+        @keyframes pulse-result {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .res-value {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+        }
+
+        .res-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ==========================================================================
+           10. TIMELINE SECTION
+           ========================================================================== */
+        .timeline-section {
+            background: var(--dark-bg);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--electric-blue), var(--neon-cyan), var(--physics-gold));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: var(--dark-bg);
+            border: 4px solid var(--neon-cyan);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 15px var(--glow-cyan);
+        }
+
+        .timeline-item:last-child .timeline-dot {
+            border-color: var(--physics-gold);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+            background: var(--physics-gold);
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: left;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .timeline-item:nth-child(even) .timeline-title {
+            justify-content: flex-start;
+        }
+
+        .timeline-title i {
+            color: var(--electric-blue);
+            background: rgba(37, 99, 235, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           11. RESULTS SECTION
+           ========================================================================== */
+        .results-section {
+            background: linear-gradient(135deg, #050816 0%, #0a1128 100%);
+            position: relative;
+        }
+
+        .results-header-counter {
+            font-family: var(--font-mono);
+            font-size: 4rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--physics-gold);
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, var(--physics-gold), #d97706);
+            color: #000;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.2rem;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .rank-badge span {
+            transform: rotate(-45deg) translate(5px, 5px);
+            display: block;
+        }
+
+        .student-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-muted);
+            border: 2px solid var(--electric-blue);
+            box-shadow: 0 0 20px var(--glow-blue);
+        }
+
+        .student-name {
+            font-family: var(--font-sinhala);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .grade-pills {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .grade-pill {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--physics-gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .district-text {
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           12. INSPIRATION SECTION
+           ========================================================================== */
+        .inspiration {
+            background: #020617;
+            padding: 100px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .inspire-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .inspire-icon {
+            flex: 0 0 auto;
+            font-size: 8rem;
+            color: var(--electric-blue);
+            text-shadow: 0 0 50px var(--glow-blue);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .inspire-content {
+            flex: 1;
+        }
+
+        .inspire-quote {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .inspire-quote::before {
+            content: '"';
+            font-size: 6rem;
+            color: rgba(37, 99, 235, 0.2);
+            position: absolute;
+            top: -40px;
+            left: -30px;
+            font-family: serif;
+        }
+
+        .inspire-author {
+            color: var(--neon-cyan);
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* ==========================================================================
+           13. CLASS DETAILS & MAP
+           ========================================================================== */
+        .class-details {
+            background: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h60v60H0z" fill="none"/><path d="M59.5 0h1v60h-1zM0 59.5h60v1H0z" fill="rgba(255,255,255,0.02)"/></svg>') var(--dark-bg);
+        }
+        
+        .class-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.4);
+        }
+
+        .class-info-side {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--neon-cyan);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            margin-bottom: 2px;
+            font-size: 1.1rem;
+        }
+
+        .info-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .class-map-side {
+            background: #0b1121;
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Map UI Mockup */
+        .map-grid {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            transform: rotateX(60deg) rotateZ(45deg);
+            transform-origin: center;
+        }
+
+        .map-pin-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: bounce 2s infinite;
+        }
+
+        .map-pin {
+            font-size: 3rem;
+            color: #ef4444;
+            text-shadow: 0 10px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .map-pulse {
+            width: 40px;
+            height: 10px;
+            background: rgba(239, 68, 68, 0.5);
+            border-radius: 50%;
+            margin-top: -5px;
+            filter: blur(4px);
+            animation: pulse-shadow 2s infinite;
+        }
+        
+        .map-label {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            white-space: nowrap;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes pulse-shadow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 0.2; }
+        }
+
+        /* ==========================================================================
+           14. TESTIMONIALS
+           ========================================================================== */
+        .testimonials {
+            background: var(--dark-bg);
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testi-card {
+            padding: 2rem;
+            border-top: 4px solid var(--electric-blue);
+            position: relative;
+        }
+        
+        .testi-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.05);
+        }
+
+        .stars {
+            color: var(--physics-gold);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .testi-text {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-cyan);
+            font-weight: bold;
+        }
+
+        .author-info h5 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .author-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           15. FAQ ACCORDION
+           ========================================================================== */
+        .faq-section {
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #03081a 100%);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            color: var(--text);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-question:hover {
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            color: var(--neon-cyan);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-item.active .faq-question {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: var(--neon-cyan);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.4);
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-answer p {
+            padding: 1.5rem 2rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ==========================================================================
+           16. ENROLLMENT FORM
+           ========================================================================== */
+        .enroll-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .enroll-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .enroll-card {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 16px;
+            border-radius: 8px;
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+            background: rgba(0,0,0,0.7);
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        select.form-control option {
+            background: var(--card-bg);
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 16px;
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================================================
+           17. FINAL CTA
+           ========================================================================== */
+        .final-cta {
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+            background: #02040a;
+            overflow: hidden;
+        }
+
+        .cta-particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(var(--neon-cyan) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            animation: move-up 20s linear infinite;
+        }
+
+        @keyframes move-up {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 -500px; }
+        }
+
+        .final-cta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-family: var(--font-sinhala);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ==========================================================================
+           18. FOOTER
+           ========================================================================== */
+        footer {
+            background: #010308;
+            padding: 80px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand .brand-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--neon-cyan);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-cyan);
+            padding-left: 5px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .contact-item i {
+            color: var(--electric-blue);
+            margin-top: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition-smooth);
+        }
+
+        .social-link:hover {
+            background: var(--electric-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--glow-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           19. FLOATING WHATSAPP BUTTON
+           ========================================================================== */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            animation: wa-pulse 2s infinite;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+        
+        .wa-tooltip {
+            position: absolute;
+            right: 75px;
+            background: white;
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .wa-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 6px 0 6px 6px;
+            border-style: solid;
+            border-color: transparent transparent transparent white;
+        }
+
+        .floating-wa:hover .wa-tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 80px;
+        }
+
+        @keyframes wa-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* ==========================================================================
+           20. UTILITIES & ANIMATIONS (Scroll Reveal)
+           ========================================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* ==========================================================================
+           21. RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 1200px) {
+            .hero-title { font-size: 3.5rem; }
+            .hero-title-gold { font-size: 4rem; }
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .mobile-toggle { display: block; }
+            
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { align-items: center; }
+            .hero-chips { justify-content: center; }
+            .hero-image-wrapper { margin-top: 3rem; }
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image-card { max-width: 500px; margin: 0 auto 3rem; }
+            
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .calc-grid { grid-template-columns: 1fr; }
+            
+            .inspire-container { flex-direction: column; text-align: center; }
+            .inspire-quote::before { left: 50%; transform: translateX(-50%); top: -50px; }
+            
+            .class-card { grid-template-columns: 1fr; }
+            .class-map-side { min-height: 300px; }
+            
+            .testi-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.2rem; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .ring-container { transform: scale(0.7); }
+            .hero-img { width: 300px; height: 380px; }
+            .quals-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .timeline::before { left: 20px; }
+            .timeline-item { flex-direction: column !important; align-items: flex-start; padding-left: 50px; }
+            .timeline-dot { left: 20px; transform: translate(-50%, -10px); top: 0; }
+            .timeline-content { width: 100%; text-align: left !important; padding: 0 0 2rem 0; }
+            .timeline-title { justify-content: flex-start; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Announcement Bar -->
+    <div class="announcement-bar">
+        2028 A/L Physics Batch Now Open! | Bio/Maths Streams | Vista Institute, Anuradhapura
+    </div>
+
+    <!-- 2. Sticky Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand">
+                <span class="brand-name">Prasad Weerakoon</span>
+                <span class="brand-sub">PHYSICS</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#classes" class="nav-link">Classes</a></li>
+                <li><a href="#results" class="nav-link">Results</a></li>
+                <li><a href="#tools" class="nav-link">Formulas</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <a href="#enroll" class="btn btn-primary nav-cta">Enroll Now</a>
+            
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul style="display:flex; flex-direction:column; gap:1.5rem; list-style:none;">
+            <li><a href="#about" class="nav-link mobile-link">About</a></li>
+            <li><a href="#classes" class="nav-link mobile-link">Classes</a></li>
+            <li><a href="#results" class="nav-link mobile-link">Results</a></li>
+            <li><a href="#tools" class="nav-link mobile-link">Formulas</a></li>
+            <li><a href="#faq" class="nav-link mobile-link">FAQ</a></li>
+        </ul>
+        <a href="#enroll" class="btn btn-primary mobile-link" style="width: 100%;">Enroll Now</a>
+    </div>
+
+    <!-- 3. Hero Section -->
+    <section class="hero" id="home">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-bg-grid"></div>
+        
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-atom fa-spin-pulse"></i> Trusted Physics Mentor · Vista Institute
+                </div>
+                
+                <h1 class="hero-title">
+                    Master Physics <br>
+                    <span class="text-muted" style="font-size: 2.5rem;">with</span><br>
+                    <span class="hero-title-gold">Prasad Weerakoon</span>
+                </h1>
+                
+                <p class="hero-tagline sinhala-text">භෞතික විද්‍යාවේ සන්නාමය</p>
+                
+                <div class="hero-chips">
+                    <span class="chip"><i class="fa-solid fa-chalkboard-user"></i> Theory</span>
+                    <span class="chip"><i class="fa-solid fa-rotate-left"></i> Revision</span>
+                    <span class="chip"><i class="fa-regular fa-file-lines"></i> Paper Class</span>
+                    <span class="chip"><i class="fa-solid fa-flask"></i> Practicals</span>
+                    <span class="chip"><i class="fa-solid fa-laptop-code"></i> Online LMS</span>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num counter" data-target="5000">0</span>
+                        <span class="stat-label">Students</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num counter" data-target="15">0</span>
+                        <span class="stat-label">Years Exp</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num"><span class="counter" data-target="98">0</span>%</span>
+                        <span class="stat-label">A Passes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">#1</span>
+                        <span class="stat-label">District Rank</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#enroll" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Join 2028 Batch</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper reveal delay-2">
+                <div class="ring-container">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                </div>
+                
+                <!-- SVG Atom Background -->
+                <svg class="atom-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="rgba(37,99,235,0.2)" stroke-width="2" fill="none">
+                        <ellipse cx="100" cy="100" rx="40" ry="80" transform="rotate(30 100 100)" />
+                        <ellipse cx="100" cy="100" rx="40" ry="80" transform="rotate(90 100 100)" />
+                        <ellipse cx="100" cy="100" rx="40" ry="80" transform="rotate(150 100 100)" />
+                        <circle cx="100" cy="100" r="10" fill="rgba(6, 182, 212, 0.4)" stroke="none" />
+                    </g>
+                </svg>
+
+                <div class="floating-eq eq-1">E = mc²</div>
+                <div class="floating-eq eq-2">F = ma</div>
+                <div class="floating-eq eq-3">V = IR</div>
+                
+                <!-- Note: Using placeholder image path as per request, since 'assets/prasad-sir.jpg' is local -->
+                <!-- Assuming the user has this image in the assets folder relative to html -->
+                <img src="assets/prasad-sir.jpg" alt="Prasad Weerakoon" class="hero-img" onerror="this.src='https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Scrolling Formula Strip -->
+    <div class="formula-strip">
+        <div class="formula-content">
+            F = ma <span class="dot">•</span> E = mc² <span class="dot">•</span> V = IR <span class="dot">•</span> PV = nRT <span class="dot">•</span> λ = h/p <span class="dot">•</span> P = W/t <span class="dot">•</span> v = u + at <span class="dot">•</span> s = ut + ½at² <span class="dot">•</span> ΔE = hν <span class="dot">•</span> F = qvB <span class="dot">•</span>
+            F = ma <span class="dot">•</span> E = mc² <span class="dot">•</span> V = IR <span class="dot">•</span> PV = nRT <span class="dot">•</span> λ = h/p <span class="dot">•</span> P = W/t <span class="dot">•</span> v = u + at <span class="dot">•</span> s = ut + ½at² <span class="dot">•</span> ΔE = hν <span class="dot">•</span> F = qvB <span class="dot">•</span>
+        </div>
+    </div>
+
+    <!-- 5. About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-card reveal">
+                    <div class="about-img-inner">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Physics Laboratory">
+                    </div>
+                </div>
+                
+                <div class="about-content reveal delay-2">
+                    <span class="eyebrow">The Mentor</span>
+                    <h2 class="section-title">Prasad Weerakoon</h2>
+                    
+                    <p class="about-desc">
+                        A dedicated Physics educator bridging the gap between complex theoretical concepts and practical understanding. With over 15 years of excellence in teaching Advanced Level Physics for Biology and Mathematics streams, I have guided thousands of students to achieve exceptional results and university entrance. My analytical approach simplifies the toughest principles of mechanics, fields, and modern physics.
+                    </p>
+                    
+                    <div class="quals-grid">
+                        <div class="qual-card glass-panel">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <h4 class="qual-title">B.Sc. Honours</h4>
+                            <span class="text-muted">Special Degree in Physics</span>
+                        </div>
+                        <div class="qual-card glass-panel">
+                            <i class="fa-solid fa-award"></i>
+                            <h4 class="qual-title">Dip. in Education</h4>
+                            <span class="text-muted">Professional Qualification</span>
+                        </div>
+                        <div class="qual-card glass-panel">
+                            <i class="fa-solid fa-school"></i>
+                            <h4 class="qual-title sinhala-text">ජාතික පාසල් ආචාර්ය</h4>
+                            <span class="text-muted">National School Teacher</span>
+                        </div>
+                        <div class="qual-card glass-panel">
+                            <i class="fa-solid fa-check-double"></i>
+                            <h4 class="qual-title sinhala-text">උත්තර පත්‍ර පරීක්ෂක</h4>
+                            <span class="text-muted">A/L Paper Marking Examiner</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/94716087721" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Me</a>
+                        <a href="tel:0716087721" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> 071 608 7721</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Why Students Choose -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Why Students <span class="text-gradient">Love Physics</span> Class</h2>
+                <p class="text-muted">The unique methodology that produces district ranks every year.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card glass-panel reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-gear"></i></div>
+                    <h3 class="feature-title">Mastering Mechanics</h3>
+                    <p class="feature-desc">Deep conceptual breakdown of mechanics, turning the hardest unit into your strongest asset.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="feature-card glass-panel reveal delay-1">
+                    <div class="feature-icon"><i class="fa-regular fa-lightbulb"></i></div>
+                    <h3 class="feature-title">Easy Explanations</h3>
+                    <p class="feature-desc">Complex physics phenomena explained using day-to-day real-world examples and analogies.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="feature-card glass-panel reveal delay-2">
+                    <div class="feature-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <h3 class="feature-title">Paper Discussions</h3>
+                    <p class="feature-desc">Thorough analysis of past papers and marking schemes by an official examiner.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="feature-card glass-panel reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-vial"></i></div>
+                    <h3 class="feature-title">Experiments</h3>
+                    <p class="feature-desc">Detailed practical discussions ensuring you ace the practical knowledge MCQs and essays.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="feature-card glass-panel reveal delay-1">
+                    <div class="feature-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <h3 class="feature-title">Problem Solving</h3>
+                    <p class="feature-desc">Structured techniques to approach multi-step calculation problems mathematically.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="feature-card glass-panel reveal delay-2">
+                    <div class="feature-icon"><i class="fa-solid fa-laptop"></i></div>
+                    <h3 class="feature-title">Online LMS</h3>
+                    <p class="feature-desc">Missed a class? Re-watch recordings, download notes, and attempt quizzes on our premium portal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Interactive Calculators Section -->
+    <section class="calculators-section" id="tools">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Interactive <span class="text-gradient">Physics Lab</span></h2>
+                <p class="text-muted">Test out core formulas with real-time calculations.</p>
+            </div>
+            
+            <div class="calc-grid">
+                
+                <!-- Force Calc -->
+                <div class="calc-card glass-panel reveal">
+                    <div class="calc-header">
+                        <h3 class="calc-title">Newton's Second Law</h3>
+                        <span class="calc-formula">F = ma</span>
+                    </div>
+                    <div class="calc-body">
+                        <div class="input-group">
+                            <label>Mass (m)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="calc1-m" placeholder="Enter mass">
+                                <span class="input-unit">kg</span>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Acceleration (a)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="calc1-a" placeholder="Enter acceleration">
+                                <span class="input-unit">m/s²</span>
+                            </div>
+                        </div>
+                        <button class="calc-action" onclick="calculateForce()">Calculate Force</button>
+                        <div class="calc-result" id="res-force">
+                            <div class="res-label">Resultant Force (F)</div>
+                            <div class="res-value">-- N</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ohm's Law Calc -->
+                <div class="calc-card glass-panel reveal delay-1">
+                    <div class="calc-header">
+                        <h3 class="calc-title">Ohm's Law</h3>
+                        <span class="calc-formula">V = IR</span>
+                    </div>
+                    <div class="calc-body">
+                        <div class="input-group">
+                            <label>Current (I)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="calc2-i" placeholder="Enter current">
+                                <span class="input-unit">A</span>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Resistance (R)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="calc2-r" placeholder="Enter resistance">
+                                <span class="input-unit">Ω</span>
+                            </div>
+                        </div>
+                        <button class="calc-action" onclick="calculateVoltage()">Calculate Voltage</button>
+                        <div class="calc-result" id="res-voltage">
+                            <div class="res-label">Voltage (V)</div>
+                            <div class="res-value">-- V</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projectile Calc -->
+                <div class="calc-card glass-panel reveal">
+                    <div class="calc-header">
+                        <h3 class="calc-title">Projectile Range</h3>
+                        <span class="calc-formula">R = (v²sin2θ)/g</span>
+                    </div>
+                    <div class="calc-body">
+                        <div class="input-group">
+                            <label>Initial Velocity (v)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="calc3-v" placeholder="Enter velocity">
+                                <span class="input-unit">m/s</span>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Launch Angle (θ)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="calc3-t" placeholder="Enter angle (0-90)">
+                                <span class="input-unit">deg °</span>
+                            </div>
+                        </div>
+                        <button class="calc-action" onclick="calculateRange()">Calculate Range</button>
+                        <div class="calc-result" id="res-range">
+                            <div class="res-label">Maximum Range (R)</div>
+                            <div class="res-value">-- m</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Density Calc -->
+                <div class="calc-card glass-panel reveal delay-1">
+                    <div class="calc-header">
+                        <h3 class="calc-title">Density</h3>
+                        <span class="calc-formula">ρ = m/V</span>
+                    </div>
+                    <div class="calc-body">
+                        <div class="input-group">
+                            <label>Mass (m)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="calc4-m" placeholder="Enter mass">
+                                <span class="input-unit">kg</span>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Volume (V)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="calc4-v" placeholder="Enter volume">
+                                <span class="input-unit">m³</span>
+                            </div>
+                        </div>
+                        <button class="calc-action" onclick="calculateDensity()">Calculate Density</button>
+                        <div class="calc-result" id="res-density">
+                            <div class="res-label">Density (ρ)</div>
+                            <div class="res-value">-- kg/m³</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Timeline Section -->
+    <section class="timeline-section" id="journey">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">The <span class="text-gold">Syllabus</span> Journey</h2>
+                <p class="text-muted">A structured progression to master the A/L Physics syllabus.</p>
+            </div>
+            
+            <div class="timeline">
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Mechanics <i class="fa-solid fa-gear"></i></h3>
+                        <p class="timeline-desc">Laying the foundation. Vectors, kinematics, dynamics, statics, and circular motion. The backbone of A/L Physics.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fa-solid fa-water"></i> Waves & Oscillations</h3>
+                        <p class="timeline-desc">Understanding SHM, wave properties, sound, and light. Building analytical skills for wave phenomena.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Fields & Electricity <i class="fa-solid fa-bolt"></i></h3>
+                        <p class="timeline-desc">Gravitational, Electric, and Magnetic fields followed by Current Electricity. The highest weighted section in the paper.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fa-solid fa-atom"></i> Modern Physics</h3>
+                        <p class="timeline-desc">Quantum mechanics basics, matter radiation, radioactivity, and electronics. The most fascinating units.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Revision & Papers <i class="fa-solid fa-file-signature"></i></h3>
+                        <p class="timeline-desc">Intensive past paper discussions, model papers, and time management strategies.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title text-gold"><i class="fa-solid fa-trophy"></i> The 'A' Grade</h3>
+                        <p class="timeline-desc">University entrance secured. District and Island ranks achieved.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Results Section -->
+    <section class="results-section" id="results">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="results-header-counter">5000+ <span class="sinhala-text" style="font-size: 2.5rem;">සිසුන්</span></div>
+                <h2 class="section-title">A Legacy of <span class="text-gradient">Excellence</span></h2>
+                <p class="text-muted">Proudly producing top ranks in the Anuradhapura district.</p>
+            </div>
+            
+            <div class="results-grid">
+                
+                <!-- Rank 1 -->
+                <div class="result-card glass-panel reveal">
+                    <div class="rank-badge"><span>#1</span></div>
+                    <div class="student-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h3 class="student-name">සෙහාන්</h3>
+                    <div class="grade-pills">
+                        <span class="grade-pill">A</span>
+                        <span class="grade-pill">A</span>
+                        <span class="grade-pill">A</span>
+                    </div>
+                    <p class="district-text">District Rank 01</p>
+                </div>
+
+                <!-- Rank 2 -->
+                <div class="result-card glass-panel reveal delay-1">
+                    <div class="rank-badge" style="background: linear-gradient(135deg, #cbd5e1, #94a3b8);"><span>#2</span></div>
+                    <div class="student-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h3 class="student-name">විනුක</h3>
+                    <div class="grade-pills">
+                        <span class="grade-pill">A</span>
+                        <span class="grade-pill">A</span>
+                        <span class="grade-pill">A</span>
+                    </div>
+                    <p class="district-text">District Rank 02</p>
+                </div>
+
+                <!-- Rank 5 -->
+                <div class="result-card glass-panel reveal delay-2">
+                    <div class="rank-badge" style="background: linear-gradient(135deg, #b45309, #78350f); color: white;"><span>#5</span></div>
+                    <div class="student-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h3 class="student-name">රන්සර</h3>
+                    <div class="grade-pills">
+                        <span class="grade-pill">A</span>
+                        <span class="grade-pill">A</span>
+                        <span class="grade-pill">A</span>
+                    </div>
+                    <p class="district-text">District Rank 05</p>
+                </div>
+
+                <!-- Rank 13 -->
+                <div class="result-card glass-panel reveal delay-3">
+                    <div class="rank-badge" style="background: #1e293b; color: white;"><span>#13</span></div>
+                    <div class="student-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h3 class="student-name">තරුණි</h3>
+                    <div class="grade-pills">
+                        <span class="grade-pill">A</span>
+                        <span class="grade-pill">A</span>
+                        <span class="grade-pill">A</span>
+                    </div>
+                    <p class="district-text">District Rank 13</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Class Details Section -->
+    <section class="class-details" id="classes">
+        <div class="container">
+            <div class="class-card glass-panel reveal">
+                <div class="class-info-side">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 0;">Class <span class="text-gradient">Schedule</span></h2>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-text">
+                                <h4>Vista Institute</h4>
+                                <p>Anuradhapura (Physical Classes)</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <div class="info-text">
+                                <h4>Every Sunday</h4>
+                                <p>12.30 PM - 4.30 PM</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-globe"></i></div>
+                            <div class="info-text">
+                                <h4>Islandwide Online</h4>
+                                <p>Via Premium LMS & Zoom Live</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#enroll" class="btn btn-primary" style="width: fit-content;">Reserve Your Seat</a>
+                </div>
+                
+                <div class="class-map-side">
+                    <div class="map-grid"></div>
+                    <div class="map-pin-container">
+                        <i class="fa-solid fa-location-dot map-pin"></i>
+                        <div class="map-pulse"></div>
+                        <div class="map-label">Vista Institute, Anuradhapura</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Inspiration Section -->
+    <section class="inspiration">
+        <div class="container inspire-container reveal">
+            <div class="inspire-icon">
+                <i class="fa-brands fa-apple"></i>
+            </div>
+            <div class="inspire-content">
+                <h3 style="color: var(--physics-gold); font-family: var(--font-mono); font-weight: normal; margin-bottom: 20px;">Every Great Discovery Begins with Curiosity.</h3>
+                <p class="inspire-quote">
+                    If I have seen further, it is by standing on the shoulders of giants.
+                </p>
+                <span class="inspire-author">— Sir Isaac Newton</span>
+                <p class="text-muted" style="max-width: 600px;">
+                    Physics is not about memorizing equations; it's about developing an analytical mindset to understand the universe. Join us to build that mindset and conquer your A/L examination with confidence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Student <span class="text-gradient">Voices</span></h2>
+                <p class="text-muted">Hear from those who achieved their dreams.</p>
+            </div>
+            
+            <div class="testi-grid">
+                
+                <div class="testi-card glass-panel reveal">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">
+                        "Sir's mechanics explanations are unmatched. I used to struggle with past paper questions, but the structured approach taught in class made everything clear. The practical discussions were a lifesaver."
+                    </p>
+                    <div class="testi-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h5>Sandun Kumara</h5>
+                            <span>Medical Faculty, Peradeniya</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testi-card glass-panel reveal delay-1">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">
+                        "What makes Prasad sir different is how he connects theory to real life. The paper classes were very tough but exactly what we needed to face the real A/L exam without fear."
+                    </p>
+                    <div class="testi-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h5>Malithi Perera</h5>
+                            <span>Engineering Faculty, Moratuwa</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testi-card glass-panel reveal delay-2">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">
+                        "The online LMS system was perfect. I could re-watch lessons whenever I had doubts. Sir is very dedicated, and his paper marking experience helped us write answers exactly how examiners want."
+                    </p>
+                    <div class="testi-author">
+                        <div class="author-avatar">K</div>
+                        <div class="author-info">
+                            <h5>Kavindu Silva</h5>
+                            <span>Physical Science, Colombo</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FAQ Accordion -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+            </div>
+            
+            <div class="faq-container reveal">
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What streams can join this class?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our physics classes are designed for both Biology and Mathematics stream students. The mathematical principles required for Bio students are taught from scratch.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will printed tutes and notes be provided? (Notes ලැබෙනවද?)
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. For physical class students, premium printed tutes are given at the institute. For online students, PDFs are uploaded to the LMS, and printed packs can be posted upon request.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Are online classes available?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we have a fully functional Learning Management System (LMS). You can join live via Zoom and access high-quality recordings anytime.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        When do the 2028 batch classes start?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Enrollments are now open. The foundation classes will commence immediately after O/L exams. Register early to secure your spot as physical class seats are limited.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What makes Prasad sir's class different?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>With his experience as a National School Teacher and an official A/L Paper Examiner, he knows exactly where students make mistakes and how marking schemes allocate marks. His teaching bridges deep theory with strict exam focus.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Enrollment Form -->
+    <section class="enroll-section" id="enroll">
+        <div class="enroll-bg"></div>
+        <div class="container">
+            <div class="enroll-card glass-panel reveal">
+                <div class="section-header" style="margin-bottom: 2rem;">
+                    <h2 class="section-title" style="font-size: 2.5rem;">Join the <span class="text-gold">2028 Batch</span></h2>
+                    <p class="text-muted">Fill the form to reserve your seat via WhatsApp.</p>
+                </div>
+                
+                <form id="enrollmentForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="studentName">Full Name</label>
+                        <input type="text" id="studentName" class="form-control" required placeholder="Ex: Nuwan Perera">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="school">School</label>
+                        <input type="text" id="school" class="form-control" required placeholder="Ex: Anuradhapura Central">
+                    </div>
+                    
+                    <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div>
+                            <label for="alYear">A/L Year</label>
+                            <select id="alYear" class="form-control" required>
+                                <option value="2028">2028</option>
+                                <option value="2027">2027</option>
+                                <option value="2026">2026</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="stream">Stream</label>
+                            <select id="stream" class="form-control" required>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Biology">Biology</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">WhatsApp Number</label>
+                        <input type="tel" id="phone" class="form-control" required placeholder="07X XXX XXXX">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Send Details
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. Final CTA -->
+    <section class="final-cta">
+        <div class="cta-particles"></div>
+        <div class="container">
+            <h2 class="reveal">Ready to Master Physics?</h2>
+            <p class="reveal delay-1">Join Prasad Weerakoon — භෞතික විද්‍යාවේ සන්නාමය</p>
+            <div class="cta-buttons reveal delay-2">
+                <a href="#enroll" class="btn btn-primary" style="padding: 20px 40px; font-size: 1.2rem;">Enroll Now</a>
+                <a href="tel:0716087721" class="btn btn-secondary" style="padding: 20px 40px; font-size: 1.2rem;"><i class="fa-solid fa-phone"></i> Call 071 608 7721</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16. Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-brand">
+                    <div class="brand-name">PRASAD WEERAKOON</div>
+                    <div class="brand-sub" style="color: var(--neon-cyan); letter-spacing: 3px; font-size: 0.8rem;">PHYSICS</div>
+                    <p class="footer-desc">
+                        Empowering the next generation of scientists, engineers, and doctors through conceptual clarity in Physics.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About Sir</a>
+                        <a href="#classes">Class Schedule</a>
+                        <a href="#results">Past Results</a>
+                        <a href="#tools">Formulas</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <div>071 608 7721</div>
+                            <div>071 578 9024</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>+94 71 608 7721</div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>Vista Institute,<br>Anuradhapura</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2024 Prasad Weerakoon Physics. All Rights Reserved. Crafted with <i class="fa-solid fa-heart" style="color: #ef4444;"></i> for Physics Lovers.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 17. Floating WhatsApp Button -->
+    <a href="https://wa.me/94716087721" target="_blank" class="floating-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+        <div class="wa-tooltip">Chat with us</div>
+    </a>
+
+
+    <!-- ==========================================================================
+         JAVASCRIPT
+         ========================================================================== -->
+    <script>
+        // 1. Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            if(mobileMenu.classList.contains('active')) {
+                mobileToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            } else {
+                mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if(!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            }
+        });
+
+        // 3. Scroll Reveal Animation (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 4. Counter Animation for Stats
+        const counters = document.querySelectorAll('.counter');
+        let hasCounted = false;
+
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting && !hasCounted) {
+                    hasCounted = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000; // ms
+                        const increment = target / (duration / 16); // 60fps
+                        
+                        let current = 0;
+                        const updateCounter = () => {
+                            current += increment;
+                            if(current < target) {
+                                counter.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.hero-stats');
+        if(statsSection) countObserver.observe(statsSection);
+
+        // 5. FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            btn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all others
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                
+                // Toggle current
+                if(!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // 6. Interactive Physics Calculators Logic
+        
+        function animateResult(elId, val, unit) {
+            const resBox = document.getElementById(elId);
+            const valBox = resBox.querySelector('.res-value');
+            
+            resBox.classList.remove('active');
+            // trigger reflow
+            void resBox.offsetWidth; 
+            
+            resBox.classList.add('active');
+            valBox.innerText = isNaN(val) ? "Error" : `${parseFloat(val.toFixed(2))} ${unit}`;
+        }
+
+        // F = ma
+        function calculateForce() {
+            const m = parseFloat(document.getElementById('calc1-m').value);
+            const a = parseFloat(document.getElementById('calc1-a').value);
+            if(m && a) animateResult('res-force', m * a, 'N');
+        }
+
+        // V = IR
+        function calculateVoltage() {
+            const i = parseFloat(document.getElementById('calc2-i').value);
+            const r = parseFloat(document.getElementById('calc2-r').value);
+            if(i && r) animateResult('res-voltage', i * r, 'V');
+        }
+
+        // R = v²sin2θ/g
+        function calculateRange() {
+            const v = parseFloat(document.getElementById('calc3-v').value);
+            const theta = parseFloat(document.getElementById('calc3-t').value);
+            const g = 9.81;
+            
+            if(v && theta !== undefined && theta >= 0 && theta <= 90) {
+                const rad = theta * (Math.PI / 180);
+                const r = (v * v * Math.sin(2 * rad)) / g;
+                animateResult('res-range', r, 'm');
+            }
+        }
+
+        // ρ = m/V
+        function calculateDensity() {
+            const m = parseFloat(document.getElementById('calc4-m').value);
+            const v = parseFloat(document.getElementById('calc4-v').value);
+            if(m && v && v !== 0) animateResult('res-density', m / v, 'kg/m³');
+        }
+
+        // 7. Enrollment Form -> WhatsApp Logic
+        function submitForm(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('studentName').value;
+            const school = document.getElementById('school').value;
+            const year = document.getElementById('alYear').value;
+            const stream = document.getElementById('stream').value;
+            const phone = document.getElementById('phone').value;
+            
+            const message = `*New Enrollment - 2028 Batch*%0A%0A*Name:* ${name}%0A*School:* ${school}%0A*A/L Year:* ${year}%0A*Stream:* ${stream}%0A*Contact:* ${phone}%0A%0AI would like to register for the class.`;
+            
+            const waLink = `https://wa.me/94716087721?text=${message}`;
+            window.open(waLink, '_blank');
+        }
+
+        // 8. Particle Canvas Logic (Mouse Interactive)
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        
+        const mouse = {
+            x: null,
+            y: null,
+            radius: 150
+        };
+        
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        
+        canvas.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function initCanvas() {
+            width = canvas.width = canvas.offsetWidth;
+            height = canvas.height = canvas.offsetHeight;
+            
+            particles = [];
+            const numParticles = (width * height) / 15000; // density
+            
+            for(let i = 0; i < numParticles; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    radius: Math.random() * 2 + 1,
+                    baseX: this.x,
+                    baseY: this.y
+                });
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for(let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                
+                // Move
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                // Bounce edges
+                if(p.x < 0 || p.x > width) p.vx *= -1;
+                if(p.y < 0 || p.y > height) p.vy *= -1;
+                
+                // Mouse interaction
+                if(mouse.x != null) {
+                    let dx = mouse.x - p.x;
+                    let dy = mouse.y - p.y;
+                    let dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if(dist < mouse.radius) {
+                        const forceDirectionX = dx / dist;
+                        const forceDirectionY = dy / dist;
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        
+                        p.x -= forceDirectionX * force * 2;
+                        p.y -= forceDirectionY * force * 2;
+                    }
+                }
+                
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(6, 182, 212, 0.5)';
+                ctx.fill();
+                
+                // Connect particles
+                for(let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x;
+                    let dy = p.y - p2.y;
+                    let dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if(dist < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${0.2 - dist/500})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(drawParticles);
+        }
+
+        window.addEventListener('resize', () => {
+            initCanvas();
+        });
+
+        // Initialize on load
+        setTimeout(() => {
+            initCanvas();
+            drawParticles();
+        }, 100);
+
+    </script>
+</body>
+</html>
