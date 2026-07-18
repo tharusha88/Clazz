@@ -212,7 +212,7 @@
        NAVBAR
     ============================================================ */
     .navbar {
-      position: fixed;
+      position: sticky;
       top: 0;
       left: 0;
       right: 0;
@@ -317,12 +317,12 @@
        HERO SECTION
     ============================================================ */
     .hero {
-      min-height: 100vh;
+      min-height: auto;
       background: linear-gradient(135deg, var(--royal-blue-dark) 0%, var(--royal-blue) 50%, #1a5c99 100%);
       position: relative;
       display: flex;
       align-items: center;
-      padding-top: 72px;
+      padding-top: 0;
       overflow: hidden;
     }
 
@@ -347,7 +347,7 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      padding: 96px 0 80px;
+      padding: 40px 0 50px;
     }
 
     .hero-grid {
@@ -1564,7 +1564,6 @@
     ============================================================ */
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; }
-      .hero-photo-wrapper { display: none; }
       .hero-stats { grid-template-columns: repeat(2, 1fr); }
       .grid-2 { grid-template-columns: 1fr; }
       .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -1622,13 +1621,6 @@
         <div class="hero-grid">
           <!-- Left -->
           <div>
-            <div class="hero-badge">
-              <div class="hero-badge-pill">
-                <i class="fa-solid fa-star"></i>
-                Trusted by Advanced Level Business Studies Students
-              </div>
-            </div>
-
             <div class="hero-brand-tag">BS KING</div>
             <div class="hero-brand-tagline sinhala">රජෙක් වගේ ඉගෙනගන්න</div>
 
