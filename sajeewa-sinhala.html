@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සජීව රත්නවීර | A/L සිංහල භාෂාව හා සාහිත්‍ය</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #7A1F2B;
+            --primary-light: #982837;
+            --secondary: #D4A017;
+            --secondary-hover: #E8B428;
+            --accent: #2F6B4F;
+            --bg-color: #FCFAF5;
+            --section-bg: #F5F1E8;
+            --text-main: #1E1E1E;
+            --text-muted: #4A4A4A;
+            --dark-section: #2C1018;
+            --heading-font: 'Noto Serif Sinhala', serif;
+            --body-font: 'Noto Sans Sinhala', sans-serif;
+            --en-font: 'Plus Jakarta Sans', sans-serif;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 4px 6px rgba(122, 31, 43, 0.05);
+            --shadow-md: 0 10px 30px rgba(122, 31, 43, 0.08);
+            --shadow-hover: 0 20px 40px rgba(122, 31, 43, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .en-text {
+            font-family: var(--en-font);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--body-font);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%) skewX(-15deg);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            transform: translateX(100%) skewX(-15deg);
+        }
+
+        .btn-gold {
+            background-color: var(--secondary);
+            color: var(--dark-section);
+            box-shadow: 0 4px 15px rgba(212, 160, 23, 0.3);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--secondary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 160, 23, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--bg-color);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(212, 160, 23, 0.1);
+        }
+
+        .btn-maroon {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-maroon:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Section Layouts */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-eyebrow {
+            color: var(--secondary);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 16px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+        }
+
+        .section-desc {
+            max-width: 600px;
+            margin: 20px auto 0;
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 1. Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(90deg, var(--dark-section), var(--primary), var(--dark-section));
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .announcement-bar i {
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+
+        /* 2. Sticky Navbar */
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            z-index: 99;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .header.fixed {
+            position: fixed;
+            top: 0;
+            background: rgba(252, 250, 245, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 24px;
+            box-shadow: 0 0 15px rgba(212, 160, 23, 0.4);
+        }
+
+        .header.fixed .logo-icon {
+            box-shadow: none;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 2px;
+            transition: var(--transition);
+        }
+
+        .header.fixed .logo-text h1 {
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 13px;
+            color: var(--secondary);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .header.fixed .nav-links a {
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 101;
+            transition: var(--transition);
+        }
+
+        .header.fixed .hamburger {
+            color: var(--primary);
+        }
+
+        /* 3. Hero Section */
+        .hero {
+            position: relative;
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--dark-section) 0%, var(--primary) 100%);
+            color: #fff;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        #heroCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0C50 27.6 27.6 50 0 50C27.6 50 50 72.4 50 100C50 72.4 72.4 50 100 50C72.4 50 50 27.6 50 0Z" fill="%23D4A017" fill-opacity="0.03"/></svg>');
+            z-index: 2;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary);
+            backdrop-filter: blur(4px);
+            margin-bottom: 24px;
+        }
+
+        .hero-title-sub {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-title-main {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .hero-feature-item i {
+            color: var(--secondary);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 160, 23, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-num {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 4px;
+            font-family: var(--en-font);
+        }
+
+        .stat-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-image-inner {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .hero-image-inner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--secondary);
+            border-radius: var(--radius-md);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero-image-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 4/5;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-wrapper:hover .hero-image-inner img {
+            transform: scale(1.05);
+        }
+
+        .floating-accent {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(30px);
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .acc-1 { top: -20px; right: -20px; background: var(--secondary); }
+        .acc-2 { bottom: -20px; left: -20px; }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* 4. Marquee Strip */
+        .marquee-container {
+            background: var(--dark-section);
+            color: #fff;
+            padding: 20px 0;
+            overflow: hidden;
+            position: relative;
+            border-top: 1px solid rgba(212, 160, 23, 0.2);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.2);
+        }
+
+        .marquee-content {
+            display: flex;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 0 40px;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .marquee-item i {
+            color: var(--secondary);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* 5. About Section */
+        .about-section {
+            background: var(--bg-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--secondary) 10%, transparent 11%);
+            background-size: 20px 20px;
+            z-index: -1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .qualifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .qual-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .qual-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .qual-icon {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .qual-title {
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .qual-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* 6. Why Choose */
+        .features-section {
+            background: var(--section-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 160, 23, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--primary);
+            font-size: 32px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon-wrapper {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: rotateY(180deg);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* 7. Classes Section */
+        .classes-section {
+            background: var(--bg-color);
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .class-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .class-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .class-header {
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--dark-section), var(--primary));
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+        
+        .class-header.online {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+        }
+
+        .class-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: var(--dark-section);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .class-header h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .class-header p {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .class-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+
+        .schedule-item:last-of-type {
+            border-bottom: none;
+            margin-bottom: 30px;
+        }
+
+        .schedule-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(122, 31, 43, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .schedule-details h4 {
+            font-size: 16px;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .schedule-details p {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-family: var(--en-font);
+        }
+        
+        .schedule-details .si-text {
+            font-family: var(--body-font);
+        }
+
+        .class-footer {
+            margin-top: auto;
+        }
+
+        .class-footer .btn {
+            width: 100%;
+        }
+
+        /* 8. Timeline Section */
+        .timeline-section {
+            background: var(--section-bg);
+            padding: 100px 0;
+        }
+
+        .timeline-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -48px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border: 4px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.3);
+        }
+
+        .timeline-content {
+            background: #fff;
+            padding: 20px 25px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 10px;
+            border-width: 10px 10px 10px 0;
+            border-style: solid;
+            border-color: transparent #fff transparent transparent;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .timeline-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* 9. Results Section */
+        .results-section {
+            background: linear-gradient(135deg, var(--dark-section), var(--primary));
+            color: #fff;
+        }
+        
+        .results-section .section-title, .results-section .section-desc {
+            color: #fff;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .result-grade {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--secondary), #FFA000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark-section);
+            font-family: var(--en-font);
+            box-shadow: 0 0 20px rgba(212, 160, 23, 0.4);
+        }
+
+        .result-info h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .result-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-family: var(--en-font);
+        }
+
+        /* 10. LMS Section */
+        .lms-section {
+            background: var(--bg-color);
+        }
+        
+        .lms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .lms-mockup {
+            position: relative;
+            background: #222;
+            border-radius: 16px 16px 0 0;
+            padding: 20px 20px 0;
+            border: 8px solid #333;
+            border-bottom: none;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .lms-mockup::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: -5%;
+            width: 110%;
+            height: 15px;
+            background: #444;
+            border-radius: 0 0 16px 16px;
+        }
+        
+        .lms-screen {
+            background: #111;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            border: 1px solid #444;
+            border-bottom: none;
+        }
+        
+        .lms-screen img {
+            width: 100%;
+            opacity: 0.8;
+            filter: contrast(1.2) sepia(0.2) hue-rotate(320deg);
+        }
+        
+        .lms-feature-list {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .lms-feature {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .lms-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .lms-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        /* 11. Testimonials */
+        .testimonials-section {
+            background: var(--section-bg);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 40px;
+            color: rgba(212, 160, 23, 0.2);
+        }
+        
+        .stars {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .student-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .student-details h5 {
+            font-size: 16px;
+            color: var(--text-main);
+        }
+        
+        .student-details p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* 12. FAQ */
+        .faq-section {
+            background: var(--bg-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary);
+            background: #fff;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: rgba(212, 160, 23, 0.05);
+        }
+
+        .faq-icon {
+            transition: var(--transition);
+            color: var(--secondary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #fafafa;
+        }
+
+        .faq-answer-inner {
+            padding: 0 25px 25px;
+            color: var(--text-muted);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* 13. Enrollment Form */
+        .enroll-section {
+            background: var(--section-bg);
+            position: relative;
+        }
+
+        .enroll-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-sm);
+            font-family: var(--body-font);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.2);
+        }
+        
+        select.form-control {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 15px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: var(--body-font);
+        }
+
+        .form-submit:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* 14. Final CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--dark-section));
+            padding: 80px 0;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .cta-section p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* 15. Footer */
+        .footer {
+            background: #1A090E;
+            color: #fff;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 28px;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--dark-section);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 20px;
+            margin-bottom: 24px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .footer-contact i {
+            color: var(--secondary);
+            font-size: 20px;
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            font-family: var(--en-font);
+        }
+
+        /* 16. Floating WhatsApp */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .float-wa:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            animation: none;
+        }
+        
+        .float-wa .tooltip {
+            position: absolute;
+            right: 80px;
+            background: #fff;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        
+        .float-wa .tooltip::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 6px 0 6px 6px;
+            border-style: solid;
+            border-color: transparent transparent transparent #fff;
+        }
+        
+        .float-wa:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 75px;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Mobile Menu Setup */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .hero-features {
+                justify-content: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .hero-image-wrapper {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background: #fff;
+                flex-direction: column;
+                justify-content: center;
+                gap: 30px;
+                transition: var(--transition);
+                z-index: 999;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                color: var(--text-main);
+                font-size: 18px;
+            }
+            
+            .nav-actions .btn {
+                display: none;
+            }
+
+            .about-grid, .timeline-container, .lms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .classes-grid, .features-grid, .results-grid, .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title-main {
+                font-size: 42px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+
+            .classes-grid, .features-grid, .results-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .enroll-container {
+                padding: 30px 20px;
+            }
+            
+            .cta-section h2 {
+                font-size: 32px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-dot {
+                left: -28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Announcement Bar -->
+    <div class="announcement-bar">
+        <i class="fa-solid fa-bullhorn"></i> 2028 A/L සිංහල නව Batch ආරම්භයි! | ආසන සීමිතයි | 077 551 9402
+    </div>
+
+    <!-- 2. Sticky Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-book-open"></i></div>
+                <div class="logo-text">
+                    <h1>සජීව රත්නවීර</h1>
+                    <p>සිංහල භාෂාව හා සාහිත්‍ය</p>
+                </div>
+            </div>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">ගැන</a>
+                <a href="#classes">පන්ති</a>
+                <a href="#results">ප්‍රතිඵල</a>
+                <a href="#lms">Online</a>
+                <a href="#faq">FAQ</a>
+                <button class="btn btn-gold nav-mobile-btn" style="display: none;" onclick="location.href='#enroll'">ලියාපදිංචි වන්න</button>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="#enroll" class="btn btn-gold">ලියාපදිංචි වන්න</a>
+                <button class="hamburger" id="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- 3. Hero Section -->
+    <section class="hero" id="home">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-pattern"></div>
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-graduation-cap"></i> කොළඹ විශ්වවිද්‍යාලයේ උපාධිධාරී
+                </div>
+                <h2 class="hero-title-sub">සිංහල භාෂාව හා සාහිත්‍ය</h2>
+                <h1 class="hero-title-main">විශිෂ්ට ප්‍රතිඵල ගෙනෙන<br>සජීව රත්නවීර</h1>
+                
+                <div class="hero-features">
+                    <div class="hero-feature-item"><i class="fa-solid fa-check"></i> ව්‍යාකරණය</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-check"></i> සාහිත්‍ය විචාර</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-check"></i> රචනා පුහුණුව</div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <div class="stat-num" data-target="1000">0</div>
+                        <div class="stat-text">සිසුන් වාර්ෂිකව</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num" data-target="100">0</div>
+                        <div class="stat-text">% විශිෂ්ට ප්‍රතිඵල</div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="#enroll" class="btn btn-gold"><i class="fa-brands fa-whatsapp"></i> පන්තියට එක්වන්න</a>
+                    <a href="#classes" class="btn btn-outline">කාලසටහන බලන්න</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper reveal">
+                <div class="floating-accent acc-1"></div>
+                <div class="floating-accent acc-2"></div>
+                <div class="hero-image-inner">
+                    <!-- Placeholder using a generic literary image if local assets are missing during dev, but referencing the exact path required -->
+                    <img src="assets/sajeewa-sir.jpg" alt="Sajeewa Rathnaweera" onerror="this.src='https://images.unsplash.com/photo-1544716278-e513176f20b5?q=80&w=1974&auto=format&fit=crop'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Achievement Marquee Strip -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <div class="marquee-item"><i class="fa-solid fa-star"></i> භෞතික පන්ති</div>
+            <div class="marquee-item"><i class="fa-solid fa-laptop"></i> Online Classes</div>
+            <div class="marquee-item"><i class="fa-solid fa-globe"></i> Islandwide</div>
+            <div class="marquee-item"><i class="fa-solid fa-file-pen"></i> Exam Revision</div>
+            <div class="marquee-item"><i class="fa-solid fa-book"></i> Model Papers</div>
+            <div class="marquee-item"><i class="fa-brands fa-whatsapp"></i> WhatsApp Support</div>
+            <div class="marquee-item"><i class="fa-solid fa-video"></i> Recorded Lessons</div>
+            <div class="marquee-item"><i class="fa-solid fa-lightbulb"></i> Smart Notes</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="marquee-item"><i class="fa-solid fa-star"></i> භෞතික පන්ති</div>
+            <div class="marquee-item"><i class="fa-solid fa-laptop"></i> Online Classes</div>
+            <div class="marquee-item"><i class="fa-solid fa-globe"></i> Islandwide</div>
+            <div class="marquee-item"><i class="fa-solid fa-file-pen"></i> Exam Revision</div>
+            <div class="marquee-item"><i class="fa-solid fa-book"></i> Model Papers</div>
+            <div class="marquee-item"><i class="fa-brands fa-whatsapp"></i> WhatsApp Support</div>
+            <div class="marquee-item"><i class="fa-solid fa-video"></i> Recorded Lessons</div>
+            <div class="marquee-item"><i class="fa-solid fa-lightbulb"></i> Smart Notes</div>
+        </div>
+    </div>
+
+    <!-- 5. About Section -->
+    <section class="section-padding about-section" id="about">
+        <div class="container about-grid">
+            <div class="about-image reveal">
+                <img src="assets/sajeewa-sir-results.jpg" alt="Sajeewa Sir Teaching" onerror="this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop'">
+            </div>
+            <div class="about-content reveal">
+                <span class="section-eyebrow">ගුරුවරයා ගැන</span>
+                <h2>ඔබගේ සිංහල ගුරුවරයා</h2>
+                <p class="about-text">වසර ගණනාවක අත්දැකීම් සහ කොළඹ විශ්වවිද්‍යාලයේ විශිෂ්ට අධ්‍යාපන පසුබිමක් සහිත සජීව රත්නවීර මහතා, උසස් පෙළ සිංහල විෂයය සඳහා දිවයිනේ ප්‍රමුඛතම ගුරුවරයෙකි. දරුවන්ට විෂයය කරුණු ගැඹුරින් අවබෝධ කර දෙමින්, ඔවුන්ව ඉහළම ප්‍රතිඵල කරා මෙහෙයවීම එතුමාගේ අරමුණයි.</p>
+                
+                <div class="qualifications-grid">
+                    <div class="qual-card">
+                        <i class="fa-solid fa-graduation-cap qual-icon"></i>
+                        <div class="qual-title">B.A. (Special)</div>
+                        <div class="qual-sub">University of Colombo</div>
+                    </div>
+                    <div class="qual-card">
+                        <i class="fa-solid fa-award qual-icon"></i>
+                        <div class="qual-title">M.A. in Sinhala</div>
+                        <div class="qual-sub">University of Colombo</div>
+                    </div>
+                    <div class="qual-card">
+                        <i class="fa-solid fa-certificate qual-icon"></i>
+                        <div class="qual-title">Dip. in Education</div>
+                        <div class="qual-sub">NIE Sri Lanka</div>
+                    </div>
+                    <div class="qual-card">
+                        <i class="fa-solid fa-pen-to-square qual-icon"></i>
+                        <div class="qual-title">පරීක්ෂක</div>
+                        <div class="qual-sub">උසස් පෙළ පිළිතුරු පත්‍ර</div>
+                    </div>
+                </div>
+                
+                <a href="#classes" class="btn btn-maroon">පන්ති කාලසටහන <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Why Students Choose -->
+    <section class="section-padding features-section">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-eyebrow">විශේෂතා</span>
+                <h2 class="section-title">ඇයි මේ සිංහල පංතිය?</h2>
+                <p class="section-desc">සාම්ප්‍රදායික ඉගැන්වීම් රටාවෙන් ඔබ්බට ගිය, නවීන සහ ප්‍රායෝගික ක්‍රමවේද හරහා දරුවන්ගේ සාමාර්ථය තහවුරු කරන පන්තිය.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>විභාග ඉලක්ක කරගත් ඉගැන්වීම</h3>
+                    <p>ප්‍රශ්න පත්‍රයේ ව්‍යුහය සහ ලකුණු දෙන ක්‍රමවේදය අනුවම පිළිතුරු ලිවීමට පුහුණු කිරීම.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay: 0.1s;">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <h3>සාහිත්‍ය ගැඹුරින් අවබෝධ කරවීම</h3>
+                    <p>සාහිත්‍ය ග්‍රන්ථ හුදු කටපාඩම් කිරීමෙන් තොරව, විචාරාත්මකව රසවිඳීමට මඟ පෙන්වීම.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay: 0.2s;">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-file-contract"></i></div>
+                    <h3>ආදර්ශ ප්‍රශ්න පත්‍ර</h3>
+                    <p>සෑම පාඩමක් අවසානයේම සහ විභාගයට පෙර ඉලක්කගත ආදර්ශ ප්‍රශ්න පත්‍ර සාකච්ඡාව.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3>රචනා පුහුණුව</h3>
+                    <p>නිවැරදි ව්‍යාකරණ, අක්ෂර වින්‍යාසය සහ නිර්මාණාත්මක භාෂා භාවිතය සහිතව රචනා ලිවීමේ කලාව.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay: 0.1s;">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>සතිපතා ඇගයීම්</h3>
+                    <p>සෑම සිසුවෙකුගේම ප්‍රගතිය අධීක්ෂණය කිරීම සහ දුර්වලතා හඳුනාගෙන නිවැරදි කිරීම.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay: 0.2s;">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>Online Recorded Lessons</h3>
+                    <p>මඟහැරුණු පාඩම් හෝ නැවත බැලීමට අවශ්‍ය පාඩම් අපගේ LMS පද්ධතිය හරහා නැරඹීමේ පහසුකම.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Classes Section -->
+    <section class="section-padding classes-section" id="classes">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-eyebrow">කාලසටහන</span>
+                <h2 class="section-title">පන්ති පැවැත්වෙන ස්ථාන</h2>
+                <p class="section-desc">ඔබට වඩාත් පහසු මාධ්‍යයකින් සහ ස්ථානයකින් අපගේ පන්ති සමඟ සම්බන්ධ විය හැක.</p>
+            </div>
+            
+            <div class="classes-grid">
+                <!-- Class 1 -->
+                <div class="class-card reveal">
+                    <div class="class-header">
+                        <div class="class-badge">Physical</div>
+                        <h3>සිප්ටා 2</h3>
+                        <p>තංගල්ල</p>
+                    </div>
+                    <div class="class-body">
+                        <div class="schedule-item">
+                            <div class="schedule-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <div class="schedule-details">
+                                <h4>Grade 10</h4>
+                                <p class="si-text">සෙම සෙනසුරාදා පෙ.ව. 1.00</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="schedule-details">
+                                <h4>Grade 11</h4>
+                                <p class="si-text">සෙම සෙනසුරාදා පෙ.ව. 10.30</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-footer">
+                        <a href="https://wa.me/94775519402?text=I%20want%20to%20join%20Sipta%20Tangalle%20Class" target="_blank" class="btn btn-maroon"><i class="fa-brands fa-whatsapp"></i> සම්බන්ධ වන්න</a>
+                    </div>
+                </div>
+
+                <!-- Class 2 -->
+                <div class="class-card reveal" style="transition-delay: 0.1s;">
+                    <div class="class-header">
+                        <div class="class-badge">Physical</div>
+                        <h3>සතර</h3>
+                        <p>කහදුමෝදර හන්දිය, රන්න</p>
+                    </div>
+                    <div class="class-body">
+                        <div class="schedule-item">
+                            <div class="schedule-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <div class="schedule-details">
+                                <h4>Grade 10</h4>
+                                <p class="si-text">සෙම අඟහරුවාදා පෙ.ව. 3.00</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="schedule-details">
+                                <h4>Grade 11</h4>
+                                <p class="si-text">සෙම අඟහරුවාදා පෙ.ව. 5.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-footer">
+                        <a href="https://wa.me/94775519402?text=I%20want%20to%20join%20Sathara%20Ranna%20Class" target="_blank" class="btn btn-maroon"><i class="fa-brands fa-whatsapp"></i> සම්බන්ධ වන්න</a>
+                    </div>
+                </div>
+
+                <!-- Class 3 -->
+                <div class="class-card reveal" style="transition-delay: 0.2s;">
+                    <div class="class-header online">
+                        <div class="class-badge">Virtual</div>
+                        <h3>Online</h3>
+                        <p>Islandwide (Zoom)</p>
+                    </div>
+                    <div class="class-body">
+                        <div class="schedule-item">
+                            <div class="schedule-icon"><i class="fa-solid fa-laptop"></i></div>
+                            <div class="schedule-details">
+                                <h4>Grade 10 & 11</h4>
+                                <p class="si-text">Grade 10: ඉරිදාවකම පෙ.ව. 6.30</p>
+                                <p class="si-text">Grade 11: ඉරිදාවකම පෙ.ව. 8.40</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-icon"><i class="fa-solid fa-headphones"></i></div>
+                            <div class="schedule-details">
+                                <h4>Grade 10 රසාස්වාදය</h4>
+                                <p class="si-text">සෙම බදාදා පෙ.ව. 6.30</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-footer">
+                        <a href="https://wa.me/94775519402?text=I%20want%20to%20join%20Online%20Class" target="_blank" class="btn btn-maroon"><i class="fa-brands fa-whatsapp"></i> සම්බන්ධ වන්න</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Teaching Timeline -->
+    <section class="timeline-section">
+        <div class="container timeline-container">
+            <div class="timeline-content-left reveal">
+                <span class="section-eyebrow">අපගේ ක්‍රමවේදය</span>
+                <h2 style="font-size: 36px; color: var(--primary); margin-bottom: 30px;">A සාමාර්ථයක් කරා යන සාර්ථක ගමන</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>1. පාඩම පැහැදිලි කිරීම</h4>
+                            <p>සෑම විෂය කරුණක්ම සරලව සහ උදාහරණ සහිතව මුල සිට පැහැදිලි කිරීම.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2. Smart සටහන් ලබා දීම</h4>
+                            <p>කෙටි ක්‍රම සහ මතක තබා ගැනීමේ උපක්‍රම සහිත ආකර්ෂණීය නිබන්ධන.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>3. රචනා හා අභ්‍යාස</h4>
+                            <p>විභාග මට්ටමේ රචනා සහ කෙටි ප්‍රශ්න ලිවීමේ පුහුණුව.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>4. පසුගිය ප්‍රශ්න (Past Papers)</h4>
+                            <p>පසුගිය වසර 10ක ප්‍රශ්න පත්‍ර පාඩමෙන් පාඩමට සාකච්ඡා කිරීම.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>5. Mock Exams (පෙරහුරු)</h4>
+                            <p>නියමිත කාලයට අනුව විභාගයට මුහුණ දීමේ පෙරහුරු පරීක්ෂණ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-image reveal">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070&auto=format&fit=crop" alt="Students writing exam">
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Results Section -->
+    <section class="section-padding results-section" id="results">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-eyebrow" style="color: #fff;">විශිෂ්ටයන්</span>
+                <h2 class="section-title">අභිමානවත් ප්‍රතිඵල</h2>
+                <p class="section-desc">මෙවරත් දිවයිනේ ඉහළම සිංහල ප්‍රතිඵල තහවුරු කළ අපගේ දරුවන්.</p>
+            </div>
+            
+            <div class="results-grid">
+                <div class="result-card reveal">
+                    <div class="result-grade">A9</div>
+                    <div class="result-info">
+                        <h4>තිරුණි</h4>
+                        <p>Index: 50452525</p>
+                    </div>
+                </div>
+                <div class="result-card reveal" style="transition-delay: 0.1s;">
+                    <div class="result-grade">A9</div>
+                    <div class="result-info">
+                        <h4>නෙහාන්සා</h4>
+                        <p>Index: 50397346</p>
+                    </div>
+                </div>
+                <div class="result-card reveal" style="transition-delay: 0.2s;">
+                    <div class="result-grade">A9</div>
+                    <div class="result-info">
+                        <h4>බිනරු</h4>
+                        <p>Index: 50409557</p>
+                    </div>
+                </div>
+                <div class="result-card reveal">
+                    <div class="result-grade">A</div>
+                    <div class="result-info">
+                        <h4>සුපුනි</h4>
+                        <p>Index: 50453041</p>
+                    </div>
+                </div>
+                <div class="result-card reveal" style="transition-delay: 0.1s;">
+                    <div class="result-grade">A</div>
+                    <div class="result-info">
+                        <h4>ශිගුමි</h4>
+                        <p>Index: 50246283</p>
+                    </div>
+                </div>
+                <div class="result-card reveal" style="transition-delay: 0.2s;">
+                    <div class="result-grade">A</div>
+                    <div class="result-info">
+                        <h4>බවිනි</h4>
+                        <p>Index: 50398393</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. LMS Section -->
+    <section class="section-padding lms-section" id="lms">
+        <div class="container lms-grid">
+            <div class="lms-mockup reveal">
+                <div class="lms-screen">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop" alt="LMS Portal">
+                </div>
+            </div>
+            
+            <div class="lms-content reveal">
+                <span class="section-eyebrow">ඔන්ලයින් පද්ධතිය</span>
+                <h2 style="font-size: 36px; color: var(--primary); margin-bottom: 20px;">නූතන තාක්ෂණය සමඟින් සිංහල ඉගෙනගන්න</h2>
+                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 18px;">ඔබ කොතැනක සිටියත් අඛණ්ඩව අධ්‍යාපනය ලැබීමට අපගේ නවීන LMS (Learning Management System) පද්ධතිය නිර්මාණය කර ඇත.</p>
+                
+                <div class="lms-feature-list">
+                    <div class="lms-feature">
+                        <div class="lms-icon"><i class="fa-solid fa-video"></i></div>
+                        <div class="lms-text">
+                            <h4>Recorded Lessons</h4>
+                            <p style="color: var(--text-muted);">පන්ති වේලාවට සහභාගී වීමට නොහැකි වුවහොත්, පසුව ඕනෑම වේලාවක නැරඹීමට පටිගත කළ පාඩම්.</p>
+                        </div>
+                    </div>
+                    <div class="lms-feature">
+                        <div class="lms-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                        <div class="lms-text">
+                            <h4>Digital Notes</h4>
+                            <p style="color: var(--text-muted);">සෑම පාඩමකටම අදාළ වර්ණවත් හා පැහැදිලි නිබන්ධන PDF ආකාරයෙන් බාගත කිරීමේ පහසුකම.</p>
+                        </div>
+                    </div>
+                    <div class="lms-feature">
+                        <div class="lms-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                        <div class="lms-text">
+                            <h4>Progress Tracking</h4>
+                            <p style="color: var(--text-muted);">ඔබගේ ප්‍රගතිය සහ විභාග ලකුණු පද්ධතිය හරහා නිරීක්ෂණය කිරීම.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Testimonials -->
+    <section class="section-padding testimonials-section">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-eyebrow">ප්‍රතිචාර</span>
+                <h2 class="section-title">සිසුන්ගේ හඬ</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"සර්ගේ ඉගැන්වීමේ රටාව හරිම වෙනස්. සාහිත්‍යය කොතරම් රසවත්ද කියලා තේරුණේ සර්ගේ පන්තියට ආවාට පස්සේ. ඒ වගේම රචනා ලියන විදිහ මුල ඉඳන්ම කියල දුන්නා."</p>
+                    <div class="student-info">
+                        <div class="student-avatar">S</div>
+                        <div class="student-details">
+                            <h5>Sanduni Nimesha</h5>
+                            <p class="en-text">2023 A/L Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card reveal" style="transition-delay: 0.1s;">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Online පන්තියක් වුණත් කිසිම කම්මැලිකමක් නැතුව බලන්න පුළුවන්. සර් හැම ළමයෙක් ගැනම වෙන වෙනම හොයලා බලනවා. Recording තියෙන නිසා පාඩම් මිස් වෙන්නෙත් නෑ."</p>
+                    <div class="student-info">
+                        <div class="student-avatar">K</div>
+                        <div class="student-details">
+                            <h5>Kavindu Perera</h5>
+                            <p class="en-text">Online Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card reveal" style="transition-delay: 0.2s;">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"ව්‍යාකරණ පාඩම් සර් කියලා දෙන කෙටි ක්‍රම වලින් මතක තියාගන්න ලේසියි. Past papers සේරම පන්තියේදි කරන නිසා විභාගෙට බයක් නැතුව යන්න පුළුවන් වුණා."</p>
+                    <div class="student-info">
+                        <div class="student-avatar">N</div>
+                        <div class="student-details">
+                            <h5>Nethmi Silva</h5>
+                            <p class="en-text">2022 A/L Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. FAQ -->
+    <section class="section-padding faq-section" id="faq">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-eyebrow">ගැටලු</span>
+                <h2 class="section-title">නිතර අසන ප්‍රශ්න</h2>
+            </div>
+            
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Online පන්තියට සම්බන්ධ වෙන්නේ කොහොමද?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            පහත ඇති ලියාපදිංචි වීමේ පෝරමය පිරවීමෙන් හෝ 077 551 9402 අංකයට WhatsApp පණිවිඩයක් යැවීමෙන් ඔබට Online පන්තියට සම්බන්ධ විය හැක. ඉන්පසු ඔබට LMS පද්ධතියට පිවිසීමේ තොරතුරු සහ Zoom සබැඳි ලැබෙනු ඇත.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Notes ලැබෙනවද?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            ඔව්, භෞතික පන්ති සඳහා මුද්‍රිත නිබන්ධන ලබා දෙන අතර, Online සිසුන් සඳහා අපගේ LMS පද්ධතිය හරහා PDF ආකාරයෙන් නිබන්ධන ලබා ගත හැක. අමතරව තැපැල් මාර්ගයෙන්ද නිබන්ධන නිවසටම ගෙන්වා ගත හැක.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Recording බලන්න පුළුවන්ද?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            ඔව්, සෑම Online පන්තියකම පටිගත කිරීම් (Recordings) අපගේ වෙබ් අඩවිය (LMS) හරහා විභාගය දක්වාම ඕනෑම වාර ගණනක් නැරඹීමට පහසුකම් සලසා ඇත.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        භෞතික පන්තිවල ස්ථාන මොනවාද?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            භෞතික පන්ති දැනට පවත්වන්නේ තංගල්ල සිප්ටා 2 ආයතනයේ සහ රන්න කහදුමෝදර හන්දියේ පිහිටි සතර ආයතනයේදීය.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        පන්ති ආරම්භ වෙන්නේ කවදාද?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            2028 නව පන්ති සඳහා බඳවා ගැනීම් මේ දිනවල සිදුවෙමින් පවතී. නිශ්චිත දින වකවානු WhatsApp හරහා ඔබට දැනුම් දෙනු ලැබේ.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. Enrollment Form -->
+    <section class="section-padding enroll-section" id="enroll">
+        <div class="container">
+            <div class="enroll-container reveal">
+                <div class="section-title-wrapper" style="margin-bottom: 40px;">
+                    <h2 class="section-title" style="font-size: 32px;">පන්තියට ලියාපදිංචි වන්න</h2>
+                    <p class="section-desc" style="font-size: 16px;">පහත තොරතුරු පුරවා පන්තියට සම්බන්ධ වන්න.</p>
+                </div>
+                
+                <form id="enrollForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">ඔබගේ නම</label>
+                            <input type="text" id="sName" class="form-control" required placeholder="නම ඇතුළත් කරන්න">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">පාසල</label>
+                            <input type="text" id="sSchool" class="form-control" required placeholder="පාසලේ නම">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">දුරකථන අංකය (WhatsApp)</label>
+                            <input type="tel" id="sPhone" class="form-control" required placeholder="07X XXX XXXX" class="en-text">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">A/L වර්ෂය</label>
+                            <select id="sYear" class="form-control en-text" required>
+                                <option value="" disabled selected>වර්ෂය තෝරන්න</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">සම්බන්ධ වන පන්තිය</label>
+                            <select id="sClassType" class="form-control" required>
+                                <option value="" disabled selected>පන්තිය තෝරන්න</option>
+                                <option value="Sipta Tangalle (Physical)">සිප්ටා 2 - තංගල්ල (භෞතික)</option>
+                                <option value="Sathara Ranna (Physical)">සතර - රන්න (භෞතික)</option>
+                                <option value="Online Islandwide">Online - දිවයිනටම</option>
+                            </select>
+                        </div>
+                        <div class="form-group full" style="margin-top: 10px;">
+                            <button type="submit" class="form-submit">
+                                <i class="fa-brands fa-whatsapp"></i> පන්තියට සම්බන්ධ වන්න
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Final CTA -->
+    <section class="cta-section">
+        <div class="container reveal">
+            <h2>ඔබේ 'A' සාමාර්ථය අදින් ආරම්භ කරන්න</h2>
+            <p>සජීව රත්නවීර සමඟ අදම එක්වන්න</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#enroll" class="btn btn-gold"><i class="fa-solid fa-user-plus"></i> ලියාපදිංචි වන්න</a>
+                <a href="tel:0775519402" class="btn btn-outline" style="border-color: #fff; color: #fff;"><i class="fa-solid fa-phone"></i> 077 551 9402</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>සජීව රත්නවීර</h3>
+                    <p>A/L සිංහල භාෂාව හා සාහිත්‍ය සඳහා දිවයිනේ විශිෂ්ටතම මඟපෙන්වීම.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">සබැඳි</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">මුල් පිටුව</a></li>
+                        <li><a href="#about">ගුරුවරයා ගැන</a></li>
+                        <li><a href="#classes">කාලසටහන</a></li>
+                        <li><a href="#results">ප්‍රතිඵල</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">පන්ති</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">තංගල්ල (Physical)</a></li>
+                        <li><a href="#">රන්න (Physical)</a></li>
+                        <li><a href="#">Online (Zoom)</a></li>
+                        <li><a href="#">Paper Class</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">සම්බන්ධ වන්න</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>සිප්ටා 2, තංගල්ල<br>සතර, රන්න</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span class="en-text">077 551 9402</span>
+                        </li>
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span class="en-text">077 551 9402</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2024 Sajeewa Rathnaweera. All Rights Reserved. Crafted with <i class="fa-solid fa-heart" style="color: var(--primary);"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 16. Floating WhatsApp Button -->
+    <a href="https://wa.me/94775519402" target="_blank" class="float-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="tooltip">Chat with Sir!</span>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Sticky Navbar & Active Link
+            const header = document.getElementById('header');
+            const mobileBtn = document.querySelector('.nav-mobile-btn');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('fixed');
+                    if (window.innerWidth > 1024) mobileBtn.style.display = 'inline-flex';
+                } else {
+                    header.classList.remove('fixed');
+                    mobileBtn.style.display = 'none';
+                }
+            });
+
+            // 2. Mobile Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const navItems = navLinks.querySelectorAll('a, button');
+
+            function toggleMenu() {
+                navLinks.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                
+                if (navLinks.classList.contains('active')) {
+                    hamburger.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                } else {
+                    hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (window.innerWidth <= 1024) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // 3. Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    
+                    // Trigger counter if it's stats box
+                    if (entry.target.classList.contains('hero-content')) {
+                        startCounters();
+                    }
+                    
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // 4. Counter Animation
+            let countersStarted = false;
+            function startCounters() {
+                if (countersStarted) return;
+                countersStarted = true;
+                
+                const counters = document.querySelectorAll('.stat-num');
+                const speed = 200;
+
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target + (target > 500 ? '+' : '%');
+                        }
+                    };
+                    updateCount();
+                });
+            }
+
+            // 5. FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 6. Hero Canvas Particles (Gold Theme)
+            const canvas = document.getElementById('heroCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.speedY = Math.random() * 1 - 0.5;
+                    this.color = `rgba(212, 160, 23, ${Math.random() * 0.5 + 0.1})`; // Gold with varying opacity
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    if (this.x > canvas.width) this.x = 0;
+                    else if (this.x < 0) this.x = canvas.width;
+                    
+                    if (this.y > canvas.height) this.y = 0;
+                    else if (this.y < 0) this.y = canvas.height;
+                }
+                
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                const numParticles = Math.min(window.innerWidth / 10, 100);
+                for (let i = 0; i < numParticles; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function connectParticles() {
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a; b < particles.length; b++) {
+                        let dx = particles[a].x - particles[b].x;
+                        let dy = particles[a].y - particles[b].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 120) {
+                            ctx.strokeStyle = `rgba(212, 160, 23, ${0.1 - distance/1200})`; // Gold connections
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                connectParticles();
+                requestAnimationFrame(animateParticles);
+            }
+
+            initParticles();
+            animateParticles();
+
+            // 7. Enrollment Form to WhatsApp
+            const enrollForm = document.getElementById('enrollForm');
+            
+            enrollForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('sName').value;
+                const school = document.getElementById('sSchool').value;
+                const phone = document.getElementById('sPhone').value;
+                const year = document.getElementById('sYear').value;
+                const classType = document.getElementById('sClassType').value;
+                
+                const text = `ආයුබෝවන් සර්,%0A%0Aමම අලුත් පන්තියට සම්බන්ධ වෙන්න කැමතියි.%0A%0A*නම:* ${name}%0A*පාසල:* ${school}%0A*WhatsApp:* ${phone}%0A*A/L වර්ෂය:* ${year}%0A*පන්තිය:* ${classType}%0A%0Aකරුණාකර මාව පන්තියට ලියාපදිංචි කරන්න.`;
+                
+                const waUrl = `https://wa.me/94775519402?text=${text}`;
+                window.open(waUrl, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
