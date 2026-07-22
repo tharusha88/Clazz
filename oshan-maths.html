@@ -224,11 +224,69 @@
       opacity: 0.7;
     }
     
-    /* Responsive Header & Mobiles */
+    /* ===== Mobile Hamburger Menu ===== */
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .hamburger-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      margin: 5px 0;
+      transition: var(--transition-fast);
+      border-radius: 2px;
+    }
+
+    .hamburger-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ===== Responsive: Tablets & Small Desktops ===== */
     @media (max-width: 900px) {
-      .navbar .nav-links {
-        display: none; /* simple stack or dropdown can be added, for now clean CTAs suffice */
+      .hamburger-btn {
+        display: block;
       }
+
+      .navbar .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(5, 8, 22, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        z-index: 999;
+      }
+
+      .navbar .nav-links.mobile-open {
+        display: flex;
+      }
+
+      .navbar .nav-links .nav-link {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+      }
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -237,6 +295,135 @@
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+      }
+    }
+
+    /* ===== Responsive: Phones ===== */
+    @media (max-width: 768px) {
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+      }
+
+      .hero .grid-2 {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+      }
+
+      .hero-portrait-wrapper {
+        justify-content: center;
+      }
+
+      .portrait-glow-frame {
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .hero-content {
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+
+      /* Stats */
+      .stats-bar {
+        padding: 2rem 0;
+      }
+
+      #statsContainer {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+      }
+
+      .stat-divider {
+        width: 60% !important;
+        height: 1px !important;
+        align-self: center !important;
+      }
+
+      /* About */
+      #about .grid-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .about-img-wrap img {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      blockquote {
+        font-size: 1.3rem !important;
+        padding-left: 1rem !important;
+      }
+
+      /* Timetable rows */
+      .tt-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.6rem !important;
+        padding: 1rem !important;
+      }
+
+      /* LMS Card */
+      .lms-card {
+        padding: 2.5rem 1.2rem !important;
+      }
+
+      .lms-card h3 {
+        font-size: 1.6rem !important;
+      }
+
+      /* Registration form */
+      #register .container {
+        padding: 0 1rem;
+      }
+
+      #quickRegForm {
+        padding: 2rem 1.2rem !important;
+      }
+
+      /* Footer */
+      footer {
+        padding: 3rem 0 1.5rem;
+      }
+    }
+
+    /* ===== Responsive: Very Small Phones ===== */
+    @media (max-width: 400px) {
+      .container {
+        padding: 0 0.8rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .portrait-glow-frame {
+        max-width: 200px;
       }
     }
   </style>
@@ -260,7 +447,12 @@
         <span class="logo-text" id="navBrandName">Oshan Ukwaththa</span>
         <span id="navBrandSubject" style="font-size: 0.75rem; color: var(--secondary-color); text-transform: uppercase; font-family: var(--font-head); letter-spacing: 2px;">Mathematics</span>
       </a>
-      <div class="nav-links">
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
         <a href="#about" class="nav-link">About</a>
         <a href="#offerings" class="nav-link">Classes</a>
         <a href="#syllabus" class="nav-link">Syllabus</a>
@@ -507,5 +699,29 @@
   <script src="js/config.js?v=1.0.3"></script>
   <script src="js/widgets.js?v=1.0.3"></script>
   <script src="js/clazz-engine.js?v=1.0.3"></script>
+
+  <!-- Mobile Nav Toggle -->
+  <script>
+    (function() {
+      const btn = document.getElementById('hamburgerBtn');
+      const nav = document.getElementById('navLinks');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function() {
+        btn.classList.toggle('active');
+        nav.classList.toggle('mobile-open');
+        document.body.style.overflow = nav.classList.contains('mobile-open') ? 'hidden' : '';
+      });
+
+      // Close menu when a link is tapped
+      nav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          btn.classList.remove('active');
+          nav.classList.remove('mobile-open');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

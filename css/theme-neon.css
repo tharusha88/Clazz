@@ -334,3 +334,32 @@ body.theme-neon .btn-accent:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* ===== Neon Theme Mobile Overrides ===== */
+@media (max-width: 768px) {
+  body.theme-neon .stat-num {
+    font-size: 2.5rem;
+  }
+
+  body.theme-neon .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    letter-spacing: -1px;
+  }
+
+  body.theme-neon .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+  }
+
+  body.theme-neon .tt-row {
+    padding: 1rem 0.8rem;
+  }
+
+  body.theme-neon .tt-grade {
+    font-size: 1rem;
+  }
+
+  body.theme-neon .glass-card:hover {
+    transform: none;
+  }
+}
