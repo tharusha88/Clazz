@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සිසිර සර් | ගණිතය සහ විද්‍යාව</title>
+    <meta name="description" content="අද්විතීය, අතිවිශිෂ්ට, අසමසම, සුපිරිතම ගණිත / විද්‍යා ප්‍රතිඵලයක්. ගැමුණු විදුහල - හසලක">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0F766E;
+            --primary-light: #14B8A6;
+            --primary-dark: #0F5A55;
+            --secondary: #6366F1;
+            --secondary-light: #818CF8;
+            --accent: #F59E0B;
+            --bg: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --section-bg: #F1F5F9;
+            --dark: #0F172A;
+            --dark-card: #1E293B;
+            --text: #1E293B;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --gradient-hero: linear-gradient(135deg, #0F766E 0%, #6366F1 100%);
+            --gradient-gold: linear-gradient(135deg, #F59E0B, #EF4444);
+            
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-number: 'JetBrains Mono', monospace;
+            --font-si-heading: 'Gemunu Libre', sans-serif;
+            --font-si-body: 'Noto Sans Sinhala', sans-serif;
+            
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-full: 9999px;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-glow: 0 0 20px rgba(15, 118, 110, 0.3);
+            --shadow-glow-indigo: 0 0 30px rgba(99, 102, 241, 0.4);
+            --shadow-glow-gold: 0 0 30px rgba(245, 158, 11, 0.4);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .si-heading {
+            font-family: var(--font-si-heading);
+        }
+
+        .si-body {
+            font-family: var(--font-si-body);
+        }
+        
+        .number {
+            font-family: var(--font-number);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .text-accent { color: var(--accent); }
+        .text-white { color: #ffffff; }
+        
+        .gradient-text {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-gold-text {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-family: var(--font-si-heading);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md), var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* UTILITIES */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center { text-align: center; }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ANNOUNCEMENT BAR */
+        .announcement-bar {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-family: var(--font-si-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 40px; /* Below announcement */
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            padding: 20px 0;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar.scrolled {
+            top: 0;
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-brand .title {
+            font-family: var(--font-si-heading);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+        
+        .navbar:not(.scrolled) .nav-brand .title {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-brand .subtitle {
+            font-family: var(--font-si-body);
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .navbar:not(.scrolled) .nav-brand .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-si-body);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text);
+            position: relative;
+        }
+
+        .navbar:not(.scrolled) .nav-link {
+            color: white;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .navbar:not(.scrolled) .nav-link::after {
+            background: white;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            font-size: 1.1rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        
+        .navbar:not(.scrolled) .hamburger {
+            color: white;
+        }
+
+        /* MOBILE MENU DRAWER */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--card-bg);
+            z-index: 1001;
+            padding: 80px 32px 32px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            transition: right 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .mobile-drawer.active {
+            right: 0;
+        }
+
+        .drawer-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .mobile-drawer .nav-link {
+            font-size: 1.25rem;
+            color: var(--text);
+            display: block;
+        }
+        
+        .mobile-drawer .nav-link::after {
+            background: var(--primary);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            padding-top: 100px;
+            overflow: hidden;
+            color: white;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            padding-right: 20px;
+        }
+
+        .hero-tagline {
+            font-family: var(--font-si-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-sub {
+            font-family: var(--font-si-body);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .hero-title {
+            font-family: var(--font-si-heading);
+            font-size: 5.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            flex: 1;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-stat-num {
+            font-family: var(--font-number);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .hero-stat-label {
+            font-family: var(--font-si-body);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 40px 40px 10px 10px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), var(--shadow-glow-indigo);
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            z-index: 1;
+        }
+
+        /* FLOATING MATH SYMBOLS */
+        .math-symbol {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: var(--font-heading);
+            font-weight: bold;
+            z-index: 3;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        @keyframes float1 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } }
+        @keyframes float2 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(-15deg); } }
+        @keyframes float3 { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-15px) scale(1.1); } }
+
+        .sym-1 { top: 10%; left: -5%; font-size: 3rem; animation: float1 6s infinite ease-in-out; }
+        .sym-2 { top: 70%; left: -10%; font-size: 4rem; animation: float2 8s infinite ease-in-out; }
+        .sym-3 { top: 20%; right: -5%; font-size: 3.5rem; animation: float3 7s infinite ease-in-out; }
+        .sym-4 { top: 80%; right: 0%; font-size: 2.5rem; animation: float1 9s infinite ease-in-out; }
+        .sym-5 { top: 40%; left: 80%; font-size: 5rem; animation: float2 10s infinite ease-in-out; opacity: 0.2; }
+
+        /* ACHIEVEMENT STRIP */
+        .achievements-strip {
+            position: relative;
+            margin-top: -60px;
+            z-index: 10;
+            padding: 0 20px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            background: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .achievement-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            background: var(--bg);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--gradient-hero);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .achievement-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .achieve-num {
+            font-family: var(--font-number);
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .achieve-label {
+            font-family: var(--font-si-heading);
+            font-size: 1.4rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--radius-xl);
+            padding: 10px;
+            background: var(--gradient-hero);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-image img {
+            border-radius: calc(var(--radius-xl) - 4px);
+        }
+
+        .section-eyebrow {
+            font-family: var(--font-si-body);
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-si-heading);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        .about-text {
+            font-family: var(--font-si-body);
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .qualifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .qual-card {
+            background: var(--section-bg);
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .qual-card:hover {
+            background: white;
+            box-shadow: var(--shadow-sm);
+            border-color: var(--primary-light);
+        }
+
+        .qual-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .qual-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* WHY CHOOSE SECTION */
+        .features {
+            background: var(--section-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--gradient-hero);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 0 auto 24px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .feature-title {
+            font-family: var(--font-si-heading);
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+
+        .feature-desc {
+            font-family: var(--font-si-body);
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* RESULTS SECTION - KEY HIGHLIGHT */
+        .results {
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .results::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at center, rgba(15, 118, 110, 0.15) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .results .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .results .section-title {
+            color: white;
+            text-shadow: 0 0 20px rgba(255,255,255,0.2);
+            font-size: 4.5rem;
+        }
+        
+        .results-sub {
+            font-family: var(--font-si-body);
+            font-size: 1.5rem;
+            color: var(--primary-light);
+            margin-bottom: 60px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .result-card-premium {
+            background: var(--dark-card);
+            border-radius: var(--radius-xl);
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .result-card-premium.maths {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(245, 158, 11, 0.3), var(--shadow-glow-gold);
+        }
+
+        .result-card-premium.science {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(99, 102, 241, 0.3), var(--shadow-glow-indigo);
+        }
+
+        .result-card-premium:hover {
+            transform: translateY(-10px);
+        }
+
+        .res-subject {
+            font-family: var(--font-si-heading);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .res-grade {
+            font-family: var(--font-number);
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .maths .res-grade {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .science .res-grade {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .res-count {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 30px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-si-heading);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .extra-results {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .badge-gold {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2));
+            border: 1px solid var(--accent);
+            padding: 20px 40px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-si-heading);
+            font-size: 2.5rem;
+            color: var(--accent);
+            box-shadow: var(--shadow-glow-gold);
+        }
+
+        .badge-class {
+            font-family: var(--font-si-body);
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.05);
+            padding: 15px 30px;
+            border-radius: var(--radius-full);
+        }
+
+        /* TIMELINE SECTION */
+        .timeline-section {
+            background: white;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            width: 4px; height: 100%;
+            background: var(--gradient-hero);
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--section-bg);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content { text-align: right; }
+        .timeline-item:nth-child(even) .timeline-content { margin-left: auto; }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            background: white;
+            border: 1px solid var(--primary-light);
+        }
+
+        .timeline-icon {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px; height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            border: 4px solid white;
+            box-shadow: var(--shadow-sm);
+            z-index: 2;
+        }
+
+        .timeline-item:last-child .timeline-icon {
+            background: var(--accent);
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: var(--shadow-glow-gold);
+        }
+
+        .timeline-title {
+            font-family: var(--font-si-heading);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: var(--section-bg);
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .test-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .test-text {
+            font-family: var(--font-si-body);
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .test-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .test-avatar {
+            width: 50px; height: 50px;
+            background: var(--gradient-hero);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .test-name {
+            font-family: var(--font-si-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .test-school {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ & ENROLLMENT */
+        .dual-section {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .dual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px 24px;
+            background: white;
+            border: none;
+            font-family: var(--font-si-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--section-bg);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-question {
+            background: var(--section-bg);
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: white;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            font-family: var(--font-si-body);
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* FORM */
+        .enroll-form {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-si-heading);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-si-body);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--bg);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+            background: white;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 10px;
+            padding: 16px;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: var(--gradient-hero);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+        }
+
+        .cta-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-family: var(--font-si-heading);
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-sub {
+            font-family: var(--font-si-body);
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .title {
+            font-family: var(--font-si-heading);
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-desc {
+            font-family: var(--font-si-body);
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            max-width: 400px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-family: var(--font-si-heading);
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            font-family: var(--font-si-body);
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--primary-light);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-family: var(--font-body);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* FLOATING WHATSAPP */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 900;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .nav-menu { display: none; }
+            .hamburger { display: block; }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-actions { justify-content: center; }
+            .math-symbol { display: none; }
+            
+            .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { max-width: 500px; margin: 0 auto; }
+            
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .results-grid { grid-template-columns: 1fr; }
+            
+            .test-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .dual-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 4rem; }
+            .hero-stats { flex-direction: column; gap: 15px; }
+            
+            .timeline::before { left: 30px; }
+            .timeline-item { justify-content: flex-start; }
+            .timeline-content { width: calc(100% - 80px); margin-left: 80px !important; text-align: left !important; }
+            .timeline-icon { left: 30px; }
+            
+            .features-grid, .test-grid { grid-template-columns: 1fr; }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            
+            .cta-title { font-size: 3rem; }
+            .cta-actions { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title { font-size: 3rem; }
+            .achievements-grid { grid-template-columns: 1fr; }
+            .res-grade { font-size: 6rem; }
+            .badge-gold { font-size: 1.8rem; padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        🎓 2026 O/L Batch ආරම්භයි! | ගැමුණු විදුහල - හසලක | <i class="fas fa-phone-alt" style="margin:0 5px;"></i> 076 32 53 846
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand">
+                <span class="title">සිසිර සර්</span>
+                <span class="subtitle">ගණිතය | විද්‍යාව</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">ගැන</a></li>
+                <li><a href="#features" class="nav-link">පන්ති</a></li>
+                <li><a href="#results" class="nav-link">ප්‍රතිඵල</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#enroll" class="btn btn-primary nav-cta">ලියාපදිංචි වන්න</a></li>
+            </ul>
+            
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+        <a href="#" class="nav-brand" style="margin-bottom:20px;">
+            <span class="title">සිසිර සර්</span>
+            <span class="subtitle" style="color:var(--text-muted);">ගණිතය | විද්‍යාව</span>
+        </a>
+        <a href="#about" class="nav-link mobile-link">ගැන</a>
+        <a href="#features" class="nav-link mobile-link">පන්ති</a>
+        <a href="#results" class="nav-link mobile-link">ප්‍රතිඵල</a>
+        <a href="#faq" class="nav-link mobile-link">FAQ</a>
+        <a href="#enroll" class="btn btn-primary mobile-link" style="margin-top:auto;">ලියාපදිංචි වන්න</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <canvas id="hero-canvas"></canvas>
+        
+        <!-- Floating Math Symbols -->
+        <div class="math-symbol sym-1">a²+b²=c²</div>
+        <div class="math-symbol sym-2">π</div>
+        <div class="math-symbol sym-3">∫</div>
+        <div class="math-symbol sym-4">√</div>
+        <div class="math-symbol sym-5">sinθ</div>
+
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <div class="hero-tagline">නිසි මගක සුබ ලකුණ</div>
+                <div class="hero-sub">අද්විතීය, අතිවිශිෂ්ට, අසමසම, සුපිරිතම</div>
+                <h1 class="hero-title">ගණිත / විද්‍යා ප්‍රතිඵලයක්</h1>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-num counter" data-target="53">0</div>
+                        <div class="hero-stat-label">A ගණිතය</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-num counter" data-target="37">0</div>
+                        <div class="hero-stat-label">A විද්‍යාව</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-num counter" data-target="23">0</div>
+                        <div class="hero-stat-label">A-9 ප්‍රතිඵල</div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="#enroll" class="btn btn-primary">පන්තියට එක්වන්න <i class="fas fa-arrow-right"></i></a>
+                    <a href="#features" class="btn btn-secondary" style="background:rgba(255,255,255,0.1); color:white; backdrop-filter:blur(5px); border:1px solid rgba(255,255,255,0.3);">කාලසටහන බලන්න</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper reveal">
+                <div class="hero-glow"></div>
+                <img src="assets/sisira-sir.jpg" alt="Sisira Sir" class="hero-image" onerror="this.src='https://via.placeholder.com/500x600/0F766E/FFFFFF?text=Sisira+Sir'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Strip -->
+    <div class="achievements-strip container">
+        <div class="achievements-grid reveal">
+            <div class="achievement-card">
+                <div class="achieve-num counter" data-target="53">0</div>
+                <div class="achieve-label">ගණිත A සාමාර්ථ</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achieve-num counter" data-target="37">0</div>
+                <div class="achieve-label">විද්‍යා A සාමාර්ථ</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achieve-num counter" data-target="23">0</div>
+                <div class="achieve-label">A-9 සාමාර්ථ</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achieve-num counter" data-target="82">0</div>
+                <div class="achieve-label">සිසුන් එක් පන්තියකින්</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container about-grid">
+            <div class="about-image reveal">
+                <img src="assets/sisira-sir-flyer.jpg" alt="Sisira Sir Flyer" onerror="this.src='https://via.placeholder.com/600x800/1E293B/FFFFFF?text=Sisira+Sir+Flyer'">
+            </div>
+            <div class="about-content reveal">
+                <span class="section-eyebrow">ගුරුවරයා ගැන</span>
+                <h2 class="section-title">සිසිර සර්</h2>
+                <p class="about-text">
+                    ගැමුණු විදුහල - හසලක හි වසර ගණනාවක අත්දැකීම් සහිතව, සිසුන්ගේ ගණිත හා විද්‍යා දැනුම වර්ධනය කරමින් විශිෂ්ට ප්‍රතිඵල කරා ගෙන යාමට කැපවූ ප්‍රවීණ ගුරුවරයෙකි. දරුවන්ගේ මනසට ගැලපෙන සරල ඉගැන්වීම් රටාව තුළින් විෂය කෙරෙහි ඇති බිය පහ කර, ඉහළම සාමාර්ථ කරා යොමු කිරීම අපගේ අරමුණයි.
+                </p>
+                
+                <div class="qualifications-grid">
+                    <div class="qual-card">
+                        <i class="fas fa-graduation-cap qual-icon"></i>
+                        <span class="qual-text">BSC (Maths) (Phy. Science)</span>
+                    </div>
+                    <div class="qual-card">
+                        <i class="fas fa-chalkboard-teacher qual-icon"></i>
+                        <span class="qual-text">Maths Trained</span>
+                    </div>
+                    <div class="qual-card">
+                        <i class="fas fa-laptop-code qual-icon"></i>
+                        <span class="qual-text">BIT</span>
+                    </div>
+                    <div class="qual-card">
+                        <i class="fas fa-certificate qual-icon"></i>
+                        <span class="qual-text">Dip. in Edu</span>
+                    </div>
+                    <div class="qual-card">
+                        <i class="fas fa-pen-alt qual-icon"></i>
+                        <span class="qual-text">O/L & A/L Paper Marker</span>
+                    </div>
+                    <div class="qual-card">
+                        <i class="fas fa-user-graduate qual-icon"></i>
+                        <span class="qual-text">B. Eng (Following) (OUSL)</span>
+                    </div>
+                </div>
+                
+                <a href="#enroll" class="btn btn-primary">පන්තියට සම්බන්ධ වන්න</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="features section-padding" id="features">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-eyebrow">සුවිශේෂතා</span>
+                <h2 class="section-title">ඇයි මේ පන්තිය?</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="feature-title">පැහැදිලි සරල ඉගැන්වීම</h3>
+                    <p class="feature-desc">ඕනෑම මට්ටමක දරුවෙකුට තේරුම් ගත හැකි අයුරින් මූලික සිද්ධාන්ත වල සිට සරලව ඉගැන්වීම.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+                    <h3 class="feature-title">වාර්තාව බිඳ ප්‍රතිඵල</h3>
+                    <p class="feature-desc">හසලක ප්‍රදේශයෙන් ඉහළම ප්‍රතිඵල ලබා දෙමින් නොකඩවා තබන ලද විශිෂ්ට වාර්තා.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3 class="feature-title">ආදර්ශ ප්‍රශ්න පත්‍ර</h3>
+                    <p class="feature-desc">විභාග රටාවට අනුකූලව සකසන ලද විශේෂ ආදර්ශ ප්‍රශ්න පත්‍ර (Model Papers) සාකච්ඡා කිරීම.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="feature-title">විභාග ඉලක්ක කරගත්</h3>
+                    <p class="feature-desc">පසුගිය විභාග ප්‍රශ්න පත්‍ර (Past Papers) හා අනුමාන ප්‍රශ්න මගින් විභාගයට මනා පුහුණුවක්.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="feature-title">සතිපතා ඇගයීම්</h3>
+                    <p class="feature-desc">සෑම සතියකම පවත්වන කෙටි පරීක්ෂණ මගින් දරුවාගේ ප්‍රගතිය නිරන්තරයෙන් ඇගයීම.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-book"></i></div>
+                    <h3 class="feature-title">Smart Notes</h3>
+                    <p class="feature-desc">කෙටි ක්‍රම සහ මතක තබා ගැනීමේ පහසු ක්‍රම ඇතුළත් විධිමත් නිබන්ධන පෙළක්.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results section-padding" id="results">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title">වාර්තා බිඳ නව වාර්තා තබයි!</h2>
+                <div class="results-sub">ගැමුණු විදුහල - හසලක ස්ථානයෙන්</div>
+            </div>
+            
+            <div class="results-grid">
+                <div class="result-card-premium maths reveal">
+                    <h3 class="res-subject">ගණිතය ට</h3>
+                    <div class="res-grade">A</div>
+                    <div class="res-count"><span class="counter number text-accent" data-target="53">0</span> ක්</div>
+                </div>
+                
+                <div class="result-card-premium science reveal">
+                    <h3 class="res-subject">විද්‍යාව ට</h3>
+                    <div class="res-grade">A</div>
+                    <div class="res-count"><span class="counter number text-primary-light" data-target="37">0</span> ක්</div>
+                </div>
+            </div>
+            
+            <div class="extra-results reveal">
+                <div class="badge-gold">
+                    A-9 සාමාර්ථ <span class="counter number" data-target="23">0</span> ක්
+                </div>
+                <div class="badge-class">
+                    එක් පන්තියකින් පමණක් සිසුන් <span class="counter number text-white font-bold" data-target="82" style="font-weight: bold; color: white;">0</span>ක් අතරින්
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section section-padding">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-eyebrow">ඉගැන්වීමේ රටාව</span>
+                <h2 class="section-title">සාර්ථකත්වයේ පියවර</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fas fa-book-reader"></i></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">සිද්ධාන්ත (පාඩම)</h3>
+                        <p class="si-body">මූලික සිද්ධාන්ත පැහැදිලිව හා සරලව අවබෝධ කරවීම.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fas fa-pencil-alt"></i></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">අභ්‍යාස</h3>
+                        <p class="si-body">පෙළපොතේ සහ අතිරේක අභ්‍යාස පන්තිය තුළදීම සාකච්ඡා කිරීම.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fas fa-history"></i></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">පසුගිය ප්‍රශ්න</h3>
+                        <p class="si-body">අදාළ පාඩමට අදාළ පසුගිය විභාග ප්‍රශ්න එදිනම සාකච්ඡා කිරීම.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fas fa-file-signature"></i></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Model Papers</h3>
+                        <p class="si-body">විභාග අනුරූප ආදර්ශ ප්‍රශ්න පත්‍ර ලිවීම හා ලකුණු ලබාදීම.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fas fa-sync-alt"></i></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Revision</h3>
+                        <p class="si-body">විභාගයට පෙර සම්පූර්ණ විෂය නිර්දේශය නැවත ආවරණය කිරීම.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fas fa-star"></i></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">A Grade (විශිෂ්ට සාමාර්ථය)</h3>
+                        <p class="si-body">ඉලක්කගත ප්‍රතිඵලය කරා ළඟාවීම.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-eyebrow">සිසුන්ගේ අදහස්</span>
+                <h2 class="section-title">සාර්ථකත්වයේ කතා</h2>
+            </div>
+            
+            <div class="test-grid">
+                <div class="test-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="test-text">"ගණිතය කියන්නේ මට අමාරුම විෂය වෙලා තිබ්බේ. ඒත් සර්ගේ පන්තියට ආවට පස්සේ ඒ බය නැති වුණා. සර් කියලා දෙන කෙටි ක්‍රම නිසා විභාගයේදී ගොඩක් කාලය ඉතුරු වුණා."</p>
+                    <div class="test-author">
+                        <div class="test-avatar">ස</div>
+                        <div>
+                            <div class="test-name">සහන්</div>
+                            <div class="test-school">2025 O/L Batch</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="test-text">"විද්‍යාව පාඩම් කරන්න අමාරුයි කියලා හිතුවත් සර් දෙන Smart Notes නිසා පාඩම් කරන්න හරිම ලේසියි. හැම සතියෙම තියන පේපර් එක නිසා විභාගෙට හොඳ පුහුණුවක් ලැබුණා."</p>
+                    <div class="test-author">
+                        <div class="test-avatar">නි</div>
+                        <div>
+                            <div class="test-name">නිමාලි</div>
+                            <div class="test-school">2024 O/L Batch (A-9)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="test-text">"හසලක අවට තියන හොඳම Maths & Science පන්තිය. සර් හැම ළමයෙක් ගැනම වෙන වෙනම අවධානය යොමු කරනවා. ඒකයි මේ තරම් හොඳ ප්‍රතිඵල තියෙන්නේ."</p>
+                    <div class="test-author">
+                        <div class="test-avatar">ක</div>
+                        <div>
+                            <div class="test-name">කවිඳු</div>
+                            <div class="test-school">ගැමුණු විදුහල</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ & Form Section -->
+    <section class="dual-section" id="faq-enroll">
+        <div class="container dual-grid">
+            
+            <!-- FAQ -->
+            <div class="faq-container reveal" id="faq">
+                <span class="section-eyebrow">ඔබට ඇති ගැටළු</span>
+                <h2 class="section-title">නිතර අසන ප්‍රශ්න</h2>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">පන්ති පැවැත්වෙන්නේ කොහේද? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                පන්ති ප්‍රධාන වශයෙන් පැවැත්වෙන්නේ හසලක ප්‍රදේශයේ දීය. වැඩි විස්තර සඳහා අපව අමතන්න.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">මාර්ගගත (Online) පන්ති තිබේද? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                ඔව්, අවශ්‍යතාවය මත Zoom හරහා මාර්ගගත පන්ති ද පවත්වනු ලැබේ.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">අලුත් පන්ති ආරම්භ කරන්නේ කවදාද? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                2026 O/L Batch සඳහා නව පන්ති දැන් ආරම්භ කර ඇත. ඔබට අදම ලියාපදිංචි විය හැක.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">දුර්වල සිසුන් සඳහා විශේෂ අවධානයක් යොමු කරනවාද? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                අනිවාර්යයෙන්ම. සෑම සිසුවෙකුගේම මට්ටම හඳුනාගෙන, මූලික කරුණු වල සිට සරලව ඉගැන්වීම අපගේ විශේෂත්වයයි.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">ලියාපදිංචි වන්නේ කෙසේද? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                පහත ඇති පෝරමය පුරවා ඉදිරිපත් කිරීමෙන් හෝ 076 32 53 846 අංකයට WhatsApp පණිවිඩයක් යොමු කිරීමෙන් ලියාපදිංචි විය හැක.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ENROLLMENT FORM -->
+            <div class="enroll-container reveal" id="enroll">
+                <span class="section-eyebrow">ලියාපදිංචිය</span>
+                <h2 class="section-title">අදම එක්වන්න</h2>
+                
+                <form class="enroll-form" id="enrollForm">
+                    <div class="form-group">
+                        <label class="form-label">ඔබේ නම</label>
+                        <input type="text" id="name" class="form-control" placeholder="සම්පූර්ණ නම ඇතුළත් කරන්න" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">පාසල</label>
+                        <input type="text" id="school" class="form-control" placeholder="ඔබේ පාසල" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">O/L වසර</label>
+                        <select id="year" class="form-control" required>
+                            <option value="">වසර තෝරන්න</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">දුරකථන අංකය (WhatsApp)</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="07X XXX XXXX" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit">
+                        <i class="fab fa-whatsapp"></i> WhatsApp හරහා යවන්න
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section reveal">
+        <div class="container cta-container">
+            <h2 class="cta-title">නිසි මගක සුබ ලකුණ</h2>
+            <p class="cta-sub">සිසිර සර් සමඟ අදම එක්වන්න. ඔබගේ ගණිත හා විද්‍යා දැනුම නව මානයකට ගෙන යන්න.</p>
+            <div class="cta-actions">
+                <a href="#enroll" class="btn" style="background:white; color:var(--primary);">දැන්ම ලියාපදිංචි වන්න</a>
+                <a href="tel:0763253846" class="btn btn-primary" style="border:1px solid white;">076 32 53 846 අමතන්න</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="title">සිසිර සර්</span>
+                    <p class="footer-desc">අද්විතීය, අතිවිශිෂ්ට, අසමසම, සුපිරිතම ගණිත / විද්‍යා ප්‍රතිඵලයක් ගෙනෙන, හසලක ප්‍රදේශයේ හොඳම පන්තිය.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/94763253846" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">ඉක්මන් සබැඳි</h4>
+                    <div class="footer-links">
+                        <a href="#home" class="footer-link">මුල් පිටුව</a>
+                        <a href="#about" class="footer-link">ගුරුවරයා ගැන</a>
+                        <a href="#features" class="footer-link">පන්ති විස්තර</a>
+                        <a href="#results" class="footer-link">ප්‍රතිඵල</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">සම්බන්ධ වන්න</h4>
+                    <div class="footer-links">
+                        <span class="footer-link" style="cursor:default;"><i class="fas fa-phone-alt"></i> 076 32 53 846</span>
+                        <span class="footer-link" style="cursor:default;"><i class="fab fa-whatsapp"></i> +94 76 32 53 846</span>
+                        <span class="footer-link" style="cursor:default;"><i class="fas fa-map-marker-alt"></i> ගැමුණු විදුහල අසල, හසලක.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2026 Sisira Sir Mathematics & Science. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/94763253846" target="_blank" class="float-wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerClose = document.getElementById('drawerClose');
+        const overlay = document.getElementById('overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileDrawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileDrawer.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        drawerClose.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Scroll Reveal Animation with Intersection Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Trigger counters when their parent is revealed
+                    const counters = entry.target.querySelectorAll('.counter');
+                    if(counters.length > 0) {
+                        runCounters(counters);
+                    } else if (entry.target.classList.contains('counter')) {
+                        runCounters([entry.target]);
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+        
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Animated Counters
+        function runCounters(counters) {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                const increment = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all others
+                faqItems.forEach(other => {
+                    other.classList.remove('active');
+                    other.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Form Submission -> WhatsApp
+        const enrollForm = document.getElementById('enrollForm');
+        enrollForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const school = document.getElementById('school').value;
+            const year = document.getElementById('year').value;
+            const phone = document.getElementById('phone').value;
+            
+            const message = `ආයුබෝවන් සර්,\nමම පන්තියට ලියාපදිංචි වීමට කැමතියි.\n\nනම: ${name}\nපාසල: ${school}\nO/L වසර: ${year}\nදුරකථන: ${phone}`;
+            
+            const whatsappUrl = `https://wa.me/94763253846?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // HTML5 Canvas Particle Animation for Hero
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let particlesArray = [];
+        
+        function initCanvas() {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        }
+        
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particlesArray = [];
+            const numberOfParticles = Math.floor((canvas.width * canvas.height) / 15000);
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        
+        initParticles();
+        animateParticles();
+        
+        // Re-init particles on resize for better distribution
+        window.addEventListener('resize', () => {
+            initParticles();
+        });
+        
+    </script>
+</body>
+</html>
